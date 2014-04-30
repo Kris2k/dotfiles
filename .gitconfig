@@ -1,0 +1,51 @@
+[user]
+    name  = kkanas
+    email = k2k_chris@o2.pl
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    grep = auto
+
+[push]
+    default = simple
+
+[core]
+    # pager = cat
+    pager = less -FRSX --ignore-case
+    excludesfile = ~/.gitignore_global
+
+[branch]
+    autosetuprebase = always
+
+[alias]
+    ci = commit
+    co = checkout
+    adp = add -p
+    br = branch
+    st = status
+    sf = show --name-only
+    dif = diff --no-prefix
+    l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    l2 = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -20
+    lg = log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status --date=relative -20
+
+    lm = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  origin/master~1..HEAD
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  svn/trunk~1..HEAD
+
+[difftool]
+    prompt = false
+
+[mergetool]
+    prompt = false
+
+[diff]
+    tool   = kdiff3
+
+[merge]
+    tool   = kdiff3
+
+[rerere]
+    enabled = true

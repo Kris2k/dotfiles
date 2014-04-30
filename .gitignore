@@ -1,0 +1,18 @@
+# waf builds
+.waf-*
+# scons build
+.sconsign.dblite
+.sconf_temp
+# tags and  source databases
+GPATH
+GRTAGS
+GTAGS
+ctags
+CTAGS
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out
+build
+*.pdf
+*.aux

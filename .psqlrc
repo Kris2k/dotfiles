@@ -1,0 +1,5 @@
+\set HISTFILE ~/.psql_history- `hostname` - :DBNAME
+\set HISTSIZE 2000
+\set PROMPT1 '[%n@%`hostname`:%>] (%/)=>'
+\set PROMPT2 '(%R)=>'
+\encoding utf8

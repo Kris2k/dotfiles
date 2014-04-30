@@ -1,0 +1,73 @@
+#######################
+######  general  ######
+#######################
+
+vbell off               # no bell for me
+startup_message off
+defutf8 on
+defscrollback 90000
+nonblock on
+
+autodetach on
+altscreen on
+
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %Y-%m-%d %{W}%c %{g}]'
+ignorecase
+maptimeout 5
+
+#######################
+######  multiusr ######
+#######################
+multiuser on
+##acladd user1, user2, comma, separated, user, list
+
+#######################
+######  key map  ######
+#######################
+escape ^Gg
+
+bind R eval "source $HOME/.screenrc"   "echo '$HOME/.screenrc reloaded'"
+bind k kill                             # shortcut for default K for kill
+bind \\ quit                            # on genttoo this is not working but info page says different
+bind Q  quit                            # hack for  genttoo this
+bind x  echo 'Screen Lock is blocked'   # this anoys the hell out of me
+
+bindkey "^[," prev                      # ALT+, changes to the previous window.
+bindkey "^[." next                      # ALT+. changes to the next window.
+# Longe live copy paste from keyboard
+bindkey "^[k" copy                      # ALT+k changes to  scrolback mode
+bindkey "^[;" paste .                   # ALT+] changes paste mode
+
+#bind b eval "writebuf" "exec sh -c 'xsel -i -b < /tmp/screen-exchange'"
+
+#######################
+######  windows  ######
+#######################
+bind  ! select 11
+bind  @ select 12
+bind \# select 13
+bind  $ select 14
+bind  % select 15
+bind \^ select 16
+bind  & select 17
+bind  * select 18
+bind  ( select 19
+bind  ) select 10
+
+#######################
+######  terminal ######
+#######################
+attrcolor b ".I"        # bold use bright colors for
+defbce "on"             # erase background with current bg color
+
+# left as a fallback for somes systems
+#termcapinfo xterm* ti@:te@
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'    # tell screen how to set colors. AB = background, AF=foreground
+term screen-256color                                        # set term
+
+#######################
+######  notes    ######
+#######################
+
+# nice screen hack to send command to all windows ^G:at "#" stuff "export DISPLAY=localhos:10.0"

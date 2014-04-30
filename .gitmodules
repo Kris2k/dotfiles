@@ -1,0 +1,51 @@
+[submodule ".vim/bundle/A.vim"]
+	path = .vim/bundle/A.vim
+	url = git@github.com:Kris2k/A.vim.git
+[submodule ".vim/bundle/Align.vim"]
+	path = .vim/bundle/Align.vim
+	url = git@github.com:Kris2k/Align-vim.git
+[submodule ".vim/bundle/SimpleTabCompleation.vim"]
+	path = .vim/bundle/SimpleTabCompleation.vim
+	url = git@github.com:Kris2k/SimpleTabCompleation.vim.git
+[submodule ".vim/bundle/vim-commentary"]
+	path = .vim/bundle/vim-commentary
+	url = git@github.com:Kris2k/vim-commentary.git
+[submodule ".vim/bundle/cscope.vim"]
+	path = .vim/bundle/cscope.vim
+	url = git@github.com:Kris2k/cscope.vim.git
+[submodule ".vim/bundle/file-line-vim"]
+	path = .vim/bundle/file-line-vim
+	url = git@github.com:Kris2k/file-line-vim.git
+[submodule ".vim/bundle/fugitive.vim"]
+	path = .vim/bundle/fugitive.vim
+	url = git@github.com:Kris2k/vim-fugitive.git
+[submodule ".vim/bundle/gitgutter.vim"]
+	path = .vim/bundle/gitgutter.vim
+	url = git@github.com:Kris2k/vim-gitgutter.git
+[submodule ".vim/bundle/mark.vim"]
+	path = .vim/bundle/mark.vim
+	url = git@github.com:Kris2k/mark.vim.git
+[submodule ".vim/bundle/projectLite.vim"]
+	path = .vim/bundle/projectLite.vim
+	url = git@github.com:Kris2k/projectLite.vim.git
+[submodule ".vim/bundle/rainbow_parentheses.vim"]
+	path = .vim/bundle/rainbow_parentheses.vim
+	url = git@github.com:Kris2k/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/robotframework.vim"]
+	path = .vim/bundle/robotframework.vim
+	url = git@github.com:Kris2k/rainbow_parentheses.vim.git
+[submodule ".vim/bundle/vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = git@github.com:Kris2k/vim-surround
+[submodule ".vim/bundle/xptemplate"]
+	path = .vim/bundle/xptemplate
+	url = git@github.com:Kris2k/xptemplate
+[submodule ".vim/bundle/vim-tmux-navigator"]
+	path = .vim/bundle/vim-tmux-navigator
+	url = https://github.com/Kris2k/vim-tmux-navigator
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = git@github.com:Kris2k/ctrlp.vim.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = git@github.com:Kris2k/vim-airline.git
