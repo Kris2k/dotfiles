@@ -13,11 +13,10 @@ DST_DIR=${HOME}
 
 mkdir -p ${BACKUP_DIR}
 
-# FIXME: use exclude-files option
-for f in $(find . -maxdepth 1 -name '.*' -type f -not -name .gitignore -print )
-do
-    src="${SRC_DIR}/${f}"
-    tgt="${DST_DIR}/${f}"
+do_install()
+{
+    src=$1
+    tgt=$2
 
     if [ -f ${tgt} ] ; then
         echo "File exists: ${tgt} moving to backup in ${BACKUP_DIR};"
@@ -28,4 +27,11 @@ do
         ln -s ${src} ${tgt}
     fi
 
+}
+# FIXME: use exclude-files option
+for f in $(find . -maxdepth 1 -name '.*' -not -name .gitignore -not -name .git -not -name . -print)
+do
+    src="${SRC_DIR}/${f}"
+    tgt="${DST_DIR}/${f}"
+    do_install ${src} ${tgt}
 done
