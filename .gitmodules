@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = git@github.com:Kris2k/vim-airline.git
+[submodule ".vim/bundle/pathogen"]
+	path = .vim/bundle/pathogen
+	url = git@github.com:Kris2k/vim-pathogen.git
