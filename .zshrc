@@ -12,6 +12,7 @@ autoload -Uz compinit && compinit
 # use gnu emacas
 bindkey -e
 bindkey -r "^L"
+bindkey -r "^K"
 # bindkey '^U' kill-whole-line
 bindkey '^O' kill-line
 
