@@ -29,8 +29,11 @@ setopt promptsubst
 # unsetopt nomatch
 
 export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+local _drop=$(which vim)
+if [ $? -eq 0 ]; then
+    export EDITOR=$(which vim)
+    export VISUAL=$(which vim)
+fi
 export GOPATH=$HOME/Projects/gocode/
 function activate_go()
 {
@@ -266,7 +269,7 @@ function precmd() {
     local pwdsize=${#${(%):-%~}}
 
     if [[ "$promptsize + $pwdsize" -gt $TERMWIDTH ]]; then
-	    ((PR_PWDLEN=$TERMWIDTH - $promptsize))
+        ((PR_PWDLEN=$TERMWIDTH - $promptsize))
     else
         PR_FILLBAR="\${(l.(($TERMWIDTH  - ($promptsize + $pwdsize)))..${PR_HBAR}.)}"
     fi
@@ -309,15 +312,15 @@ function fancy_prompt () {
     # Decide if we need to set titlebar text.
     # set term title
     case $TERM in
-	xterm*)
-	    PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
-	    ;;
-	screen*)
-	    PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
-	    ;;
-	*)
-	    PR_TITLEBAR=''
-	    ;;
+    xterm*)
+        PR_TITLEBAR=$'%{\e]0;%(!.-=*[ROOT]*=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\a%}'
+        ;;
+    screen*)
+        PR_TITLEBAR=$'%{\e_screen \005 (\005t) | %(!.-=[ROOT]=- | .)%n@%m:%~ | ${COLUMNS}x${LINES} | %y\e\\%}'
+        ;;
+    *)
+        PR_TITLEBAR=''
+        ;;
     esac
 
 
@@ -339,11 +342,11 @@ function fancy_prompt () {
     # APM detection
 
     if which ibam > /dev/null; then
-	PR_APM='$PR_RED${${PR_APM_RESULT[(f)1]}[(w)-2]}%%(${${PR_APM_RESULT[(f)3]}[(w)-1]})$PR_LIGHT_BLUE:'
+    PR_APM='$PR_RED${${PR_APM_RESULT[(f)1]}[(w)-2]}%%(${${PR_APM_RESULT[(f)3]}[(w)-1]})$PR_LIGHT_BLUE:'
     elif which apm > /dev/null; then
-	PR_APM='$PR_RED${PR_APM_RESULT[(w)5,(w)6]/\% /%%}$PR_LIGHT_BLUE:'
+    PR_APM='$PR_RED${PR_APM_RESULT[(w)5,(w)6]/\% /%%}$PR_LIGHT_BLUE:'
     else
-	PR_APM=''
+    PR_APM=''
     fi
     #FIXME: %c for changes %u for unstaged
     #zstyle ':vcs_info:*:*' check-for-changes true
