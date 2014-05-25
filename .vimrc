@@ -5,9 +5,7 @@ set nocompatible
 " => Pathogen plugin
 """""""""""""""""""""""""""""""
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim
-" source /home/chris/Projects/utils/new-dotfiles/.vim/bundle/pathogen/autoload/pathogen.vim
-" call pathogen#infect()
-call pathogen#infect('/home/chris/Projects/utils/new-dotfiles/.vim/bundle/')
+call pathogen#infect()
 " add xpt templates personal folder to runtimepath
 let &runtimepath .=',~/.vim/personal'
 
