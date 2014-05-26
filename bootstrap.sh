@@ -32,7 +32,7 @@ fi
 if [ -d ${SSH_DIR} ]; then
     if [ -f ${SSH_DIR}/config ]; then
         is_configured=$(grep -e 'host.*github\.com' ${SSH_DIR}/config)
-        if [ -z $is_configured ]; then
+        if [ -z "${is_configured}" ]; then
             cat ${SRC_CONFIG}/config >> ${SSH_DIR}/config
         fi
     fi
