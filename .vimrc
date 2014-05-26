@@ -393,7 +393,7 @@ command! Strip call <SID>StripTrailingWhitespace()
 " let g:ctrlp_regexp = 1
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " maybe use tab, note c-m is same as Enter
-noremap <Tab> :CtrlPBuffer<cr>
+noremap <c-m> :CtrlPBuffer<cr>
 " this searches from current working directory
 let g:ctrlp_working_path_mode = 'rw'
 " this makes it from current buffer file path
