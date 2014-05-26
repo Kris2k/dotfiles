@@ -17,16 +17,14 @@ do_install()
 {
     src=$1
     tgt=$2
-
-    if [ -f ${tgt} ] ; then
+    if [ -e ${tgt} ] ; then
         echo "File exists: ${tgt} moving to backup in ${BACKUP_DIR};"
         mv ${tgt} ${BACKUP_DIR}/${f}
     fi
 
-    if [ ! -f ${tgt} ] ; then
+    if [ ! -e ${tgt} ] ; then
         ln -s ${src} ${tgt}
     fi
-
 }
 # FIXME: use exclude-files option
 for f in $(find . -maxdepth 1 -name '.*' -not -name .gitignore -not -name .git -not -name . -print|sed 's/^\.\///')
