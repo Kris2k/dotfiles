@@ -1,25 +1,28 @@
 #!/bin/sh
 set -e
 
-DST_DIR=$HOME
 SRC_DIR=$(pwd)
-
-DOTFILES_DIR=${DST_DIR}/dotfiles
+DST_DIR=$HOME
+SRC_CONFIG=${SRC_DIR}/ssh
 SSH_DIR=${DST_DIR}/.ssh
+DOTFILES_DIR=${DST_DIR}/dotfiles
+
+assert_file()
+{
+    file=$1
+    if [ ! -f $file ]; then
+        echo "couldn't find file: $file"
+        exit 1
+    fi
+}
+
+assert_file ${SRC_CONFIG}/config
+assert_file ${SRC_CONFIG}/github
+assert_file ${SRC_CONFIG}/github.pub
 
 if [ ! -d ${DOTFILES_DIR} ] ; then
     mkdir -p ${DOTFILES_DIR}
 fi
-
-append_if_exists()
-{
-    src=$1
-    dst=$2
-    if [ -f $dst ]; then
-        cat $src >> $src
-    fi
-
-}
 
 if [ ! -d ${SSH_DIR} ] ; then
     mkdir ${SSH_DIR}
@@ -27,10 +30,13 @@ if [ ! -d ${SSH_DIR} ] ; then
 fi
 
 if [ -d ${SSH_DIR} ]; then
-    append_if_exists ${SRC_DIR}/ssh/authorized_keys2 ${SSH_DIR}/authorized_keys
-    append_if_exists ${SRC_DIR}/ssh/authorized_keys2 ${SSH_DIR}/authorized_keys2
+    if [ -f ${SSH_DIR}/config ]; then
+        is_configured=$(grep -e 'host.*github\.com' ${SSH_DIR}/config)
+        if [ -z $is_configured ]; then
+            cat ${SRC_CONFIG}/config >> ${SSH_DIR}/config
+        fi
+    fi
 fi
-
 
 cd ${DOTFILES_DIR}
 if [ ! -d .git ] ; then
