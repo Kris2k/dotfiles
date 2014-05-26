@@ -1,3 +1,6 @@
+# vim files
+.vim/tmp
+.vim/.netrwhist
 # waf builds
 .waf-*
 # scons build
@@ -16,4 +19,3 @@ cscope.po.out
 build
 *.pdf
 *.aux
-.vim/tmp
