@@ -29,7 +29,7 @@ do_install()
 
 }
 # FIXME: use exclude-files option
-for f in $(find . -maxdepth 1 -name '.*' -not -name .gitignore -not -name .git -not -name . -print)
+for f in $(find . -maxdepth 1 -name '.*' -not -name .gitignore -not -name .git -not -name . -print|sed 's/^\.\///')
 do
     src="${SRC_DIR}/${f}"
     tgt="${DST_DIR}/${f}"
