@@ -16,3 +16,4 @@ cscope.po.out
 build
 *.pdf
 *.aux
+.vim/tmp
