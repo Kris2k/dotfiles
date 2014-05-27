@@ -239,8 +239,8 @@ let mapleader="\<Space>"
 let maplocalleader = "\\"
 
 " FIXME: this hack works for gnu screen problems when invoked make
-" nnoremap <leader><leader> :make <cr>:redraw!<cr>
-nnoremap <leader><leader> :Dispatch<cr>
+nnoremap <leader><leader> :make <cr>
+" nnoremap <leader><leader> :Dispatch<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>s :w<cr>
 nnoremap <leader>sc :cscope reset<cr>
@@ -517,7 +517,7 @@ function! SetMakePrg()
     setlocal makeprg=go\ run\ %
   endif
   if filereadable('wscript')
-    setlocal makeprg=./waf
+    setlocal makeprg=./waf\ --alltests
     return 0
   endif
   if filereadable('bam.lua') && filereadable('./bam')
