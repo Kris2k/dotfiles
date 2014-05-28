@@ -430,7 +430,7 @@ function fortune_once() {
         fortune
         touch ${fortune_file}
     fi
-    [[ ! -z $(find ${fortune_file} -mtime 1) ]] && (touch ${fortune_file} && fortune) || true;
+    [[ ! -z $(find ${fortune_file} -mtime +1) ]] && (touch ${fortune_file} && fortune) || true;
 }
 
 fortune_once
