@@ -51,10 +51,10 @@ export MYSQL_PS1="\u@\h [\d]> "
 export SVN_EDITOR=$EDITOR
 [[ -e ~/.zsh/kdiff3_launcher.sh ]] &&  export SVN_MERGE=~/.zsh/kdiff3_launcher.sh
 
-local current_tty=`tty`
-if [ "${current_tty[6,8]}" = "pts" ] ; then
-    export TERM=xterm-256color
-fi
+# local current_tty=`tty`
+# if [ "${current_tty[6,8]}" = "pts" ] ; then
+#     export TERM=xterm-256color
+# fi
 
 HISTFILE=$HOME/.history
 HISTSIZE=10000
