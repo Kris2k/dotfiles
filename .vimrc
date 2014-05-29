@@ -359,7 +359,7 @@ let g:ctrlp_prompt_mappings = {
 """"""""""""""""""""""""""""""
 " => Robot framework plugin detection
 """""""""""""""""""""""""""""""
-" let g:robot_syntax_for_txt=1
+let g:robot_syntax_for_txt=1
 
 """"""""""""""""""""""""""""""
 " => Alternate file plugin
