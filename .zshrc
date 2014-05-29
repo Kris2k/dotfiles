@@ -131,8 +131,8 @@ fi
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-[[ -x `which vim` ]] && alias vi=`which vim`
-[[ -e /usr/bin/vimx ]] && alias vim='/usr/bin/vimx' && alias vi='/usr/bin/vimx'
+[[ -x `which vim` ]] && alias vi="$(which vim) -u ~/.vimrc"
+[[ -e /usr/bin/vimx ]] && alias vim="/usr/bin/vimx -u ~/.vimrc" && alias vi="/usr/bin/vimx -u ~/.vimrc"
 alias ll='ls -la'
 alias la='ls -A'
 alias l='ls -CF'
