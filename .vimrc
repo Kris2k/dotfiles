@@ -140,53 +140,6 @@ endif
 " Gent00 leave my text files alone,
 let g:leave_my_textwidth_alone = 1
 " https://github.com/bitc/vim-bad-whitespace/blob/master/plugin/bad-whitespace.vim
-" Highlight trailing whitespace and lines longer than 80 columns.
-highlight LongLine ctermbg=DarkYellow guibg=DarkYellow
-highlight WhitespaceEOL ctermbg=124 guibg=Red
-
-function! ToggleLongLine()
-    if exists('w:long_line_match')
-        silent! call matchdelete(w:long_line_match)
-        unlet w:long_line_match
-        echo "Disable Long Line Highlight"
-        return
-    endif
-    call StartLongLineHighLigh()
-    echo "Enable Long Line Highlight"
-endfunction
-
-function! ToggleLongLine()
-    if exists('w:long_line_match')
-        silent! call matchdelete(w:long_line_match)
-        unlet w:long_line_match
-    endif
-    call StartLongLineHighLigh()
-    echo "Enable Long Line Highlight"
-endfunction
-
-nnoremap <silent> <Leader>d :call ToggleLongLine()<cr>
-
-if v:version >= 702
-    " Lines longer than 80 columns.
-    augroup highlightWhitespaceEOL
-    autocmd!
-        autocmd BufWinEnter * let w:m1=matchadd('WhitespaceEOL', '\s\+$', -1)
-    augroup END
-    augroup highlightLongLines
-    autocmd!
-    augroup END
-else
-    augroup highlight
-    autocmd!
-        autocmd BufRead,BufNewFile * syntax match LongLine /\%>80v.\+/
-        autocmd InsertEnter * syntax match WhitespaceEOL /\s\+\%#\@<!$/
-        autocmd InsertLeave * syntax match WhitespaceEOL /\s\+$/
-    augroup END
-endif
-
-" autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
-" autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
-" highlight EOLWS ctermbg=124 guibg=Red
 
 """"""""""""""""""""""""""""""
 " => helper functions
