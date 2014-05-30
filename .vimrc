@@ -205,7 +205,7 @@ xmap <silent> <leader>c <Plug>Commentary
 ""Fast vimrc access
 nnoremap <silent> <leader>eu :call NiceOpen("/etc/portage/package.use")<cr>
 nnoremap <silent> <leader>em :call NiceOpen("/etc/portage/make.conf")<cr>
-nnoremap <silent> <leader>ev :call NiceOpen("$MYVIMRC")<cr>
+nnoremap <silent> <leader>ev :call NiceOpen("$HOME/.vimrc")<cr>
 nnoremap <silent> <leader>et :call NiceOpen("$HOME/.tmux.conf")<cr>
 nnoremap <silent> <leader>es :call NiceOpen("$HOME/.screenrc")<cr>
 nnoremap <silent> <leader>ez :call NiceOpen("$HOME/.zshrc")<cr>
@@ -219,7 +219,7 @@ nnoremap <leader>f :echo "use c-p"<cr>
 nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
 nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<CR>
 
-nnoremap <silent> <leader>sv :source $MYVIMRC<cr>
+nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 "nnoremap <leader>w :!clang-format -i <C-R><C-W><cr>
 
 " relative path open for robot framewor
