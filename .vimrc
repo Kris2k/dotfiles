@@ -104,7 +104,7 @@ autocmd FocusGained * let @z=@+
 " match pairs for <> (default for (:) [:] )
 set matchpairs+=<:>
 " Set a shorter timeout
-set timeoutlen=350
+set timeoutlen=250
 " Fast exit from insert mode
 inoremap jk <Esc>
 inoremap JK <Esc>
@@ -130,10 +130,24 @@ else
     colorscheme kchrisk
 endif
 
-" This also breaks something
-if match($TERM, "screen")!=-1
-  set term=xterm-256color
-endif
+"""""""""""""""""""""""""
+" => tmux-vim plugin
+"""""""""""""""""""""""""
+" this works for xterm keyboard settings
+set <m-h> =h
+set <m-j> =j
+set <m-k> =k
+set <m-l> =l
+
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+
+" tmux specyfic settings
+" if exists('$TMUX')
+" endif
 """"""""""""""""""""""""""""""""""
 " => Highglight formating
 """"""""""""""""""""""""""""""""""
@@ -651,4 +665,3 @@ iabbrev succesfull  successful
 " => Some Notes that I keep forgeting
 """""""""""""""""""""""""
 ":AlignCtrl W :<,>Align     Align some text not mater white spaces/words in front and in back
-
