@@ -208,8 +208,8 @@ let maplocalleader = "\\"
 " FIXME: this hack works for gnu screen problems when invoked make
 nnoremap <leader><leader> :make <cr>
 " nnoremap <leader><leader> :Dispatch<cr>
+nnoremap <leader>. :let @/=""<cr>
 nnoremap <leader>w :w!<cr>
-nnoremap <leader>s :w<cr>
 nnoremap <leader>sc :cscope reset<cr>
 nnoremap <leader>9 :bprev<cr>
 nnoremap <leader>0 :bnext<cr>
@@ -304,13 +304,7 @@ function! NumberInv()
   else | set relativenumber | return | endif
 endfunction
 
-" hack 4 F1 map b/c vim cant handle multiple nmap F1 w/h complain
-if !exists('f1_mapped')
-    let f1_mapped=1
-    nmap <unique> <F1>  <Plug>ZoomWin
-endif
 noremap <silent> <F2> :set ignorecase! noignorecase?<CR>
-" noremap <silent> <F3> :set hlsearch! hlsearch?<CR>
 noremap <silent> <F3> :GitGutterToggle<CR>
 noremap <silent> <F4> :call NumberInv()<CR>
 noremap <silent> <F5> :setlocal spell! spell?<CR>
