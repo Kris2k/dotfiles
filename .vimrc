@@ -211,8 +211,6 @@ nnoremap <leader><leader> :make <cr>
 nnoremap <silent> <leader>. :let @/=""<cr>
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>sc :cscope reset<cr>
-nnoremap <leader>9 :bprev<cr>
-nnoremap <leader>0 :bnext<cr>
 nnoremap <silent> <leader>a :Ack <C-R><C-W><CR>
 nmap <silent> <leader>c <Plug>CommentaryLine
 xmap <silent> <leader>c <Plug>Commentary
@@ -273,12 +271,9 @@ command! Q qall
 noremap gI `.
 
 " buffer switching
-" nnoremap <silent> <C-h> :bprevious<CR>
-" nnoremap <silent> <C-l> :bnext<CR>
+nnoremap <silent> <C-h> :bprevious<CR>
+nnoremap <silent> <C-l> :bnext<CR>
 
-" TODO test this keybindig
-" nnoremap <silent> <leader>l :bnext<CR>
-" nnoremap <silent> <leader>h :bprevious<CR>
 
 " use arrows for something usefull
 nnoremap <M-right> <C-W>>2
