@@ -139,6 +139,7 @@ set <m-j> =j
 set <m-k> =k
 set <m-l> =l
 
+inoremap <Esc> <Esc><Esc>
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
