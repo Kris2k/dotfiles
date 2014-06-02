@@ -346,8 +346,11 @@ command! Strip call <SID>StripTrailingWhitespace()
 """""""""""""""""""""""""
 " => ctrl-p plugin
 """""""""""""""""""""""""
-" let g:ctrlp_regexp = 1
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+set wildignore=*.o,*.so,*.dll,*.pyc
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ }
 " maybe use tab, note c-m is same as Enter
 noremap <c-n> :CtrlPBuffer<cr>
 " this searches from current working directory
