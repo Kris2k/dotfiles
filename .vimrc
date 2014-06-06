@@ -42,9 +42,9 @@ if has("gui_running")
     " polis settings for gui
 endif
 
-"if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
-"    set termencoding=utf8
-"endif
+if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+    set termencoding=utf8
+endif
 
 set title
 syntax enable
@@ -62,8 +62,8 @@ set shiftround
 set tabstop=4
 set expandtab smarttab
 let g:tex_flavor='latex'
-set list
-set listchars=tab:>-
+" set list
+" set listchars=tab:.-
 """""""""""""""""""""""""
 " => Files backups are off
 """""""""""""""""""""""""
@@ -122,10 +122,10 @@ if !has("gui_running") && !has('win32') && !has('win64')
     set term=$TERM       " Make arrow and other keys work
 endif
 
-if  &term == "linux" && ! has('gui_running')
+if  &term =~ "linux" || &term =~ "cons25"
+    set term=$TERM
     colorscheme peachpuff
 else
-    " I want all colors
     set t_Co=256
     colorscheme kchrisk
 endif
@@ -146,9 +146,6 @@ nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
 
-" tmux specyfic settings
-" if exists('$TMUX')
-" endif
 """"""""""""""""""""""""""""""""""
 " => Highglight formating
 """"""""""""""""""""""""""""""""""
@@ -455,7 +452,7 @@ let g:syntastic_cpp_compiler_options = '-std=c++0x'
 """""""""""""""""""""""""
 " => cscope database auto add see :help cscopequickfix
 """""""""""""""""""""""""
-if has("cscope") && ( filereadable('/usr/bin/cscope') || 
+if has("cscope") && ( filereadable('/usr/bin/cscope') ||
       \ filereadable('/usr/local/bin/cscope') )
     " nice cscope menu see help
     set cscopequickfix=s-,g-,c-,d-,i-,t-,e-
