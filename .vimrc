@@ -455,10 +455,11 @@ let g:syntastic_cpp_compiler_options = '-std=c++0x'
 """""""""""""""""""""""""
 " => cscope database auto add see :help cscopequickfix
 """""""""""""""""""""""""
-if has("cscope") && filereadable("/usr/bin/cscope")
+if has("cscope") && ( filereadable('/usr/bin/cscope') || 
+      \ filereadable('/usr/local/bin/cscope') )
     " nice cscope menu see help
     set cscopequickfix=s-,g-,c-,d-,i-,t-,e-
-    set csprg=/usr/bin/cscope
+    " set csprg=system("which cscope")
     set csto=0
     set cst
     " add cscope database local or form env
