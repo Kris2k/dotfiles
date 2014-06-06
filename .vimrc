@@ -558,6 +558,12 @@ if has("autocmd")
     autocmd FileType gitconfig setlocal commentstring=#\ %s
   augroup END
 
+  augroup quickfix
+    autocmd!
+    autocmd BufReadPost quickfix  setlocal number
+  augroup END
+
+
   augroup Build
     autocmd!
     autocmd BufEnter *  call SetMakePrg()
