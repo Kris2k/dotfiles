@@ -125,7 +125,7 @@ endif
 if  &term =~ "linux" || &term =~ "cons25"
     set term=$TERM
     colorscheme peachpuff
-elseif &term =~ "xterm"
+elseif &term =~ "xterm" || has("gui_running")
     set t_Co=256
     colorscheme kchrisk
 endif
