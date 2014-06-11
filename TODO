@@ -1,6 +1,16 @@
 zsh:
     - need to handle forutne file ok on dragonfly
 bootstap.sh
+    BUGS:
+    - all steps on failure are not repreated in the same order
+        need to have assertion and repeatable steps for all files in .ssh/
+    - config is content is dependand on current user
+        which is not reflected in current config
+    - name of keys should match the ssh/config values
+    - create empty keys files
+    - add ssh/config to github(not the keys)
+
     - need to handle authorized_keys
     - need to handle working direcotry correctly
+    
 
