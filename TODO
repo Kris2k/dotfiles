@@ -9,6 +9,7 @@ bootstap.sh
     - name of keys should match the ssh/config values
     - create empty keys files
     - add ssh/config to github(not the keys)
+    - use ssh-copy-id for copying keys if possible
 
     - need to handle authorized_keys
     - need to handle working direcotry correctly
