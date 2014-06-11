@@ -51,7 +51,9 @@ copy_file()
 
 if [ -d ${SSH_DIR} ]; then
     if [ -f ${SSH_DIR}/config ]; then
+	set +e
         is_configured=$(grep -e 'host.*github\.com' ${SSH_DIR}/config)
+	set -e
         if [ -z "${is_configured}" ]; then
             cat ${SRC_CONFIG}/config >> ${SSH_DIR}/config
         fi
