@@ -491,7 +491,7 @@ function! SetMakePrg()
   endif
 
   if bufname("%") =~ ".*\.c$"
-    setlocal makeprg=gcc\ -Wall\ -g\ %
+    setlocal makeprg=gcc\ -Wall\ -g\ -std=c99\ %
     return 0
   endif
   if  bufname("%") =~ ".*\.cpp"
