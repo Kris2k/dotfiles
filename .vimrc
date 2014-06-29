@@ -145,6 +145,17 @@ nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
 
+" fix meta-keys which generate <Esc>a .. <Esc>z
+" let c='a'
+" while c <= 'z'
+"   exec "set <M-".toupper(c).">=\e".c
+"   exec "inoremap \e".c." <M-".toupper(c).">"
+"   let c = nr2char(1+char2nr(c))
+" endw
+inoremap <m-k> <esc>k
+inoremap <m-j> <esc>j
+inoremap <m-h> <esc>h
+inoremap <m-l> <esc>l
 """"""""""""""""""""""""""""""""""
 " => Highglight formating
 """"""""""""""""""""""""""""""""""
@@ -561,7 +572,6 @@ if has("autocmd")
     autocmd!
     autocmd BufReadPost quickfix  setlocal number
   augroup END
-
 
   augroup Build
     autocmd!
