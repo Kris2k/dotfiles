@@ -420,18 +420,25 @@ augroup END
 """"""""""""""""""""""""""""""
 " => xptemplate plugin
 """""""""""""""""""""""""""""""
-" This is cool but somewhat like too bulky
 let g:SuperTabMappingForward              = '<tab>'
+let g:xptemplate_key                      = '<c-\>'
+let g:xptemplate_bundle                   = 'cpp_autoimplem'
+let g:xptemplate_brace_complete           = ''
 " if nothing matched in xpt, try supertab
 "let g:xptemplate_fallback                 = '<Plug>supertabKey'
-let g:xptemplate_key                      = '<c-\>'
-let g:xptemplate_vars                     = "Rloop              = \n&SPcmd = "
-let g:xptemplate_brace_complete           = ''
 "let g:xptemplate_brace_complete = '([{'
-let g:xptemplate_bundle                   = 'cpp_autoimplem'
 " xpt triggers only when you typed whole name of a snippet. Optional
 "let g:xptemplate_minimal_prefix = 'full'
-let g:xptemplate_vars = "author=Krzysztof (Chris) Kanas&email=krzysztof.kanas@__at__@gmail.com&kelvatek_author=Krzysztof (Chris) Kanas&kelvatek_email=k.kanas@__at__@kelvatek.com&..."
+let g:xptemplate_vars                     = "BRloop=\n" . "&" . "SParg="
+let g:xptemplate_contact_info             =
+  \ "author=Krzysztof (Chris) Kanas" . "&" .
+  \ "email=krzysztof.kanas@__at__@gmail.com" . "&" .
+  \ "kelvatek_author=Krzysztof (Chris) Kanas" . "&" .
+  \ "kelvatek_email=k.kanas@__at__@kelvatek.com&..."
+
+let g:xptemplate_vars = exists('g:xptemplate_vars') ?
+  \ g:xptemplate_vars . '&' . g:xptemplate_contact_info
+  \ : g:xptemplate_contact_info
 
 """""""""""""""""""""""""
 " => airline plugin
