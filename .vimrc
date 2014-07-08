@@ -558,11 +558,11 @@ if has("autocmd")
   augroup plugin_commentary
     autocmd!
     autocmd FileType asm setlocal commentstring=;\ %s
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
+    autocmd FileType sql setlocal commentstring=--\ %s
+    autocmd FileType go setlocal commentstring=//\ %s
     autocmd FileType *conf-d setlocal commentstring=#\ %s
     autocmd FileType *config setlocal commentstring=#\ %s
-    autocmd FileType go setlocal commentstring=//\ %s
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd BufEnter *.conf setlocal commentstring=#\ %s
     autocmd FileType robot setlocal commentstring=Comment\ \ \ \ %s
     autocmd FileType cfg setlocal commentstring=#\ %s
     autocmd FileType fstab setlocal commentstring=#\ %s
@@ -573,6 +573,7 @@ if has("autocmd")
     autocmd FileType fish setlocal commentstring=#\ %s
     autocmd FileType tmux setlocal commentstring=#\ %s
     autocmd FileType gitconfig setlocal commentstring=#\ %s
+    autocmd BufEnter *.conf setlocal commentstring=#\ %s
   augroup END
 
   augroup quickfix
