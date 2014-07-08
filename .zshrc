@@ -431,7 +431,7 @@ function fortune_once() {
 }
 
 fortune_once
-echo -n "Making one brilliant decision and a whole bunch of mediocre ones isn't as
-good as making a whole bunch of generally smart decisions throughout the
-whole process.
-        -- John Carmack "
+# echo -n "Making one brilliant decision and a whole bunch of mediocre ones isn't as
+# good as making a whole bunch of generally smart decisions throughout the
+# whole process.
+#         -- John Carmack "
