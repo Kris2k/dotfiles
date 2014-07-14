@@ -53,7 +53,7 @@ if has("gui_running")
         hi Normal         gui=NONE   guifg=#cfbfad   guibg=#000000
     endif
 
-    hi CursorLine         guibg=#2e2e37
+    hi CursorLine        guibg=#000000 gui=italic
 
     hi IncSearch      gui=BOLD   guifg=#303030   guibg=#cd8b60
     hi Search         gui=NONE   guifg=#303030   guibg=#ad7b57
@@ -70,11 +70,6 @@ if has("gui_running")
     hi VertSplit      gui=NONE   guifg=#b9b9b9   guibg=#3e3e5e
 
     hi WildMenu       gui=BOLD   guifg=#eeeeee   guibg=#6e6eaf
-
-    hi MBENormal                 guifg=#cfbfad   guibg=#2e2e3f
-    hi MBEChanged                guifg=#eeeeee   guibg=#2e2e3f
-    hi MBEVisibleNormal          guifg=#cfcfcd   guibg=#4e4e8f
-    hi MBEVisibleChanged         guifg=#eeeeee   guibg=#4e4e8f
 
     hi DiffText       gui=NONE   guifg=#ffffcd   guibg=#4a2a4a
     hi DiffChange     gui=NONE   guifg=#ffffcd   guibg=#306b8f
@@ -140,7 +135,7 @@ if has("gui_running")
         hi SpellLocal   gui=undercurl guisp=#cccc66
         hi SpellCap     gui=undercurl guisp=#66cccc
 
-        hi MatchParen   gui=NONE      guifg=#cfbfad   guibg=#4e4e8f
+        hi MatchParen   term=reverse  guibg=Yellow
     endif
 else
     if ! g:kchrisk_black_background
@@ -164,11 +159,6 @@ else
     exec "hi VertSplit      cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
 
     exec "hi WildMenu       cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(38)
-
-    exec "hi MBENormal                   ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(81)
-    exec "hi MBEChanged                  ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(81)
-    exec "hi MBEVisibleNormal            ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(82)
-    exec "hi MBEVisibleChanged           ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(82)
 
     exec "hi DiffText       cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(34)
     exec "hi DiffChange     cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(17)
@@ -212,7 +202,7 @@ else
         exec "hi SpellRare      cterm=NONE ctermbg=" . <SID>X(33)
         exec "hi SpellLocal     cterm=NONE ctermbg=" . <SID>X(36)
         exec "hi SpellCap       cterm=NONE ctermbg=" . <SID>X(21)
-        exec "hi MatchParen     cterm=NONE ctermbg=" . <SID>X(14) . "ctermfg=" . <SID>X(25)
+        exec "hi MatchParen     cterm=BOLD ctermbg=" . <SID>X(54) . "ctermfg=" . <SID>X(25)
     endif
 endif
 
@@ -232,6 +222,6 @@ function! <SID>InvertBblackBackground()
     endif
 endfunction
 
-command! BlackInvert call InvertBblackBackground()
+command! BlackInvert call <SID>InvertBblackBackground()
 
 " vim: set et :
