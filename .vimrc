@@ -7,7 +7,7 @@ set nocompatible
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 " add xpt templates personal folder to runtimepath
-let &runtimepath .=',~/.vim/personal'
+" let &runtimepath .=',~/.vim/personal'
 
 """"""""""""""""""""""""""""""
 " => nfs go code plugin bulshit
