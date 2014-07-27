@@ -233,8 +233,6 @@ nnoremap <silent> <leader>eg :call NiceOpen("$HOME/.gitconfig")<cr>
 nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
 nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotfiles/notes-programing.txt")<cr>
 
-" nnoremap <Leader>f :CommandT<CR>
-nnoremap <leader>f :echo "use c-p"<cr>
 " Quick fix list window
 nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
 nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<CR>
