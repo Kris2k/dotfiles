@@ -244,7 +244,7 @@ nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <Leader>o :execute  ':e ' . expand("%:h") . "/" . expand("<cWORD>")<cr>
 
 " save read only file
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 "Fast search & replace
 noremap "" :s:::g<Left><Left><Left>
