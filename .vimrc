@@ -300,8 +300,8 @@ vnoremap q <c-c>
 " => Fn  Shortcuts and others
 """""""""""""""""""""""""""""""
 function! NumberInv()
-  if &relativenumber| set number | return | endif
-  if &number| set nonumber | return
+  if &relativenumber| set nornu number | return | endif
+  if &number| set nonumber nornu | return
   else | set relativenumber | return | endif
 endfunction
 
