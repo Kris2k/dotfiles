@@ -668,6 +668,10 @@ iabbrev readed  read
 iabbrev sended send
 iabbrev succesfull  successful
 
+nnoremap <leader>f :pyf $HOME/.vim/python/clang-format.py<CR>
+nnoremap <leader>af :.,$pyf $HOME/.vim/python/clang-format.py<CR>
+
+" imap <C-I> <ESC>:pyf $HOME/.vim/python/clang-format.py<CR>i
 """""""""""""""""""""""""
 " => Some Notes that I keep forgeting
 """""""""""""""""""""""""
