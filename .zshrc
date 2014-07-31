@@ -1,6 +1,6 @@
 # HACK: Gentoo WTF ? how many times I need to source that
 # FIXME: need export LANG to work properly under debian
-# source /etc/profile
+source /etc/profile
 # set -x
 # set -e
 # setopt XTRACE VERBOSE
