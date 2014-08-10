@@ -489,6 +489,9 @@ function! SetMakePrg()
   if &ft == 'go'
     setlocal makeprg=go\ run\ %
   endif
+  if filereadable('.projectLite.vim')
+    return
+  endif
   if filereadable('wscript')
     setlocal makeprg=./waf\ --alltests
     return 0
