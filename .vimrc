@@ -218,7 +218,7 @@ nnoremap <leader><leader> :make <cr>
 " nnoremap <leader><leader> :Dispatch<cr>
 nnoremap <silent> <leader>, :let @/=""<cr>
 nnoremap <leader>w :w!<cr>
-nnoremap <leader>sc :cscope reset<cr>
+nnoremap <silent> <leader>ss :cscope reset<cr>
 nnoremap <silent> <leader>a :Ack <C-R><C-W><CR>
 nmap <silent> <leader>c <Plug>CommentaryLine
 xmap <silent> <leader>c <Plug>Commentary
