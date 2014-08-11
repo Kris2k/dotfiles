@@ -46,6 +46,7 @@
 
 [merge]
     tool   = kdiff3
+    ff = false
 
 [rerere]
     enabled = true
