@@ -191,6 +191,7 @@ else
     exec "hi Underlined     cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
     exec "hi Underline     cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
     exec "hi TaglistTagName cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
+    exec "hi ColorColumn     cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(37)
 
     if v:version >= 700
         exec "hi Pmenu          cterm=NONE   ctermfg=" . <SID>X(0) . " ctermbg=" . <SID>X(53)
