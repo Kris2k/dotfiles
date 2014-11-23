@@ -297,6 +297,7 @@ nnoremap <c-down>  :cnext<cr>zvzz
 " Great for pasting Python lines into REPLs.
 nnoremap vv ^vg_
 vnoremap q <c-c>
+nnoremap Q <nop>
 """"""""""""""""""""""""""""""
 " => Fn  Shortcuts and others
 """""""""""""""""""""""""""""""
