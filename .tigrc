@@ -1,5 +1,5 @@
-set show-line-numbers = yes
-set read-git-colors = no
+# set line-number-display = yes
+set git-colors = no
 # {{{ colors section
 color diff-stat green default
 color graph-commit green default
