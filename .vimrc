@@ -577,6 +577,7 @@ if has("autocmd")
   augroup quickfix
     autocmd!
     autocmd BufReadPost quickfix  setlocal nornu number
+    autocmd BufReadPost quickfix set modifiable
   augroup END
 
   augroup Build
