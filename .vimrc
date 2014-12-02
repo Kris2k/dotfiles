@@ -647,7 +647,7 @@ command! -range=%  -nargs=0 XmlFormat call s:XmlFormat()
 hi SignColumn ctermbg=NONE
 
 nnoremap <silent> tr :GitGutterPrevHunk<cr>
-nnoremap <silent> ty :GitGutterNextHunk<cr>
+nnoremap <silent> tu :GitGutterNextHunk<cr>
 
 """"""""""""""""""""""""""""""""""""""""""
 " =>  abbreviation to the spelling rescue
