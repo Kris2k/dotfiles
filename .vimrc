@@ -61,7 +61,7 @@ set shiftwidth=4
 set shiftround
 set tabstop=4
 set expandtab smarttab
-set colorcolumn=80
+" set colorcolumn=80
 let g:tex_flavor='latex'
 " set list
 " set listchars=tab:.-
