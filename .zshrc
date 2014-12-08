@@ -53,11 +53,12 @@ export SVN_EDITOR=$EDITOR
 HISTFILE=$HOME/.history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-setopt histverify
 setopt extended_history
 setopt appendhistory
 setopt incappendhistory
 setopt nosharehistory
+# to echo last !!
+# setopt hist_verify
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt hist_no_store
