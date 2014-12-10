@@ -239,7 +239,7 @@ nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
 nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<CR>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
-nnoremap <silent> <leader>g :grep <C-R><C-W> .<cr>
+nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
 "nnoremap <leader>w :!clang-format -i <C-R><C-W><cr>
 
 " relative path open for robot framewor
