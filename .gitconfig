@@ -13,7 +13,7 @@
 
 [core]
     # pager = cat
-    pager = less -FRSX --ignore-case
+    pager = less --quit-if-one-screen --RAW-CONTROL-CHARS --no-init --ignore-case
     excludesfile = ~/.gitignore_global
 
 [branch]
