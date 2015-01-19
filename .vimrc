@@ -124,12 +124,15 @@ if !has("gui_running") && !has('win32') && !has('win64')
 endif
 
 if  &term =~ "linux" || &term =~ "cons25"
-    set term=$TERM
-    colorscheme desert
+  set term=$TERM
+  colorscheme desert
 elseif &term =~ "xterm" || has("gui_running")
-    set t_Co=256
-    colorscheme kchrisk
+  set t_Co=256
+  colorscheme kchrisk
+else
+  colorscheme darkblue
 endif
+
 
 """""""""""""""""""""""""
 " => tmux-vim plugin
