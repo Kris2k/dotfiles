@@ -140,7 +140,6 @@ alias history="history -dD"
 alias df="df -h"
 alias sudo="sudo -E"
 
-alias waf="CXX=/usr/bin/g++-4.6.3 ./waf"
 alias bam="./bam"
 alias pse="ps aux| grep "
 alias eps="ps aux| grep "
