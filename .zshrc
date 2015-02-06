@@ -45,6 +45,10 @@ export MYSQL_PS1="\u@\h [\d]> "
 export SVN_EDITOR=$EDITOR
 [[ -e ~/.zsh/kdiff3_launcher.sh ]] &&  export SVN_MERGE=~/.zsh/kdiff3_launcher.sh
 
+export GIT_AUTHOR_NAME="$(/usr/bin/git config user.name)"
+export GIT_AUTHOR_EMAIL="$(/usr/bin/git config user.email)"
+export GIT_COMMITTER_NAME="${GIT_AUTHOR_NAME}"
+export GIT_COMMITTER_EMAIL="${GIT_AUTHOR_EMAIL}"
 # local current_tty=`tty`
 # if [ "${current_tty[6,8]}" = "pts" ] ; then
 #     export TERM=xterm-256color
@@ -427,6 +431,7 @@ function fortune_once() {
 }
 
 fortune_once
+#echo "The time you enjoy wasting is not wasted time - Bertrand Russell"
 # echo -n "Making one brilliant decision and a whole bunch of mediocre ones isn't as
 # good as making a whole bunch of generally smart decisions throughout the
 # whole process.

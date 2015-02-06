@@ -1,4 +1,6 @@
 set nocompatible
+" set binary
+" set noeol
 " set cpoptions+={
 " setlocal fo+=aw for vim mutt
 """"""""""""""""""""""""""""""
@@ -221,7 +223,7 @@ let maplocalleader = "\\"
 nnoremap <leader><leader> :make <cr>
 " nnoremap <leader><leader> :Dispatch<cr>
 nnoremap <silent> <leader>, :let @/=""<cr>
-nnoremap <leader>w :w!<cr>
+nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>ss :cscope reset<cr>
 nnoremap <silent> <leader>a :Ack <C-R><C-W><CR>
 nmap <silent> <leader>c <Plug>CommentaryLine
