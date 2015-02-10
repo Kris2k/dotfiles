@@ -373,7 +373,7 @@ let g:ctrlp_working_path_mode = 'rw'
 " let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_prompt_mappings = {
     \ 'PrtInsert("r\"")': ['<c-u>'],
-    \ 'PrtInsert("r")': ['<c-[>'],
+    \ 'PrtInsert("w")': ['<c-[>'],
     \ }
 
 """"""""""""""""""""""""""""""
