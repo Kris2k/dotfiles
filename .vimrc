@@ -240,12 +240,17 @@ nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
 nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotfiles/notes-programing.txt")<cr>
 
 " Quick fix list window
-nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
+" nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
 nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<CR>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
-"nnoremap <leader>w :!clang-format -i <C-R><C-W><cr>
+
+
+nmap <leader>f :CtrlP<CR><C-\>w
+" vmap <leader>lf y:CtrlP<CR><C-\>c
+" nnoremap <leader>f :pyf $HOME/.vim/python/clang-format.py<CR>
+nnoremap <leader>af :.,$pyf $HOME/.vim/python/clang-format.py<CR>
 
 " relative path open for robot framewor
 nnoremap <silent> <Leader>o :execute  ':e ' . expand("%:h") . "/" . expand("<cWORD>")<cr>
@@ -680,8 +685,6 @@ iabbrev readed  read
 iabbrev sended send
 iabbrev succesfull  successful
 
-nnoremap <leader>f :pyf $HOME/.vim/python/clang-format.py<CR>
-nnoremap <leader>af :.,$pyf $HOME/.vim/python/clang-format.py<CR>
 
 " imap <C-I> <ESC>:pyf $HOME/.vim/python/clang-format.py<CR>i
 """""""""""""""""""""""""
