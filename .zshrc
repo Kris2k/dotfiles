@@ -157,7 +157,7 @@ alias cstagsclear="rm -v cscope.* tags"
 alias cdn='cd ~/Projects/utils/git-dotfiles/'
 alias cdp='cd ~/Projects/'
 alias cdb='cd ~/Projects/berserker-ronin/'
-alias cdv='cd ~/Projects/utils/vimfiles/'
+alias cdv='cd ~/Projects/editor/vik'
 alias cdg='cd ~/Projects/gocode/src/'
 alias cdt='cd /home/chris/Projects/tmux-case-insensitive/sourceforge-tmux'
 
