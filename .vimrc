@@ -225,7 +225,6 @@ nnoremap <leader><leader> :make <cr>
 nnoremap <silent> <leader>, :let @/=""<cr>
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>ss :cscope reset<cr>
-nnoremap <silent> <leader>a :Ack <C-R><C-W><CR>
 nmap <silent> <leader>c <Plug>CommentaryLine
 xmap <silent> <leader>c <Plug>Commentary
 ""Fast vimrc access
@@ -249,8 +248,9 @@ nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr
 
 nmap <leader>f :CtrlP<CR><C-\>w
 " vmap <leader>lf y:CtrlP<CR><C-\>c
-" nnoremap <leader>f :pyf $HOME/.vim/python/clang-format.py<CR>
+nnoremap <leader>a :pyf $HOME/.vim/python/clang-format.py<CR>
 nnoremap <leader>af :.,$pyf $HOME/.vim/python/clang-format.py<CR>
+" nnoremap <silent> <leader>a :Ack <C-R><C-W><CR>
 
 " relative path open for robot framewor
 nnoremap <silent> <Leader>o :execute  ':e ' . expand("%:h") . "/" . expand("<cWORD>")<cr>
