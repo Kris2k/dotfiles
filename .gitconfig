@@ -25,6 +25,7 @@
     adp = add -p
     br = branch
     st = status
+    head = log -1 --format='%H'
     sf = show --name-only
     dif = diff --no-prefix
     l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
