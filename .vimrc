@@ -663,9 +663,6 @@ nnoremap <silent> tu :GitGutterNextHunk<cr>
 """"""""""""""""""""""""""""""""""""""""""
 " =>  abbreviation to the spelling rescue
 """"""""""""""""""""""""""""""""""""""""""
-" convenience
-cabbrev b buffer
-cabbrev E Explore
 " spelling
 iabbrev prevous previous
 iabbrev prefxi prefix
