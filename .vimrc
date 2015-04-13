@@ -1,4 +1,6 @@
 set nocompatible
+set listchars=trail:\|
+set list
 " set binary
 " set noeol
 " set cpoptions+={
