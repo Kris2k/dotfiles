@@ -419,7 +419,7 @@ function swap_prompt() {
 use_prompt
 
 function fortune_once() {
-    if [ -z $(which fortune) ]; then
+    if [ -z "$(which fortune)" ]; then
         return;
     fi
     local fortune_file="/tmp/fortune.day"
