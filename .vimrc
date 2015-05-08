@@ -296,8 +296,8 @@ nnoremap <silent> <C-l> :bnext<CR>
 " use arrows for something usefull
 nnoremap <M-right> <C-W>>2
 nnoremap <M-left>  <C-W><2
-nnoremap <M-up>    <Esc>:resize -2 <CR>
-nnoremap <M-down>  <Esc>:resize +2 <CR>
+nnoremap <M-up>    <Esc>:resize +2 <CR>
+nnoremap <M-down>  <Esc>:resize -2 <CR>
 
 nnoremap <c-left>  :colder<cr>zvzz
 nnoremap <c-right> :cnewer<cr>zvzz
