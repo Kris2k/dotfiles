@@ -328,14 +328,6 @@ function fancy_prompt () {
 
     PR_BG_HOST=''
     eval PR_BG_ENDHOST='%{%B$bg[default]%}'
-    case `hostname` in
-        'ENW*'|'SSE*'|'DEMO*'|'CE*')
-            eval PR_BG_HOST='%{$bg[red]%}'
-            ;;
-        'asus-g1s')
-            #eval PR_BG_HOST='%{%B$bg[red]%}'
-            ;;
-    esac
     eval PR_BG_ROOT='%{%B$bg[red]%}'
 
     ###
