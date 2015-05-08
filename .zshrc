@@ -162,6 +162,7 @@ alias cdg='cd ~/Projects/gocode/src/'
 alias cdt='cd /home/chris/Projects/tmux-case-insensitive/sourceforge-tmux'
 
 alias cdss="cd ~/Projects/kelvatek-server/"
+alias cdm="cd /cygdrive/c/mbs/mobilePdBle/"
 alias cdd="cd ~/dotfiles/"
 alias vp="source ~/Projects/tools/virtual-ride/vp-ride.sh"
 alias android_env="source ~/Projects/ever-note/android-core/android.env"
