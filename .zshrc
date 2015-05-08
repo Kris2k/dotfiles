@@ -112,9 +112,9 @@ zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~
 ##########################################
 #                aliases
 ##########################################
-
-if [ "$(uname -s)" = "Linux" ]; then
-    if [[ -x `which dircolors` && -r ~/.dircolors ]] ;then
+SYSTEM=$(uname -s)
+if [ "$SYSTEM" = "Linux" ]; then
+    if [[ -x $(which dircolors) && -r ~/.dircolors ]] ;then
         eval "$(dircolors -b ~/.dircolors)"
     else
         eval "$(dircolors -b)"
@@ -123,7 +123,7 @@ if [ "$(uname -s)" = "Linux" ]; then
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 fi
-if [ "$(uname -s)" = "DragonFly" ]; then
+if [ "$SYSTEM" = "DragonFly" ]; then
     alias ls='ls -G'
 fi
 
