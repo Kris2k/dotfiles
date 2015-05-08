@@ -169,6 +169,7 @@ alias android_env="source ~/Projects/ever-note/android-core/android.env"
 alias ride="/home/chris/Projects/tools/virtual-ride/RIDE.sh"
 alias cdkvm="cd /mnt/old-debian/kvm-machines/"
 alias cdw="cd ~/Projects/berserker-ronin/command-exec/"
+alias cdl="cd ~/Projects/editor/line/"
 
 
 alias sdh='svn status|grep ^[?]'
