@@ -112,9 +112,9 @@ zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~
 ##########################################
 #                aliases
 ##########################################
-
-if [ "$(uname -s)" = "Linux" ]; then
-    if [[ -x `which dircolors` && -r ~/.dircolors ]] ;then
+SYSTEM=$(uname -s)
+if [ "$SYSTEM" = "Linux" ]; then
+    if [[ -x $(which dircolors) && -r ~/.dircolors ]] ;then
         eval "$(dircolors -b ~/.dircolors)"
     else
         eval "$(dircolors -b)"
@@ -123,14 +123,14 @@ if [ "$(uname -s)" = "Linux" ]; then
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 fi
-if [ "$(uname -s)" = "DragonFly" ]; then
+if [ "$SYSTEM" = "DragonFly" ]; then
     alias ls='ls -G'
 fi
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-[[ -x `which vim` ]] && alias vi="$(which vim) -u ~/.vimrc"
+[[ -x $(which vim) ]] && alias vi="$(which vim) -u ~/.vimrc"
 [[ -e /usr/bin/vimx ]] && alias vim="/usr/bin/vimx -u ~/.vimrc" && alias vi="/usr/bin/vimx -u ~/.vimrc"
 alias ll='ls -la'
 alias la='ls -A'
@@ -169,6 +169,7 @@ alias android_env="source ~/Projects/ever-note/android-core/android.env"
 alias ride="/home/chris/Projects/tools/virtual-ride/RIDE.sh"
 alias cdkvm="cd /mnt/old-debian/kvm-machines/"
 alias cdw="cd ~/Projects/berserker-ronin/command-exec/"
+alias cdl="cd ~/Projects/editor/line/"
 
 
 alias sdh='svn status|grep ^[?]'
@@ -258,7 +259,7 @@ function precmd() {
     local virtual=
     local virtualsize=0 # ${#virtual}
     if (($+VIRTUAL_ENV)) ; then
-        virtual=`basename $VIRTUAL_ENV`;
+        virtual=$(basename $VIRTUAL_ENV);
         virtualsize=${#virtual}
         virtualsize=$((virtualsize+2))
     fi
@@ -327,14 +328,6 @@ function fancy_prompt () {
 
     PR_BG_HOST=''
     eval PR_BG_ENDHOST='%{%B$bg[default]%}'
-    case `hostname` in
-        'ENW*'|'SSE*'|'DEMO*'|'CE*')
-            eval PR_BG_HOST='%{$bg[red]%}'
-            ;;
-        'asus-g1s')
-            #eval PR_BG_HOST='%{%B$bg[red]%}'
-            ;;
-    esac
     eval PR_BG_ROOT='%{%B$bg[red]%}'
 
     ###
@@ -402,13 +395,14 @@ $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT$PR_NO_COLOUR '
 ## FIXME:  hack local ignore_error=$? is to remove errors from prompt
 function use_prompt() {
     [[ ! -f ~/.zsh_prompt ]]  && echo fancy_prompt > ~/.zsh_prompt || true;
-    [[ `cat ~/.zsh_prompt` == 'fancy_prompt' ]] && fancy_prompt || true;
-    [[ `cat ~/.zsh_prompt` == 'simple_prompt' ]] && simple_prompt || true;
+    prompt=$(cat ~/.zsh_prompt)
+    [[ $prompt == 'fancy_prompt' ]] && fancy_prompt || true;
+    [[ $prompt == 'simple_prompt' ]] && simple_prompt || true;
 }
 
 
 function swap_prompt() {
-    case `cat ~/.zsh_prompt` in
+    case $(cat ~/.zsh_prompt) in
         'simple_prompt') echo "fancy_prompt"  > ~/.zsh_prompt ;;
         'fancy_prompt')  echo "simple_prompt" > ~/.zsh_prompt ;;
         *) echo "fancy_prompt" > ~/.zsh_prompt ;;
