@@ -151,7 +151,7 @@ alias tmux="tmux -2"
 alias xterm='xterm -bg black -fg white'
 alias pop=popd
 alias pup=pushd
-alias cstags="find . -not -path './contrib*' -not -path './build/.conf*/*' -regex  '.*\.\(c\|cc\|cpp\|h\|hpp\)$'  -print > cscope.files && cscope -bq && ctags --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase -L cscope.files"
+alias cstags="find . -not -path './tools/*' -not -path './contrib*' -not -path './build/.conf*/*' -regex  '.*\.\(c\|cc\|cpp\|h\|hpp\)$'  -print > cscope.files && cscope -bq && ctags --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase -L cscope.files"
 alias cstagsclear="rm -v cscope.* tags"
 
 alias cdn='cd ~/Projects/utils/git-dotfiles/'
