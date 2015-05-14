@@ -161,8 +161,8 @@ alias cdv='cd ~/Projects/editor/vik'
 alias cdg='cd ~/Projects/gocode/src/'
 alias cdt='cd /home/chris/Projects/tmux-case-insensitive/sourceforge-tmux'
 
-alias cdss="cd ~/Projects/kelvatek-server/"
-alias cdm="cd /cygdrive/c/mbs/mobilePdBle/"
+alias cdc="cd /cygdrive/c/cliq/mobilePdBle/"
+alias cdm="cd /cygdrive/c/mbs/"
 alias cdd="cd ~/dotfiles/"
 alias vp="source ~/Projects/tools/virtual-ride/vp-ride.sh"
 alias android_env="source ~/Projects/ever-note/android-core/android.env"
