@@ -127,6 +127,7 @@ if [ "$SYSTEM" = "DragonFly" ]; then
     alias ls='ls -G'
 fi
 
+alias ddate='date +"%T %d-%m-%y"'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
