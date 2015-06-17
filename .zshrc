@@ -307,6 +307,21 @@ function fancy_prompt () {
     PR_LLCORNER=${altchar[m]:--}
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
+    # FIXME: detect unicode
+    #        choose the aproprieate characters to represent the bar
+    #        either UNICODE bar characters 
+    #        or this simple3 ones
+    #        http://www.fileformat.info/info/unicode/block/box_drawing/list.htm
+    if [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
+        PR_SET_CHARSET=""
+        PR_SHIFT_IN=""
+        PR_SHIFT_OUT=""
+        PR_HBAR='-'
+        PR_ULCORNER='|'
+        PR_LLCORNER='|'
+        PR_LRCORNER='|'
+        PR_URCORNER='|'
+    fi
 
 
     ###
