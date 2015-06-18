@@ -291,7 +291,6 @@ function fancy_prompt () {
         eval PR_LIGHT_$color='%{%B$fg[${(L)color}]%}'
         (( count = $count + 1 ))
     done
-    PR_K_GREEN="%b$fg[green]"
     PR_NO_COLOUR="%{$terminfo[sgr0]%}"
 
     ###
