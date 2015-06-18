@@ -311,6 +311,7 @@ function fancy_prompt () {
     #        either UNICODE bar characters 
     #        or this simple3 ones
     #        http://www.fileformat.info/info/unicode/block/box_drawing/list.htm
+    #        BUG - putty and debian will make history broken
     if [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
         PR_SET_CHARSET=""
         PR_SHIFT_IN=""
@@ -320,6 +321,7 @@ function fancy_prompt () {
         PR_LLCORNER='|'
         PR_LRCORNER='|'
         PR_URCORNER='|'
+        PR_NO_COLOUR=$'\e[0m'
     fi
 
 
