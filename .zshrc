@@ -291,7 +291,6 @@ function fancy_prompt () {
         eval PR_LIGHT_$color='%{%B$fg[${(L)color}]%}'
         (( count = $count + 1 ))
     done
-    PR_K_GREEN="%b$fg[green]"
     PR_NO_COLOUR="%{$terminfo[sgr0]%}"
 
     ###
@@ -312,6 +311,7 @@ function fancy_prompt () {
     #        either UNICODE bar characters 
     #        or this simple3 ones
     #        http://www.fileformat.info/info/unicode/block/box_drawing/list.htm
+    #        BUG - putty and debian will make history broken
     if [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
         PR_SET_CHARSET=""
         PR_SHIFT_IN=""
@@ -321,6 +321,7 @@ function fancy_prompt () {
         PR_LLCORNER='|'
         PR_LRCORNER='|'
         PR_URCORNER='|'
+        PR_NO_COLOUR=$'\e[0m'
     fi
 
 
@@ -391,8 +392,8 @@ $PR_BR_OPEN\
 $PR_LIGHT_BLUE\
  ${vcs_info_msg_0_}\
 %(?..$PR_LIGHT_RED%?)$PR_BLUE\
-$PR_BR_CLOSE$\
-PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
+$PR_BR_CLOSE\
+$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_CYAN$PR_SHIFT_IN$PR_HBAR$PR_SHIFT_OUT\
 $PR_NO_COLOUR '
 
