@@ -128,10 +128,10 @@ endif
 if  &term =~ "linux" || &term =~ "cons25"
   set term=$TERM
   colorscheme desert
-elseif &term =~ "xterm" || has("gui_running") ||  &term =~ 'screen'
+elseif &term =~ "256" || has("gui_running") ||  &term =~ 'screen' || &term =~ 'xterm'
   set t_Co=256
   colorscheme kchrisk
-elseif
+else
   colorscheme darkblue
 endif
 
