@@ -280,12 +280,11 @@ function precmd() {
 
 function fancy_prompt () {
     setopt promptsubst
-    ###
-    # See if we can use colors.
 
     if [[ "$terminfo[colors]" -ge 8 ]]; then
         colors
     fi
+
     for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
         eval PR_$color='%{%b$fg[${(L)color}]%}'
         eval PR_LIGHT_$color='%{%B$fg[${(L)color}]%}'
