@@ -428,7 +428,7 @@ function swap_prompt() {
 use_prompt
 
 function fortune_once() {
-    local fortune_cmd=$(which fortune > /dev/null)
+    local fortune_cmd=$(which fortune > /dev/null 2>&1)
     if [ $? -ne 0 ] ; then
         return;
     fi
