@@ -34,18 +34,6 @@ if [ $? -eq 0 ]; then
     export EDITOR=${where_vim}
     export VISUAL=${where_vim}
 fi
-export GOPATH=$HOME/Projects/gocode/
-function activate_go()
-{
-    export GOPATH=$HOME/Projects/gocode/
-    export OLD_PATH=$PATH
-    export PATH=$PATH:$GOPATH/bin
-}
-function deactivate_go()
-{
-    export PATH=$OLD_PATH
-    export OLD_PATH=
-}
 
 export MYSQL_PS1="\u@\h [\d]> "
 export SVN_EDITOR=$EDITOR
@@ -201,6 +189,20 @@ bindkey '\e[8~' end-of-line             # end
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
+
+export GOPATH=$HOME/Projects/gocode/
+function activate_go()
+{
+    export GOPATH=$HOME/Projects/gocode/
+    export OLD_PATH=$PATH
+    export PATH=$PATH:$GOPATH/bin
+}
+
+function deactivate_go()
+{
+    export PATH=$OLD_PATH
+    export OLD_PATH=
+}
 
 fancy-ctrl-z () {
     if [[ $#BUFFER -eq 0 ]]; then
