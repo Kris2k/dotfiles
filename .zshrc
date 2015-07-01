@@ -28,10 +28,11 @@ if [ $? -eq 0 ] ; then
 fi
 
 export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
-local _drop=$(which vim)
+
+local where_vim=$(which vim)
 if [ $? -eq 0 ]; then
-    export EDITOR=$(which vim)
-    export VISUAL=$(which vim)
+    export EDITOR=${where_vim}
+    export VISUAL=${where_vim}
 fi
 export GOPATH=$HOME/Projects/gocode/
 function activate_go()
