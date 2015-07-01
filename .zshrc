@@ -22,6 +22,11 @@ setopt promptsubst
 # unsetopt extendedglob
 # unsetopt nomatch
 
+local _have_US=$(locale -a|grep -i en_US.UTF8)
+if [ $? -eq 0 ] ; then
+    export LC_ALL="en_US.UTF-8"
+fi
+
 export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
 local _drop=$(which vim)
 if [ $? -eq 0 ]; then
@@ -305,13 +310,16 @@ function fancy_prompt () {
     PR_LLCORNER=${altchar[m]:--}
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
-    # FIXME: detect unicode
-    #        choose the aproprieate characters to represent the bar
-    #        either UNICODE bar characters 
-    #        or this simple3 ones
-    #        http://www.fileformat.info/info/unicode/block/box_drawing/list.htm
-    #        BUG - putty and debian will make history broken
-    if [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
+    if [ "${LC_ALL: -5}" = "UTF-8" ] ; then
+        PR_SET_CHARSET=""
+        PR_SHIFT_IN=""
+        PR_SHIFT_OUT=""
+        PR_HBAR=$'\u2500'
+        PR_ULCORNER=$'\u250c'
+        PR_LLCORNER=$'\u2514'
+        PR_LRCORNER=$'\u2514'
+        PR_URCORNER=$'\u2510'
+    elif [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
         PR_SET_CHARSET=""
         PR_SHIFT_IN=""
         PR_SHIFT_OUT=""
