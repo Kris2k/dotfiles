@@ -202,15 +202,9 @@ function! ToggleList(bufname, pfx,num,switchTo)
   endif
 endfunction
 
-"Function that opens a file
-" in split if there is file opened, diffenent that unnamed["No Name"]
-" as only file if there is no other file
+"Function for opening files
 function! NiceOpen(fname)
-    if len(bufname("%")) == 0
-        exec("edit ". strtrans(a:fname))
-    else
-        exec("vsplit ". strtrans(a:fname))
-    endi
+    exec("edit ". strtrans(a:fname))
 endfunction
 
 """"""""""""""""""""""""""""""
