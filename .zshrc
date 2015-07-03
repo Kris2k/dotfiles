@@ -22,24 +22,18 @@ setopt promptsubst
 # unsetopt extendedglob
 # unsetopt nomatch
 
-export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
-local _drop=$(which vim)
-if [ $? -eq 0 ]; then
-    export EDITOR=$(which vim)
-    export VISUAL=$(which vim)
+local _have_US=$(locale -a|grep -i en_US.UTF8)
+if [ $? -eq 0 ] ; then
+    export LC_ALL="en_US.UTF-8"
 fi
-export GOPATH=$HOME/Projects/gocode/
-function activate_go()
-{
-    export GOPATH=$HOME/Projects/gocode/
-    export OLD_PATH=$PATH
-    export PATH=$PATH:$GOPATH/bin
-}
-function deactivate_go()
-{
-    export PATH=$OLD_PATH
-    export OLD_PATH=
-}
+
+export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
+
+local where_vim=$(which vim)
+if [ $? -eq 0 ]; then
+    export EDITOR=${where_vim}
+    export VISUAL=${where_vim}
+fi
 
 export MYSQL_PS1="\u@\h [\d]> "
 export SVN_EDITOR=$EDITOR
@@ -49,10 +43,6 @@ export GIT_AUTHOR_NAME="$(/usr/bin/git config user.name)"
 export GIT_AUTHOR_EMAIL="$(/usr/bin/git config user.email)"
 export GIT_COMMITTER_NAME="${GIT_AUTHOR_NAME}"
 export GIT_COMMITTER_EMAIL="${GIT_AUTHOR_EMAIL}"
-# local current_tty=`tty`
-# if [ "${current_tty[6,8]}" = "pts" ] ; then
-#     export TERM=xterm-256color
-# fi
 
 HISTFILE=$HOME/.history
 HISTSIZE=10000
@@ -196,6 +186,20 @@ bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 bindkey '^[[3~' delete-char
 
+export GOPATH=$HOME/Projects/gocode/
+function activate_go()
+{
+    export GOPATH=$HOME/Projects/gocode/
+    export OLD_PATH=$PATH
+    export PATH=$PATH:$GOPATH/bin
+}
+
+function deactivate_go()
+{
+    export PATH=$OLD_PATH
+    export OLD_PATH=
+}
+
 fancy-ctrl-z () {
     if [[ $#BUFFER -eq 0 ]]; then
         BUFFER="fg"
@@ -280,12 +284,11 @@ function precmd() {
 
 function fancy_prompt () {
     setopt promptsubst
-    ###
-    # See if we can use colors.
 
     if [[ "$terminfo[colors]" -ge 8 ]]; then
         colors
     fi
+
     for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
         eval PR_$color='%{%b$fg[${(L)color}]%}'
         eval PR_LIGHT_$color='%{%B$fg[${(L)color}]%}'
@@ -306,13 +309,16 @@ function fancy_prompt () {
     PR_LLCORNER=${altchar[m]:--}
     PR_LRCORNER=${altchar[j]:--}
     PR_URCORNER=${altchar[k]:--}
-    # FIXME: detect unicode
-    #        choose the aproprieate characters to represent the bar
-    #        either UNICODE bar characters 
-    #        or this simple3 ones
-    #        http://www.fileformat.info/info/unicode/block/box_drawing/list.htm
-    #        BUG - putty and debian will make history broken
-    if [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
+    if [ "${LC_ALL: -5}" = "UTF-8" ] ; then
+        PR_SET_CHARSET=""
+        PR_SHIFT_IN=""
+        PR_SHIFT_OUT=""
+        PR_HBAR=$'\u2500'
+        PR_ULCORNER=$'\u250c'
+        PR_LLCORNER=$'\u2514'
+        PR_LRCORNER=$'\u2514'
+        PR_URCORNER=$'\u2510'
+    elif [ "${PR_SET_CHARSET}" = "%{%}" ] ; then
         PR_SET_CHARSET=""
         PR_SHIFT_IN=""
         PR_SHIFT_OUT=""
