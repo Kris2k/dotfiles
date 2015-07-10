@@ -57,7 +57,7 @@ setopt nosharehistory
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt hist_no_store
-setopt hist_reduce_blanks
+# setopt hist_reduce_blanks
 setopt hist_allow_clobber
 setopt no_hist_beep
 #setopt inc_append_history
