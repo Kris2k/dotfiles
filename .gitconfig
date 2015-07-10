@@ -1,6 +1,6 @@
 [user]
     name  = Krzysztof Kanas
-    email = k2k_chris@o2.pl
+    email = krzysztof.kanas@assaabloy.com
 
 [color]
     diff = auto
@@ -72,3 +72,5 @@
     lineNumber = true
 [gc]
 	auto = 256
+[http]
+	sslcapath = /home/krzkan/.ssh/git-https-certs
