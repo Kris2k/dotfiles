@@ -275,6 +275,7 @@ function fortune_once() {
 }
 
 fortune_once
+unset GIT_SSH
 #echo "The time you enjoy wasting is not wasted time - Bertrand Russell"
 # echo -n "Making one brilliant decision and a whole bunch of mediocre ones isn't as
 # good as making a whole bunch of generally smart decisions throughout the
