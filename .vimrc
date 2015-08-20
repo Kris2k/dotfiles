@@ -1,4 +1,5 @@
 set nocompatible
+set showcmd
 " set binary
 " set noeol
 " set cpoptions+={
