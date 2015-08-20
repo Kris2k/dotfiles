@@ -449,6 +449,11 @@ let g:xptemplate_vars = exists('g:xptemplate_vars') ?
 """""""""""""""""""""""""
 " => airline plugin
 """""""""""""""""""""""""
+" let g:airline_theme='bubblegum'
+" let g:airline_theme='hybrid'
+" let g:airline_theme='kalisi'
+" let g:airline_theme='lucius'
+
 let g:airline_theme='base16'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
