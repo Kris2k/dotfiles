@@ -246,7 +246,12 @@ function simple_prompt() {
 ##########################################
 #             fancy prompt
 ##########################################
-
+# FIXME: on start of the prompt I have variable lenght string like
+#           git branch, error num 
+#           this gives problems when comparing string output
+#           move that info higher line
+#           but this will mean more complicated calculation 
+#           etc
 function precmd() {
     # vsc_info position have impact on rendering the prompt
     vcs_info
