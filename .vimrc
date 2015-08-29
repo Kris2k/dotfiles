@@ -217,7 +217,6 @@ let maplocalleader = "\\"
 
 " FIXME: this hack works for gnu screen problems when invoked make
 nnoremap <leader><leader> :make <cr>
-" nnoremap <leader><leader> :Dispatch<cr>
 nnoremap <silent> <leader>, :let @/=""<cr>
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>ss :cscope reset<cr>
