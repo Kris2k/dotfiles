@@ -239,23 +239,20 @@ nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotf
 " hack for vimrc prototyping just type command and exec it
 nnoremap <silent> <leader>; :exec(getline('.'))<cr>
 " Quick fix list window
-" nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
-function EnqfL()
+function! EnqfL(num)
   let buflist = GetBufferList()
-  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-  if bufwinnr(bufnum) != -1|return|endif
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1 | return | endif
+  endfor
   let winnr = winnr()
-  exec('botright '.a:pfx.'open'.' '.a:num)
-  if winnr() != winnr
-    if a:switchTo == 'yes'
-      wincmd p
-    endif
+  exec('botright copen '.a:num)
+  if winnr() != winnr | wincmd p | endif
 
 endfunction
 
 nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<cr>
-nnoremap <silent> <Leader>j :call TqfL();cnext<cr>
-nnoremap <silent> <Leader>k :call TqfL();cprevious<cr>
+nnoremap <silent> <Leader>j :call EnqfL('5');cnext<cr>
+nnoremap <silent> <Leader>k :call EnqfL('5');cprevious<cr>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
