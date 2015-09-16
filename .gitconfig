@@ -30,6 +30,7 @@
     head = log -1 --format='%H'
     sf = show --name-only
     dif = diff --no-prefix
+    diffs = diff --staged
 
 	rbc = rebase --continue
 	ours = checkout --ours
