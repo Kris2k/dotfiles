@@ -14,6 +14,7 @@ bindkey -r "^L"
 # disable XON/XOFF flow control (^s/^q)
 stty -ixon
 unsetopt beep
+setopt noclobber
 setopt autocd notify
 setopt interactive_comments
 setopt complete_in_word
