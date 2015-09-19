@@ -429,9 +429,9 @@ function use_prompt() {
 
 function swap_prompt() {
     case $(cat ~/.zsh_prompt) in
-        'simple_prompt') echo "fancy_prompt"  > ~/.zsh_prompt ;;
-        'fancy_prompt')  echo "simple_prompt" > ~/.zsh_prompt ;;
-        *) echo "fancy_prompt" > ~/.zsh_prompt ;;
+        'simple_prompt') echo "fancy_prompt"  >! ~/.zsh_prompt ;;
+        'fancy_prompt')  echo "simple_prompt" >! ~/.zsh_prompt ;;
+        *) echo "fancy_prompt" >! ~/.zsh_prompt ;;
     esac
 
     use_prompt
