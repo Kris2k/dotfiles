@@ -686,6 +686,9 @@ nnoremap <silent> tu :GitGutterNextHunk<cr>
 """"""""""""""""""""""""""""""""""""""""""
 " =>  abbreviation to the spelling rescue
 """"""""""""""""""""""""""""""""""""""""""
+iabbrev <expr> dts strftime("%c")
+" debian changelog timestamp
+iabbrev <expr> dch strftime("%a, %d %b %Y %H:%M:%S %z")
 " spelling
 iabbrev prevous previous
 iabbrev prefxi prefix
