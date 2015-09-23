@@ -1,4 +1,7 @@
 set nocompatible
+set showcmd
+set spelllang=en,pl
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%l/%L\ %c\ %p%%
 " set binary
 " set noeol
 " set cpoptions+={
@@ -183,10 +186,10 @@ endfunction
 function! ToggleList(bufname, pfx,num,switchTo)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-  if bufwinnr(bufnum) != -1
-    exec(a:pfx.'close')
-    return
-  endif
+    if bufwinnr(bufnum) != -1
+        exec(a:pfx.'close')
+        return
+    endif
   endfor
   if a:pfx == 'l' && len(getloclist(0)) == 0
     echohl ErrorMsg
@@ -215,7 +218,6 @@ let maplocalleader = "\\"
 
 " FIXME: this hack works for gnu screen problems when invoked make
 nnoremap <leader><leader> :make <cr>
-" nnoremap <leader><leader> :Dispatch<cr>
 nnoremap <silent> <leader>, :let @/=""<cr>
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>ss :cscope reset<cr>
@@ -232,9 +234,26 @@ nnoremap <silent> <leader>eg :call NiceOpen("$HOME/.gitconfig")<cr>
 nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
 nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotfiles/notes-programing.txt")<cr>
 
+
+
+" nnoremap <silent> <leader>8 :set nois;<esc>/<c-r><c-w><cr>
+" hack for vimrc prototyping just type command and exec it
+nnoremap <silent> <leader>; :exec(getline('.'))<cr>
 " Quick fix list window
-" nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
-nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<CR>
+function! EnqfL(num)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1 | return | endif
+  endfor
+  let winnr = winnr()
+  exec('botright copen '.a:num)
+  if winnr() != winnr | wincmd p | endif
+
+endfunction
+
+nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<cr>
+nnoremap <silent> <Leader>j :call EnqfL('5');cnext<cr>
+nnoremap <silent> <Leader>k :call EnqfL('5');cprevious<cr>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
@@ -448,7 +467,12 @@ let g:xptemplate_vars = exists('g:xptemplate_vars') ?
 """""""""""""""""""""""""
 " => airline plugin
 """""""""""""""""""""""""
-let g:airline_theme='powerlineish'
+" let g:airline_theme='bubblegum'
+" let g:airline_theme='hybrid'
+" let g:airline_theme='kalisi'
+" let g:airline_theme='lucius'
+
+let g:airline_theme='base16'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z='%3p%% : %l:%c/%L'

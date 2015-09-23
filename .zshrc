@@ -14,6 +14,7 @@ bindkey -r "^L"
 # disable XON/XOFF flow control (^s/^q)
 stty -ixon
 unsetopt beep
+setopt noclobber
 setopt autocd notify
 setopt interactive_comments
 setopt complete_in_word
@@ -246,7 +247,12 @@ function simple_prompt() {
 ##########################################
 #             fancy prompt
 ##########################################
-
+# FIXME: on start of the prompt I have variable lenght string like
+#           git branch, error num 
+#           this gives problems when comparing string output
+#           move that info higher line
+#           but this will mean more complicated calculation 
+#           etc
 function precmd() {
     # vsc_info position have impact on rendering the prompt
     vcs_info
@@ -423,9 +429,9 @@ function use_prompt() {
 
 function swap_prompt() {
     case $(cat ~/.zsh_prompt) in
-        'simple_prompt') echo "fancy_prompt"  > ~/.zsh_prompt ;;
-        'fancy_prompt')  echo "simple_prompt" > ~/.zsh_prompt ;;
-        *) echo "fancy_prompt" > ~/.zsh_prompt ;;
+        'simple_prompt') echo "fancy_prompt"  >! ~/.zsh_prompt ;;
+        'fancy_prompt')  echo "simple_prompt" >! ~/.zsh_prompt ;;
+        *) echo "fancy_prompt" >! ~/.zsh_prompt ;;
     esac
 
     use_prompt
