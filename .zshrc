@@ -456,7 +456,9 @@ zstyle ':vcs_info:*' actionformats ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F
 zstyle ':vcs_info:*' formats       ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
-PROMPT='%{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[green]%}@\
+# FIXME: shortcut the dir if to long
+PROMPT='\
+%{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[green]%}@\
 %{$fg[blue]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
 %{$reset_color%}%{$fg[cyan]%}%~:%{$reset_color%}${vcs_info_msg_0_}
 %{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#-> '
