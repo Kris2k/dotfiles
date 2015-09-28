@@ -253,7 +253,7 @@ function simple_prompt() {
 #           move that info higher line
 #           but this will mean more complicated calculation 
 #           etc
-function precmd() {
+function fancy_precmd() {
     # vsc_info position have impact on rendering the prompt
     vcs_info
     local TERMWIDTH
@@ -287,9 +287,10 @@ function precmd() {
 
 }
 
-
 function fancy_prompt () {
     setopt promptsubst
+    autoload -U add-zsh-hook
+    add-zsh-hook precmd fancy_precmd
 
     if [[ "$terminfo[colors]" -ge 8 ]]; then
         colors
@@ -437,7 +438,30 @@ function swap_prompt() {
     use_prompt
 }
 
-use_prompt
+# use_prompt
+
+
+function precmd() {
+    vcs_info
+}
+
+set promptsubst
+[[ "$terminfo[colors]" -ge 8 ]]; colors
+
+# MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
+local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
+
+# zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f'
+zstyle ':vcs_info:*' formats       ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+PROMPT='%{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[green]%}@\
+%{$fg[blue]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
+%{$reset_color%}%{$fg[cyan]%}%~:%{$reset_color%}${vcs_info_msg_0_}
+%{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#-> '
+local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
+RPROMPT='${return_status}%{$reset_color%}'
 
 function fortune_once() {
     local fortune_cmd=$(which fortune > /dev/null 2>&1)
