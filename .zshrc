@@ -104,7 +104,7 @@ zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~
 #                aliases
 ##########################################
 SYSTEM=$(uname -s)
-if [ "$SYSTEM" = "Linux" || "$SYSTEM" = "Cygwin" ]; then
+if [ "$SYSTEM" = "Linux" -o "$SYSTEM" = "Cygwin" ]; then
     if [[ -x $(which dircolors) && -r ~/.dircolors ]] ;then
         eval "$(dircolors -b ~/.dircolors)"
     else
@@ -455,7 +455,6 @@ function precmd() {
     fi
     PS1_LEN=$(( $PS1_LEN - ${#${(%):-%n@%m .%*. :  }} ))
     PS1_LEN=$(( $PS1_LEN - ${#vcs_info_msg_1_} ))
-
 }
 
 set promptsubst
