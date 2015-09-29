@@ -447,7 +447,7 @@ function precmd() {
 
 set promptsubst
 [[ "$terminfo[colors]" -ge 8 ]]; colors
-
+# ls on this prompt is white
 # MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
 local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
 
