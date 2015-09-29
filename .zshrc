@@ -104,7 +104,7 @@ zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~
 #                aliases
 ##########################################
 SYSTEM=$(uname -s)
-if [ "$SYSTEM" = "Linux" ]; then
+if [ "$SYSTEM" = "Linux" || "$SYSTEM" = "Cygwin" ]; then
     if [[ -x $(which dircolors) && -r ~/.dircolors ]] ;then
         eval "$(dircolors -b ~/.dircolors)"
     else
