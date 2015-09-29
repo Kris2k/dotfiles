@@ -14,6 +14,11 @@ call pathogen#infect()
 " add xpt templates personal folder to runtimepath
 " let &runtimepath .=',~/.vim/personal'
 
+let hostfile = $HOME . '/.vim/.vimrc-' . substitute(hostname(), "\\..*", "", "")
+if filereadable(hostfile)
+  exe 'source ' . hostfile
+endif
+
 """"""""""""""""""""""""""""""
 " => nfs go code plugin bulshit
 """""""""""""""""""""""""""""""
