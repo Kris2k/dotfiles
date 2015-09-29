@@ -441,26 +441,32 @@ function swap_prompt() {
 # use_prompt
 
 
+# zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f' '(%s)-[%b|%a]'
+zstyle ':vcs_info:*' formats       ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f ' '(%s)-[%b]'
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
 function precmd() {
     vcs_info
+    PS1_LEN=$(( ${COLUMNS} - 1 ))
+    if (($+VIRTUAL_ENV)) ; then
+        virtual=$(basename $VIRTUAL_ENV);
+        PS1_LEN=$(( $PS1_LEN - ${#virtual}))
+    fi
+    PS1_LEN=$(( $PS1_LEN - ${#${(%):-%n@%m .%*. :  }} ))
+    PS1_LEN=$(( $PS1_LEN - ${#vcs_info_msg_1_} ))
+
 }
 
 set promptsubst
 [[ "$terminfo[colors]" -ge 8 ]]; colors
 
-# MODE_INDICATOR="%{$fg_bold[red]%}❮%{$reset_color%}%{$fg[red]%}❮❮%{$reset_color%}"
 local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
 
-# zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' actionformats ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f'
-zstyle ':vcs_info:*' formats       ' %F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-
-# FIXME: shortcut the dir if to long
 PROMPT='\
-%{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[green]%}@\
-%{$fg[blue]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
-%{$reset_color%}%{$fg[cyan]%}%~:%{$reset_color%}${vcs_info_msg_0_}
+%{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[magenta]%}@\
+%{$fg[cyan]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
+%{$reset_color%}%{$fg[cyan]%}%$PS1_LEN<...<%~%<< :%{$reset_color%}${vcs_info_msg_0_}
 %{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#-> '
 local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
 RPROMPT='${return_status}%{$reset_color%}'
