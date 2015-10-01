@@ -297,8 +297,7 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" Common typos and Minibuffer Explorer hack
-command! W :w
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! Wq wqall
 command! WQ wqall
 command! Q qall
