@@ -361,24 +361,6 @@ vnoremap rp "0p
 " -I ignore binary files -Hn is for printing file name and line number
 set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
 
-""""""""""""""""""""""""""""""
-" => Custom Commands
-"""""""""""""""""""""""""""""""
-" Strip end of lines  can be done autocomand
-function! <SID>StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-command! Strip call <SID>StripTrailingWhitespace()
-
 """""""""""""""""""""""""
 " => ctrl-p plugin
 """""""""""""""""""""""""
@@ -649,6 +631,17 @@ if has("autocmd")
     autocmd FileType * setlocal formatoptions-=tcro
   augroup END
 
+function! StripWhitespace()
+  let _s=@/
+  let cur_pos = getcurpos()
+  s/\s\+$//e
+  let @/=_s
+  call setpos('.', cur_pos)
+endfunction
+  augroup text-fixes
+    autocmd!
+    autocmd InsertLeave  * call StripWhitespace()
+  augroup END
   augroup cpp
     autocmd!
     autocmd BufEnter  *.cpp,*.c,*.h,*.hpp	set completeopt-=preview
