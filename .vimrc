@@ -1,5 +1,7 @@
 set nocompatible
 set showcmd
+set spelllang=en,pl
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%l/%L\ %c\ %p%%
 " set binary
 " set noeol
 " set cpoptions+={
@@ -11,6 +13,11 @@ source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 " add xpt templates personal folder to runtimepath
 " let &runtimepath .=',~/.vim/personal'
+
+let hostfile = $HOME . '/.vim/.vimrc-' . substitute(hostname(), "\\..*", "", "")
+if filereadable(hostfile)
+  exe 'source ' . hostfile
+endif
 
 """"""""""""""""""""""""""""""
 " => nfs go code plugin bulshit
@@ -184,10 +191,10 @@ endfunction
 function! ToggleList(bufname, pfx,num,switchTo)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-  if bufwinnr(bufnum) != -1
-    exec(a:pfx.'close')
-    return
-  endif
+    if bufwinnr(bufnum) != -1
+        exec(a:pfx.'close')
+        return
+    endif
   endfor
   if a:pfx == 'l' && len(getloclist(0)) == 0
     echohl ErrorMsg
@@ -216,7 +223,6 @@ let maplocalleader = "\\"
 
 " FIXME: this hack works for gnu screen problems when invoked make
 nnoremap <leader><leader> :make <cr>
-" nnoremap <leader><leader> :Dispatch<cr>
 nnoremap <silent> <leader>, :let @/=""<cr>
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>ss :cscope reset<cr>
@@ -233,9 +239,26 @@ nnoremap <silent> <leader>eg :call NiceOpen("$HOME/.gitconfig")<cr>
 nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
 nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotfiles/notes-programing.txt")<cr>
 
+
+
+" nnoremap <silent> <leader>8 :set nois;<esc>/<c-r><c-w><cr>
+" hack for vimrc prototyping just type command and exec it
+nnoremap <silent> <leader>; :exec(getline('.'))<cr>
 " Quick fix list window
-" nmap <silent> <leader>l :call ToggleList("Location List", 'l','5','no')<CR>
-nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<CR>
+function! EnqfL(num)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1 | return | endif
+  endfor
+  let winnr = winnr()
+  exec('botright copen '.a:num)
+  if winnr() != winnr | wincmd p | endif
+
+endfunction
+
+nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<cr>
+nnoremap <silent> <Leader>j :call EnqfL('5');cnext<cr>
+nnoremap <silent> <Leader>k :call EnqfL('5');cprevious<cr>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
@@ -274,8 +297,7 @@ vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
 
-" Common typos and Minibuffer Explorer hack
-command! W :w
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 command! Wq wqall
 command! WQ wqall
 command! Q qall
@@ -338,24 +360,6 @@ vnoremap rp "0p
 """""""""""""""""""""""""""""""
 " -I ignore binary files -Hn is for printing file name and line number
 set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
-
-""""""""""""""""""""""""""""""
-" => Custom Commands
-"""""""""""""""""""""""""""""""
-" Strip end of lines  can be done autocomand
-function! <SID>StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-command! Strip call <SID>StripTrailingWhitespace()
 
 """""""""""""""""""""""""
 " => ctrl-p plugin
@@ -627,6 +631,17 @@ if has("autocmd")
     autocmd FileType * setlocal formatoptions-=tcro
   augroup END
 
+function! StripWhitespace()
+  let _s=@/
+  let cur_pos = getcurpos()
+  s/\s\+$//e
+  let @/=_s
+  call setpos('.', cur_pos)
+endfunction
+  augroup text-fixes
+    autocmd!
+    autocmd InsertLeave  * call StripWhitespace()
+  augroup END
   augroup cpp
     autocmd!
     autocmd BufEnter  *.cpp,*.c,*.h,*.hpp	set completeopt-=preview
@@ -668,6 +683,9 @@ nnoremap <silent> tu :GitGutterNextHunk<cr>
 """"""""""""""""""""""""""""""""""""""""""
 " =>  abbreviation to the spelling rescue
 """"""""""""""""""""""""""""""""""""""""""
+iabbrev <expr> dts strftime("%c")
+" debian changelog timestamp
+iabbrev <expr> dch strftime("%a, %d %b %Y %H:%M:%S %z")
 " spelling
 iabbrev prevous previous
 iabbrev prefxi prefix
