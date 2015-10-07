@@ -632,8 +632,8 @@ if has("autocmd")
   augroup END
 
 function! StripWhitespace()
+  let cur_pos = getpos('.')
   let _s=@/
-  let cur_pos = getcurpos()
   s/\s\+$//e
   let @/=_s
   call setpos('.', cur_pos)
