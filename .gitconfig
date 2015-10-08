@@ -50,10 +50,24 @@
 
 [diff]
     tool   = kdiff3
+[difftool]
+    prompt = false
 
 [merge]
     tool   = kdiff3
     ff = false
+[mergetool]
+    prompt = false
+
+[difftool "kdiff3"]
+    trustExitCode = false
+    keepBackup = false
+    cmd = ~/dotfiles/scripts/kdiff3-launcher.sh  "$LOCAL" "$REMOTE"
+
+[mergetool "kdiff3"]
+    trustExitCode = false
+    keepBackup = false
+    cmd = ~/dotfiles/scripts/kdiff3-launcher.sh  "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
 
 [rerere]
     enabled = true
