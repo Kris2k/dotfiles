@@ -10,4 +10,5 @@ case $os in
         ;;
     *)
         echo "Error $0 don't handle the os: $os"
+        ;;
 esac
