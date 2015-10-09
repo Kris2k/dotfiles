@@ -24,38 +24,45 @@
 [alias]
     ci = commit
     co = checkout
-    adp = add -p
     br = branch
     st = status
-    head = log -1 --format='%H'
-    sf = show --name-only
+
     dif = diff --no-prefix
+    adp = add -p
+    sf = show --name-only
+    head = log -1 --format='%H'
     diffs = diff --staged
+
+    l = log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status --date=relative
+
+    lm = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  origin/master~1..HEAD
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  svn/trunk~1..HEAD
 
 	rbc = rebase --continue
 	ours = checkout --ours
 	theirs = checkout --theirs
 
-    l = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    l2 = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -20
-    lg = log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status --date=relative -20
-
-    lm = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  origin/master~1..HEAD
-    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative  svn/trunk~1..HEAD
-
-[difftool]
-    prompt = false
-
-[mergetool]
-    prompt = false
-
 [diff]
     tool   = kdiff3
+[difftool]
+    prompt = false
 
 [merge]
     tool   = kdiff3
     ff = false
+[mergetool]
+    prompt = false
+
+[difftool "kdiff3"]
+    trustExitCode = false
+    keepBackup = false
+    cmd = ~/dotfiles/scripts/kdiff3-launcher.sh  "$LOCAL" "$REMOTE"
+
+[mergetool "kdiff3"]
+    trustExitCode = false
+    keepBackup = false
+    cmd = ~/dotfiles/scripts/kdiff3-launcher.sh  "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
 
 [rerere]
     enabled = true
