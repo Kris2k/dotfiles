@@ -155,7 +155,7 @@ alias cdt='cd /home/chris/Projects/tmux-case-insensitive/sourceforge-tmux'
 
 alias cdc="cd /cygdrive/c/cliq/mobilePdBle/"
 alias cda="cd /cygdrive/c/aperio_platform/"
-alias cdm="cd /cygdrive/c/mbs/"
+alias cdm="cd /cygdrive/c/mbsSdk/"
 alias cdgm="cd ~/Projects/mbs-git/"
 alias cdd="cd ~/dotfiles/"
 alias vp="source ~/Projects/tools/virtual-ride/vp-ride.sh"
