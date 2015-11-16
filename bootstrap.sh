@@ -1,15 +1,18 @@
 #!/bin/sh
 set -e
 
+function finish() {
+	if [ -f ~/.ssh/config.bak ] ;then
+		mv ~/.ssh/config.bak  ~/.ssh/config
+	fi
+}
+trap finish EXIT
+
 SRC_DIR=$(pwd)
-DST_DIR=$HOME
-SRC_CONFIG=${SRC_DIR}/ssh
-SSH_DIR=${DST_DIR}/.ssh
 SSH_BACKUP=${DST_DIR}/.ssh/backup/$(date +'%Y-%m-%d_%H:%M:%S')
 DOTFILES_DIR=${DST_DIR}/dotfiles
 
-assert_file()
-{
+assert_file() {
     file=$1
     if [ ! -f $file ]; then
         echo "couldn't find file: $file"
@@ -17,62 +20,48 @@ assert_file()
     fi
 }
 
-assert_file ${SRC_CONFIG}/config
-assert_file ${SRC_CONFIG}/github
-assert_file ${SRC_CONFIG}/github.pub
+KEY=
+if [ ~/.ssh/id_rsa -a  "$1" = "" ]; then 
+	KEY=~/.ssh/id_rsa
+fi
+if [ ! $# -gt 0 ] ; then 
+	echo "There needs to be github key"
+	exit 2
+fi
+assert_file $1
+KEY="$1"
+
+if [ -f ~/.ssh/config ]; then
+	mv ~/.ssh/config ~/.ssh/config.bak
+fi
+
+if [ ! -d .ssh ] ; then
+    mkdir .ssh
+    chmod 700 .ssh
+fi
+
+cat << EOF > ~/.ssh/config
+Host github.com
+	user git
+	IdentityFile $KEY
+EOF
+
+
+set +e
+ssh git@github.com
+if [ $? -ne 1 ] ; then
+	echo "Github connection must work"
+	exit 3
+fi
+set -e
 
 if [ ! -d ${DOTFILES_DIR} ] ; then
     mkdir -p ${DOTFILES_DIR}
 fi
 
-if [ ! -d ${SSH_DIR} ] ; then
-    mkdir ${SSH_DIR}
-    chmod 700 ${SSH_DIR}
-fi
-
-copy_file()
-{
-    src=$1
-    dst=$2
-    if [ -e ${src} ]; then
-        set +e
-        are_different=$(diff -q ${src} ${dst})
-        set -e
-        if [ ! -z "${are_different}" ]; then
-            echo "Backing up file ${src} to ${SSH_BACKUP}"
-            mkdir -p ${SSH_BACKUP}
-            mv ${dst} ${SSH_BACKUP}
-            cp ${src} ${dst}
-        else
-            echo "src: ${src} and dst: ${dst} don't differ"
-        fi
-    fi
-}
-
-if [ -d ${SSH_DIR} ]; then
-    if [ -f ${SSH_DIR}/config ]; then
-	set +e
-        is_configured=$(grep -e 'host.*github\.com' ${SSH_DIR}/config)
-	set -e
-        if [ -z "${is_configured}" ]; then
-            cat ${SRC_CONFIG}/config >> ${SSH_DIR}/config
-        fi
-    else
-        cp ${SRC_CONFIG}/config ${SSH_DIR}/config
-    fi
-    copy_file ${SRC_CONFIG}/github ${SSH_DIR}/github
-    copy_file ${SRC_CONFIG}/github.pub ${SSH_DIR}/github.pub
-fi
-
 cd ${DOTFILES_DIR}
 if [ ! -d .git ] ; then
-    git clone git@github.com:Kris2k/dotfiles .
+	git clone --recurse-submodules git@github.com:Kris2k/dotfiles .
 fi
 
-git submodule init
-git submodule update
 ./install.sh
-# need to handle private stuff like
-# .ssh
-# keys should be protected by password so
-# if thye are intercepted they are usles
