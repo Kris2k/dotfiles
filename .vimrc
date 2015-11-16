@@ -267,8 +267,8 @@ function! EnqfL(num)
 endfunction
 
 nnoremap <silent> <leader>q :call ToggleList("Quickfix List", 'c','20','no')<CR>
-nnoremap <silent> <Leader>j :call EnqfL('5');cnext<cr>
-nnoremap <silent> <Leader>k :call EnqfL('5');cprevious<cr>
+nnoremap <silent> <Leader>j :call EnqfL('5')<cr>:cnext<cr>
+nnoremap <silent> <Leader>k :call EnqfL('5')<cr>:cprevious<cr>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
