@@ -256,9 +256,9 @@ function! EnqfL(num)
 
 endfunction
 
-nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c','5','no')<cr>
-nnoremap <silent> <Leader>j :call EnqfL('5');cnext<cr>
-nnoremap <silent> <Leader>k :call EnqfL('5');cprevious<cr>
+nnoremap <silent> <leader>q :call ToggleList("Quickfix List", 'c','20','no')<CR>
+nnoremap <silent> <Leader>j :call EnqfL('5')<cr>:cnext<cr>
+nnoremap <silent> <Leader>k :call EnqfL('5')<cr>:cprevious<cr>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
@@ -335,11 +335,16 @@ function! NumberInv()
   else | set relativenumber | return | endif
 endfunction
 
+function! ColorColumn()
+  if ! &colorcolumn| set colorcolumn=78
+  else | set colorcolumn=0 | endif
+endfunction
 noremap <silent> <F2> :set ignorecase! noignorecase?<CR>
 noremap <silent> <F3> :GitGutterToggle<CR>
 noremap <silent> <F4> :call NumberInv()<CR>
-noremap <silent> <F5> :setlocal spell! spell?<CR>
-noremap <silent> <F6> :silent set nocursorline! cursorline?<CR>
+noremap <silent> <F5> :call ColorColumn()<cr>
+noremap <silent> <F6> :setlocal spell! spell?<CR>
+" noremap <silent> <F6> :silent set nocursorline! cursorline?<CR>
 " copy by F7
 vnoremap <silent> <F7> "+ygv"zy`>
 cnoremap <C-V> <C-R>+
@@ -598,6 +603,7 @@ if has("autocmd")
     autocmd!
     autocmd BufReadPost quickfix  setlocal nornu number
     autocmd BufReadPost quickfix set modifiable
+    autocmd Syntax quickfix wincmd p
   augroup END
 
   augroup Build
