@@ -6,6 +6,8 @@ if [ ! -d ~/dotfiles ]; then
     exit 1
 fi
 
+trap "cd ${PWD}" EXIT
+
 BACKUP_DIR=$HOME/dotfiles/backup/$(date +'%Y-%m-%d_%H:%M:%S')
 SRC_DIR=${PWD}
 DST_DIR=${HOME}
