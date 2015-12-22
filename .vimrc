@@ -339,11 +339,27 @@ function! ColorColumn()
   if ! &colorcolumn| set colorcolumn=78
   else | set colorcolumn=0 | endif
 endfunction
+
+let g:markState = 1
+function! ToggleMarkSearch()
+  if g:markState
+    nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+    nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+    let g:markState = 1
+  else
+    unmap <Plug>IgnoreMarkSearchNext
+    unmap <Plug>IgnoreMarkSearchPrev
+    let g:markState = 0
+  endif
+endfunction
+
 noremap <silent> <F2> :set ignorecase! noignorecase?<CR>
 noremap <silent> <F3> :GitGutterToggle<CR>
 noremap <silent> <F4> :call NumberInv()<CR>
 noremap <silent> <F5> :call ColorColumn()<cr>
 noremap <silent> <F6> :setlocal spell! spell?<CR>
+
+noremap <silent> <F8> :call ToggleMarkSearch()<cr>
 " noremap <silent> <F6> :silent set nocursorline! cursorline?<CR>
 " copy by F7
 vnoremap <silent> <F7> "+ygv"zy`>
