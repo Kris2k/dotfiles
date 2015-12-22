@@ -19,7 +19,7 @@
 	fscache = true
 
 [branch]
-	autosetuprebase = always
+	autoSetupRebase = always
 
 [alias]
     ci = commit
