@@ -26,12 +26,13 @@
     co = checkout
     br = branch
     st = status
+    df = diff --no-prefix
+    dfs = diff --staged
 
-    dif = diff --no-prefix
+
     adp = add -p
     sf = show --name-only
     head = log -1 --format='%H'
-    diffs = diff --staged
 
     l = log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-status --date=relative
