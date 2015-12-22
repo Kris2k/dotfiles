@@ -42,6 +42,7 @@
 	rbc = rebase --continue
 	ours = checkout --ours
 	theirs = checkout --theirs
+	workprofile = config user.email \"krzysztof.kanas@assaabloy.com\"
 
 [diff]
     tool   = kdiff3
