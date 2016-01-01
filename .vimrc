@@ -57,6 +57,7 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 set title
+set titleold=
 syntax enable
 filetype plugin indent on
 
