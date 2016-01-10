@@ -1,7 +1,7 @@
 set nocompatible
 set showcmd
 set spelllang=en,pl
-" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%l/%L\ %c\ %p%%
+set statusline=%1*%t%0*[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%y%r%m%=%l/%L\ %c\ %p%%
 " set binary
 " set noeol
 " set cpoptions+={
