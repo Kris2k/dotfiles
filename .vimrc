@@ -123,6 +123,10 @@ inoremap JK <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
 
+" make search go only forward
+nnoremap <expr> n  'Nn'[v:searchforward]
+nnoremap <expr> N  'nN'[v:searchforward]
+
 " Wrapped lines goes down/up to next row, rather than next line in file.
 "nnoremap j gj
 "nnoremap k gk
