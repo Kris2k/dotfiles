@@ -474,7 +474,7 @@ let g:xptemplate_brace_complete           = ''
 "let g:xptemplate_minimal_prefix = 'full'
 let g:xptemplate_vars                     = "BRloop=\n" . "&" . "SParg="
 let g:xptemplate_contact_info             =
-  \ "author=Krzysztof (Chris) Kanas" . "&" .
+  \ "author=Krzysztof Kanas" . "&" .
   \ "email=krzysztof.kanas@__at__@gmail.com" . "&" .
   \ "kelvatek_author=Krzysztof (Chris) Kanas" . "&" .
   \ "kelvatek_email=k.kanas@__at__@kelvatek.com&..."
