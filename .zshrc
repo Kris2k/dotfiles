@@ -255,7 +255,7 @@ PROMPT='\
 %{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[magenta]%}@\
 %{$fg[cyan]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
 %{$reset_color%}%{$fg[cyan]%}%$PS1_LEN<...<%~%<< :%{$reset_color%}${vcs_info_msg_0_}
-%{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#-> '
+%{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#->%{$reset_color%} '
 local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
 RPROMPT='${return_status}%{$reset_color%}'
 
