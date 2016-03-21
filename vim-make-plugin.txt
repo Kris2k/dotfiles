@@ -1,0 +1,29 @@
+This plugin will:
+    - re/read make targers from file
+    - use default make targer (firs one if not specify)
+    - provide menu to changin maketarget
+    - adding line to this menu will add make target
+
+Menu:
+1. consist of lines
+2. lines are read from file
+
+3. cursor can be used by waling on the line
+    - cursor line can be show using echohl
+    - cursor movement is done using s:Keyloop
+
+        see: .vim/bundle/ctrlp.vim/autoload/ctrlp.vim:895
+            while
+            redraw,
+            char = getchr()
+            check for allowed keys then 
+                exec norm . char
+
+4. editing is possible by adding new line
+    no remaps
+
+5. pressing enter on the lime will
+    -set make target
+        execute make target
+
+
