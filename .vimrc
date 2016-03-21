@@ -275,8 +275,14 @@ nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr
 
 
 nmap <leader>f :CtrlP<CR><C-\>w
+function ClearMappings() 
+  let @/=""
+  :MarkClear
+  :diffupdate
+  :syntax sync fromstart
+endfunction
+nnoremap <leader>l :call ClearMappings()<cr>
 
-nnoremap <leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 " vmap <leader>lf y:CtrlP<CR><C-\>c
 nnoremap <leader>a :pyf $HOME/.vim/python/clang-format.py<CR>
 nnoremap <leader>af :.,$pyf $HOME/.vim/python/clang-format.py<CR>
