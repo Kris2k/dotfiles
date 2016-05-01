@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 PWD=$(pwd)
 if [ ! -d ~/dotfiles ]; then
@@ -37,4 +37,5 @@ filesToCopy=$(find . -maxdepth 1 -name '.*' -not -name .gitignore -not -name .gi
 for f in ${filesToCopy} ; do
     src="${SRC_DIR}/${f}"
     tgt="${DST_DIR}/${f}"
+    do_install ${src} ${tgt}
 done
