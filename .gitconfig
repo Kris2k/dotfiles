@@ -22,6 +22,7 @@
 	autoSetupRebase = always
 
 [alias]
+    who = !printf \"user.name=$(git config user.name)\nuser.email=$(git config user.email)\n\"
     ci = commit
     co = checkout
     br = branch
