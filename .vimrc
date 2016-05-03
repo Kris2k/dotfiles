@@ -275,7 +275,7 @@ nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr
 
 
 nmap <leader>f :CtrlP<CR><C-\>w
-function ClearMappings() 
+function! ClearMappings()
   let @/=""
   :MarkClear
   :diffupdate
