@@ -575,7 +575,7 @@ function! SetMakePrg()
     return 0
   endif
   if  bufname("%") =~ ".*\.cpp"
-    setlocal makeprg=g++\ -g\ -Wall\ -std=c++0x\ %
+    setlocal makeprg=g++\ -g\ -Wall\ -std=c++11\ %
     return 0
   endif
   return 1
