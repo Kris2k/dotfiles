@@ -114,7 +114,7 @@ if [[ "$SYSTEM" = "LINUX" || "$SYSTEM" =~ "CYGWIN.*" ]]; then
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 fi
-if [ "$SYSTEM" = "DragonFly" ]; then
+if [ "$SYSTEM" = "DRAGONFLY" ]; then
     alias ls='ls -G'
 fi
 
