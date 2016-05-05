@@ -169,6 +169,24 @@ alias sdh='svn status|grep ^[?]'
 alias sdm="svn status -q"
 alias sd="svn diff --diff-cmd kdiff3 -x ' -qall '"
 
+function sshagent() {
+    local ssh_agent_auth=~/.ssh/ssh_agent_auth
+    local ssh_agent_pid=$(ps -ef|grep ssh-agent|awk '{print $2}')
+    if [ -z ${ssh_agent_pid} ]; then
+        ssh-agent >| ${ssh_agent_auth}
+    fi
+    ssh_agent_pid=$(ps -ef|grep ssh-agent|awk '{print $2}')
+    source ${ssh_agent_auth}
+    if [ ${ssh_agent_pid} -ne ${SSH_AGENT_PID} ]; then
+        echo "Error spawing agent, pid ${SSH_AGENT_PID} is not equal to running agent ${ssh_agent_pid}"
+    fi
+
+    echo "Agent PID=${SSH_AGENT_PID}\nAgent Keys"
+    ssh-add ~/.ssh/assaabloy_rsa
+    ssh-add -l
+    echo ""
+}
+
 ##########################################
 #             key-bindings
 ##########################################
