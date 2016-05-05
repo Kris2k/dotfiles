@@ -43,6 +43,7 @@
 	rbc = rebase --continue
 	ours = checkout --ours
 	theirs = checkout --theirs
+    personalprofile = config user.email  \"k2k_chris@o2.pl\"
 	workprofile = config user.email \"krzysztof.kanas@assaabloy.com\"
 
 [diff]
