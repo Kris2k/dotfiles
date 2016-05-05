@@ -43,8 +43,9 @@
 	rbc = rebase --continue
 	ours = checkout --ours
 	theirs = checkout --theirs
-    personalprofile = config user.email  \"k2k_chris@o2.pl\"
-	workprofile = config user.email \"krzysztof.kanas@assaabloy.com\"
+    who = !echo "user.name=$(git config user.name)" && echo "user.email=$(git config user.email)"
+    me = !git config user.email "k2k_chris@o2.pl" && git config user.name 'Krzysztof(Chris) Kanas'
+    krzkan = !git config user.email "krzysztof.kanas@assaabloy.com" && git config user.name 'Krzysztof Kanas'
 
 [diff]
     tool   = kdiff3
