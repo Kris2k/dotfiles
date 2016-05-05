@@ -41,6 +41,7 @@
     ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an, %aE>%Creset' --abbrev-commit --date=relative  svn/trunk~1..HEAD
 
 	rbc = rebase --continue
+	rebc = rebase --continue
 	ours = checkout --ours
 	theirs = checkout --theirs
     who = !echo "user.name=$(git config user.name)" && echo "user.email=$(git config user.email)"
