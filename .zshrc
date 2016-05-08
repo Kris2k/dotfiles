@@ -117,6 +117,7 @@ fi
 if [ "$SYSTEM" = "DRAGONFLY" ]; then
     export LSCOLORS='ExGxFxdxCxDxDxabadaeac'
     alias ls='ls -G'
+    alias ctags='/usr/local/bin/exctags'
 fi
 
 alias ddate='date +"%T %d-%m-%y"'
@@ -144,7 +145,8 @@ alias tmux="tmux -2"
 alias xterm='xterm -bg black -fg white'
 alias pop=popd
 alias pup=pushd
-alias cstags="find . -not -path './tools/*' -not -path './contrib*' -not -path './build/.conf*/*' -regex  '.*\.\(c\|cc\|cpp\|h\|hpp\)$'  -print >! cscope.files && cscope -bq && ctags --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase -L cscope.files"
+alias cstags="find . -not -path './tools/*' -not -path './contrib*' -not -path './build/.conf*/*'  -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.h' -print >! cscope.files && cscope -bq && ctags --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase -L cscope.files"
+
 alias cstagsclear="rm -v cscope.* tags"
 
 alias cdn='cd ~/Projects/utils/git-dotfiles/'
