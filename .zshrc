@@ -140,7 +140,7 @@ alias tmux="tmux -2"
 alias xterm='xterm -bg black -fg white'
 alias pop=popd
 alias pup=pushd
-alias cstags="find . \( -not -path './tools/*' -a -not -path './contrib*' -a -not -path './build/.conf*/*'  -a \(  -name '*.c' -      o -name '*.cc' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.h' \) \) -print >! cscope.files && cscope -bq && ctags --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase -L cscope.files"
+alias cstags="find . \( -not -path './tools/*' -a -not -path './contrib*' -a -not -path './build/.conf*/*'  -a \(  -name '*.c' -o -name '*.cc' -o -name '*.cpp' -o -name '*.hpp' -o -name '*.h' \) \) -print >! cscope.files && cscope -bq && ctags --c++-kinds=+p --fields=+iaS --extra=+q --sort=foldcase -L cscope.files"
 
 alias cstagsclear="rm -v cscope.* tags"
 
