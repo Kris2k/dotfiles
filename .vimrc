@@ -233,6 +233,7 @@ endfunction
 " This will show space in showcmd window on the bottom but printed as '_'
 let mapleader='_'
 map <Space> <leader>
+map <Space><Space> <leader><leader>
 let maplocalleader = "\\"
 
 " FIXME: this hack works for gnu screen problems when invoked make
