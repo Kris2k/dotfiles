@@ -1,3 +1,6 @@
+[user]
+    email = '(none)'
+    name = '(none)'
 [color]
     diff = auto
     status = auto
