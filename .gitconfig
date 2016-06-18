@@ -21,6 +21,7 @@
 	autoSetupRebase = always
 
 [alias]
+    r  = reset
     ci = commit
     co = checkout
     br = branch
@@ -51,8 +52,8 @@
 	rbc = rebase --continue
     rbi = rebase --interactive
     rba = rebase --abort
-	ours = checkout --ours
-	theirs = checkout --theirs
+	ours = "!f() { git checkout --ours $@ && git add $@; } f"
+	theirs = "!f() { git checkout --theirs $@ && git add $@; } f"
     who = !printf \"user.name=$(git config user.name)\nuser.email=$(git config user.email)\n\"
     me = !git config user.email "k2k_chris@o2.pl" && git config user.name 'Krzysztof(Chris) Kanas'
     krzkan = !git config user.email "krzysztof.kanas@assaabloy.com" && git config user.name 'Krzysztof Kanas'
