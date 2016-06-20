@@ -12,7 +12,8 @@ bindkey -e
 bindkey -r "^L"
 
 # disable XON/XOFF flow control (^s/^q)
-stty -ixon
+stty stop ''
+stty susp ''
 unsetopt beep
 setopt noclobber
 setopt autocd notify
