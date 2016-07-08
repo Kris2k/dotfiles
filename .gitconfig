@@ -22,10 +22,13 @@
 
 [alias]
     r  = reset
+    s  = status --short
+    ss = status
+    st = status
+    sh = show
     ci = commit
     co = checkout
     br = branch
-    st = status
     df = diff --no-prefix
     dfs = diff --no-prefix --staged
 
