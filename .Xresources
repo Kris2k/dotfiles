@@ -1,0 +1,31 @@
+! 
+! Note to make use of changes in this file, you have to xrdb ~/.Xresources
+! :noremap <leader><leader> :!xrdb ~/.Xresources<cr>
+xterm*termName: xterm-256color
+Xterm*saveLines: 4096
+
+XTerm*locale: true
+XTerm*altIsNotMeta: false
+XTerm*metaSendsEscape: true
+
+XTerm*multiClickTime: 250
+
+XTerm*scrollBar: false
+XTerm*scrollKey: true
+
+XTerm*faceSize: medium
+
+XTerm*background: black
+XTerm*foreground: white
+
+XTerm*pointerColor: red
+XTerm*pointerColorBackground: black
+XTerm*cursorColor: green
+XTerm*internalBorder: 3
+
+! XTerm*font: -*-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
+XTerm*vt100.translations: #override \n\
+     Shift <Key>Home: scroll-back(4096) \n\
+     Shift <Key>End: scroll-forw(4096) \n\
+     Shift <Key>Down: scroll-forw(1, lines) \n\
+     Shift <Key>Up: scroll-back(1, lines)
