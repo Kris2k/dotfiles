@@ -643,7 +643,7 @@ if has("autocmd")
   augroup quickfix
     autocmd!
     autocmd BufReadPost quickfix  setlocal nornu number
-    autocmd BufReadPost quickfix set modifiable
+    " autocmd BufReadPost quickfix set modifiable
     autocmd Syntax quickfix wincmd p
   augroup END
 
