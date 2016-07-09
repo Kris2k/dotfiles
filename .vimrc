@@ -252,7 +252,7 @@ nnoremap <silent> <leader>es :call NiceOpen("$HOME/.screenrc")<cr>
 nnoremap <silent> <leader>ez :call NiceOpen("$HOME/.zshrc")<cr>
 nnoremap <silent> <leader>eg :call NiceOpen("$HOME/.gitconfig")<cr>
 nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
-nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotfiles/notes-programing.txt")<cr>
+nnoremap <silent> <leader>en :call NiceOpen("$HOME/notes/notes-programing.txt")<cr>
 nnoremap <silent> <leader>ex :call NiceOpen("$HOME/.Xresources")<cr>
 
 
