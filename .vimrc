@@ -253,6 +253,7 @@ nnoremap <silent> <leader>ez :call NiceOpen("$HOME/.zshrc")<cr>
 nnoremap <silent> <leader>eg :call NiceOpen("$HOME/.gitconfig")<cr>
 nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
 nnoremap <silent> <leader>en :call NiceOpen("/home/chris/Projects/utils/git-dotfiles/notes-programing.txt")<cr>
+nnoremap <silent> <leader>ex :call NiceOpen("$HOME/.Xresources")<cr>
 
 
 
@@ -636,6 +637,7 @@ if has("autocmd")
     autocmd FileType gentoo-init-d,gentoo-package-use,gentoo-package-keywords setlocal commentstring=#\ %s
     autocmd FileType htmldjango setlocal commentstring={#\ %s\ #}
     autocmd FileType clojurescript setlocal commentstring=;\ %s
+    autocmd FileType xdefaults setlocal commentstring=!\ %s
   augroup END
 
   augroup quickfix
