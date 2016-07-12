@@ -23,7 +23,7 @@ XTerm*pointerColorBackground: black
 XTerm*cursorColor: green
 XTerm*internalBorder: 3
 
-! XTerm*font: -*-fixed-medium-r-*-*-18-*-*-*-*-*-*-*
+XTerm*font: -*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
 XTerm*vt100.translations: #override \n\
      Shift <Key>Home: scroll-back(4096) \n\
      Shift <Key>End: scroll-forw(4096) \n\
