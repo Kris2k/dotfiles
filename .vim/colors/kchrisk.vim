@@ -1,6 +1,6 @@
 " Vim color file
 " Name:       kchrisk.vim
-" Maintainer: Krzysztof (Chris) Kanas 
+" Maintainer: Krzysztof (Chris) Kanas
 "
 " Loosely based on inkpot colorsheme
 " This should work in the GUI, rxvt-unicode (88 colour mode) and xterm (256
@@ -55,58 +55,59 @@ if has("gui_running")
 
     hi CursorLine        guibg=#000000 gui=italic
 
-    hi IncSearch      gui=BOLD   guifg=#303030   guibg=#cd8b60
-    hi Search         gui=NONE   guifg=#303030   guibg=#ad7b57
-    hi ErrorMsg       gui=BOLD   guifg=#ffffff   guibg=#ce4e4e
-    hi WarningMsg     gui=BOLD   guifg=#ffffff   guibg=#ce8e4e
-    hi ModeMsg        gui=BOLD   guifg=#7e7eae   guibg=NONE
-    hi MoreMsg        gui=BOLD   guifg=#7e7eae   guibg=NONE
-    hi Question       gui=BOLD   guifg=#ffcd00   guibg=NONE
+    hi IncSearch       gui=BOLD   guifg=#303030   guibg=#cd8b60
+    hi Search          gui=NONE   guifg=#303030   guibg=#ad7b57
+    hi ErrorMsg        gui=BOLD   guifg=#ffffff   guibg=#ce4e4e
+    hi ExtraWhitespace gui=BOLD   guifg=#ffffff   guibg=#ce4e4e
+    hi WarningMsg      gui=BOLD   guifg=#ffffff   guibg=#ce8e4e
+    hi ModeMsg         gui=BOLD   guifg=#7e7eae   guibg=NONE
+    hi MoreMsg         gui=BOLD   guifg=#7e7eae   guibg=NONE
+    hi Question        gui=BOLD   guifg=#ffcd00   guibg=NONE
 
-    hi StatusLine     gui=BOLD   guifg=#b9b9b9   guibg=#3e3e5e
-    hi User1          gui=BOLD   guifg=#00ff8b   guibg=#3e3e5e
-    hi User2          gui=BOLD   guifg=#7070a0   guibg=#3e3e5e
-    hi StatusLineNC   gui=NONE   guifg=#b9b9b9   guibg=#3e3e5e
-    hi VertSplit      gui=NONE   guifg=#b9b9b9   guibg=#3e3e5e
+    hi StatusLine      gui=BOLD   guifg=#b9b9b9   guibg=#3e3e5e
+    hi User1           gui=BOLD   guifg=#00ff8b   guibg=#3e3e5e
+    hi User2           gui=BOLD   guifg=#7070a0   guibg=#3e3e5e
+    hi StatusLineNC    gui=NONE   guifg=#b9b9b9   guibg=#3e3e5e
+    hi VertSplit       gui=NONE   guifg=#b9b9b9   guibg=#3e3e5e
 
-    hi WildMenu       gui=BOLD   guifg=#eeeeee   guibg=#6e6eaf
+    hi WildMenu        gui=BOLD   guifg=#eeeeee   guibg=#6e6eaf
 
-    hi DiffText       gui=NONE   guifg=#ffffcd   guibg=#4a2a4a
-    hi DiffChange     gui=NONE   guifg=#ffffcd   guibg=#306b8f
-    hi DiffDelete     gui=NONE   guifg=#ffffcd   guibg=#6d3030
-    hi DiffAdd        gui=NONE   guifg=#ffffcd   guibg=#306d30
+    hi DiffText        gui=NONE   guifg=#ffffcd   guibg=#4a2a4a
+    hi DiffChange      gui=NONE   guifg=#ffffcd   guibg=#306b8f
+    hi DiffDelete      gui=NONE   guifg=#ffffcd   guibg=#6d3030
+    hi DiffAdd         gui=NONE   guifg=#ffffcd   guibg=#306d30
 
-    hi Cursor         gui=NONE   guifg=#404040   guibg=#8b8bff
-    hi lCursor        gui=NONE   guifg=#404040   guibg=#8fff8b
-    hi CursorIM       gui=NONE   guifg=#404040   guibg=#8b8bff
+    hi Cursor          gui=NONE   guifg=#404040   guibg=#8b8bff
+    hi lCursor         gui=NONE   guifg=#404040   guibg=#8fff8b
+    hi CursorIM        gui=NONE   guifg=#404040   guibg=#8b8bff
 
-    hi Folded         gui=NONE   guifg=#cfcfcd   guibg=#4b208f
-    hi FoldColumn     gui=NONE   guifg=#8b8bcd   guibg=#2e2e2e
+    hi Folded          gui=NONE   guifg=#cfcfcd   guibg=#4b208f
+    hi FoldColumn      gui=NONE   guifg=#8b8bcd   guibg=#2e2e2e
 
-    hi Directory      gui=NONE   guifg=#00ff8b   guibg=NONE
-    hi LineNr         gui=NONE   guifg=#8b8bcd   guibg=#2e2e2e
-    hi NonText        gui=BOLD   guifg=#8b8bcd   guibg=NONE
-    hi SpecialKey     gui=BOLD   guifg=#ab60ed   guibg=NONE
-    hi Title          gui=BOLD   guifg=#af4f4b   guibg=NONE
-    hi Visual         gui=NONE   guifg=#eeeeee   guibg=#4e4e8f
+    hi Directory       gui=NONE   guifg=#00ff8b   guibg=NONE
+    hi LineNr          gui=NONE   guifg=#8b8bcd   guibg=#2e2e2e
+    hi NonText         gui=BOLD   guifg=#8b8bcd   guibg=NONE
+    hi SpecialKey      gui=BOLD   guifg=#ab60ed   guibg=NONE
+    hi Title           gui=BOLD   guifg=#af4f4b   guibg=NONE
+    hi Visual          gui=NONE   guifg=#eeeeee   guibg=#4e4e8f
 
-    hi Comment        gui=NONE   guifg=#6f6f6f   guibg=NONE
-    hi Constant       gui=NONE   guifg=#ffcd8b   guibg=NONE
-    hi String         gui=NONE   guifg=#ffcd8b   guibg=#404040
-    hi Error          gui=NONE   guifg=#ffffff   guibg=#6e2e2e
-    hi Identifier     gui=NONE   guifg=#AB5E5E   guibg=NONE
-    hi Function       gui=NONE   guifg=#880808   guibg=NONE
-" not yeat done in GUI 
-    hi Ignore         gui=NONE
-    hi Number         gui=NONE   guifg=#f0ad6d   guibg=NONE
-    hi PreProc        gui=NONE   guifg=#F45900   guibg=NONE
-    hi Special        gui=NONE   guifg=#c080d0   guibg=NONE
-    hi SpecialChar    gui=NONE   guifg=#c080d0   guibg=#404040
-    hi Statement      gui=NONE   guifg=#01D001   guibg=NONE
-    hi Todo           gui=BOLD   guifg=#303030   guibg=#d0a060
-    hi Type           gui=NONE   guifg=#539BDE   guibg=NONE
-    hi Underlined     gui=BOLD   guifg=#df9f2d   guibg=NONE
-    hi TaglistTagName gui=BOLD   guifg=#808bed   guibg=NONE
+    hi Comment         gui=NONE   guifg=#6f6f6f   guibg=NONE
+    hi Constant        gui=NONE   guifg=#ffcd8b   guibg=NONE
+    hi String          gui=NONE   guifg=#ffcd8b   guibg=#404040
+    hi Error           gui=NONE   guifg=#ffffff   guibg=#6e2e2e
+    hi Identifier      gui=NONE   guifg=#AB5E5E   guibg=NONE
+    hi Function        gui=NONE   guifg=#880808   guibg=NONE
+" not yeat done in GUI
+    hi Ignore          gui=NONE
+    hi Number          gui=NONE   guifg=#f0ad6d   guibg=NONE
+    hi PreProc         gui=NONE   guifg=#F45900   guibg=NONE
+    hi Special         gui=NONE   guifg=#c080d0   guibg=NONE
+    hi SpecialChar     gui=NONE   guifg=#c080d0   guibg=#404040
+    hi Statement       gui=NONE   guifg=#01D001   guibg=NONE
+    hi Todo            gui=BOLD   guifg=#303030   guibg=#d0a060
+    hi Type            gui=NONE   guifg=#539BDE   guibg=NONE
+    hi Underlined      gui=BOLD   guifg=#df9f2d   guibg=NONE
+    hi TaglistTagName  gui=BOLD   guifg=#808bed   guibg=NONE
 
     hi perlSpecialMatch   gui=NONE guifg=#c080d0   guibg=#404040
     hi perlSpecialString  gui=NONE guifg=#c080d0   guibg=#404040
@@ -152,47 +153,48 @@ else
     exec "hi MoreMsg        cterm=BOLD   ctermfg=" . <SID>X(38) . " ctermbg=" . "NONE"
     exec "hi Question       cterm=BOLD   ctermfg=" . <SID>X(52) . " ctermbg=" . "NONE"
 
-" exec "hi StatusLine     cterm=BOLD   ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(81)
+" exec "hi StatusLine       cterm=BOLD   ctermfg=" . <SID>X(85) . " ctermbg=" . <SID>X(81)
     hi StatusLine term=bold,reverse cterm=bold,reverse ctermfg=4 ctermbg=7 gui=bold,reverse guifg=blue guibg=white
-    exec "hi User1          cterm=BOLD   ctermfg=" . <SID>X(28) . " ctermbg=" . <SID>X(81)
-    exec "hi User2          cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(81)
-    exec "hi StatusLineNC   cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
-    exec "hi VertSplit      cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
+    exec "hi User1           cterm=BOLD   ctermfg=" . <SID>X(28) . " ctermbg=" . <SID>X(81)
+    exec "hi User2           cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(81)
+    exec "hi StatusLineNC    cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
+    exec "hi VertSplit       cterm=NONE   ctermfg=" . <SID>X(84) . " ctermbg=" . <SID>X(81)
 
-    exec "hi WildMenu       cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(38)
+    exec "hi WildMenu        cterm=BOLD   ctermfg=" . <SID>X(87) . " ctermbg=" . <SID>X(38)
 
-    exec "hi DiffText       cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(34)
-    exec "hi DiffChange     cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(17)
-    exec "hi DiffDelete     cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(32)
-    exec "hi DiffAdd        cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(20)
+    exec "hi DiffText        cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(34)
+    exec "hi DiffChange      cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(17)
+    exec "hi DiffDelete      cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(32)
+    exec "hi DiffAdd         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(20)
 
-    exec "hi Folded         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(35)
-    exec "hi FoldColumn     cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(80)
+    exec "hi Folded          cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(35)
+    exec "hi FoldColumn      cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(80)
 
-    exec "hi Directory      cterm=NONE   ctermfg=" . <SID>X(28) . " ctermbg=" . "NONE"
-    exec "hi LineNr         cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(80)
-    exec "hi NonText        cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
-    exec "hi SpecialKey     cterm=BOLD   ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
-    exec "hi Title          cterm=BOLD   ctermfg=" . <SID>X(48) . " ctermbg=" . "NONE"
-    exec "hi Visual         cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(38)
-    exec "hi Comment        cterm=NONE   ctermfg=" . <SID>X(6) . " ctermbg=" . "NONE"
-    exec "hi Constant       cterm=NONE   ctermfg=" . <SID>X(73) . " ctermbg=" . "NONE"
-    exec "hi String         cterm=NONE   ctermfg=" . <SID>X(73) . " ctermbg=" . <SID>X(81)
-    exec "hi Error          cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(32)
-    exec "hi Identifier     cterm=NONE   ctermfg=" . <SID>X(53) . " ctermbg=" . "NONE"
-    exec "hi Function     cterm=NONE   ctermfg=" . <SID>X(48) . " ctermbg=" . "NONE"
-    exec "hi Ignore         cterm=BOLD   ctermfg=" . <SID>X(83) . " ctermbg=" . "NONE"
-    exec "hi Number         cterm=NONE   ctermfg=" . <SID>X(69) . " ctermbg=" . "NONE"
-    exec "hi PreProc        cterm=NONE   ctermfg=" . <SID>X(68) . " ctermbg=" . "NONE"
-    exec "hi Special        cterm=NONE   ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
-    exec "hi SpecialChar    cterm=NONE   ctermfg=" . <SID>X(55) . " ctermbg=" . <SID>X(81)
-    exec "hi Statement      cterm=NONE   ctermfg=" . <SID>X(28) . " ctermbg=" . "NONE"
-    exec "hi Todo           cterm=BOLD   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(57)
-    exec "hi Type           cterm=NONE   ctermfg=" . <SID>X(43) . " ctermbg=" . "NONE"
-    exec "hi Underlined     cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
-    exec "hi Underline     cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
-    exec "hi TaglistTagName cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
+    exec "hi Directory       cterm=NONE   ctermfg=" . <SID>X(28) . " ctermbg=" . "NONE"
+    exec "hi LineNr          cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(80)
+    exec "hi NonText         cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
+    exec "hi SpecialKey      cterm=BOLD   ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
+    exec "hi Title           cterm=BOLD   ctermfg=" . <SID>X(48) . " ctermbg=" . "NONE"
+    exec "hi Visual          cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(38)
+    exec "hi Comment         cterm=NONE   ctermfg=" . <SID>X(6) . " ctermbg=" . "NONE"
+    exec "hi Constant        cterm=NONE   ctermfg=" . <SID>X(73) . " ctermbg=" . "NONE"
+    exec "hi String          cterm=NONE   ctermfg=" . <SID>X(73) . " ctermbg=" . <SID>X(81)
+    exec "hi Error           cterm=NONE   ctermfg=" . <SID>X(79) . " ctermbg=" . <SID>X(32)
+    exec "hi Identifier      cterm=NONE   ctermfg=" . <SID>X(53) . " ctermbg=" . "NONE"
+    exec "hi Function        cterm=NONE   ctermfg=" . <SID>X(48) . " ctermbg=" . "NONE"
+    exec "hi Ignore          cterm=BOLD   ctermfg=" . <SID>X(83) . " ctermbg=" . "NONE"
+    exec "hi Number          cterm=NONE   ctermfg=" . <SID>X(69) . " ctermbg=" . "NONE"
+    exec "hi PreProc         cterm=NONE   ctermfg=" . <SID>X(68) . " ctermbg=" . "NONE"
+    exec "hi Special         cterm=NONE   ctermfg=" . <SID>X(55) . " ctermbg=" . "NONE"
+    exec "hi SpecialChar     cterm=NONE   ctermfg=" . <SID>X(55) . " ctermbg=" . <SID>X(81)
+    exec "hi Statement       cterm=NONE   ctermfg=" . <SID>X(28) . " ctermbg=" . "NONE"
+    exec "hi Todo            cterm=BOLD   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(57)
+    exec "hi Type            cterm=NONE   ctermfg=" . <SID>X(43) . " ctermbg=" . "NONE"
+    exec "hi Underlined      cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
+    exec "hi Underline       cterm=BOLD   ctermfg=" . <SID>X(77) . " ctermbg=" . "NONE"
+    exec "hi TaglistTagName  cterm=BOLD   ctermfg=" . <SID>X(39) . " ctermbg=" . "NONE"
     exec "hi ColorColumn     cterm=NONE   ctermfg=" . <SID>X(39) . " ctermbg=" . <SID>X(37)
+    exec "hi ExtraWhitespace cterm=BOLD   ctermfg=" . <SID>X(16) . " ctermbg=" . <SID>X(48)
 
     if v:version >= 700
         exec "hi Pmenu          cterm=NONE   ctermfg=" . <SID>X(0) . " ctermbg=" . <SID>X(53)
