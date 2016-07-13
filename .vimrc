@@ -256,6 +256,20 @@ function! EnqfL(num)
   if winnr() != winnr | wincmd p | endif
 endfunction
 
+function! SetMakePrg()
+  if filereadable('.projectLite.vim') | return | endif
+  if &ft == 'go' | setlocal makeprg=go\ run\ % | endif
+  if filereadable('wscript') | setlocal makeprg=./waf\ --alltests | endif
+  if filereadable('bam.lua')
+      \ && filereadable('./bam') | setlocal makeprg='./bam' | endif
+
+  if glob('?akefile') != '' | setlocal makeprg=make\ -j4\ $* | endif
+  if bufname("%") =~ ".*\.tex" | setlocal makeprg=latexmk\ -pdf | endif
+  if bufname("%") =~ ".*\.java" | setlocal makeprg=javac\ % | endif
+  if bufname("%") =~ ".*\.c$" | setlocal makeprg=gcc\ -Wall\ -g\ -std=c99\ % | endif
+  if  bufname("%") =~ ".*\.cpp" | setlocal makeprg=g++\ -g\ -Wall\ -std=c++11\ % | endif
+endfunction
+
 function! ClearMarksAndSearchs()
   let @/=""
   :MarkClear
@@ -533,45 +547,6 @@ let g:syntastic_cpp_compiler_options = '-std=c++0x'
 "let g:pyflakes_use_quickfix = 1
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-function! SetMakePrg()
-  if &ft == 'go'
-    setlocal makeprg=go\ run\ %
-  endif
-  if filereadable('.projectLite.vim')
-    return
-  endif
-  if filereadable('wscript')
-    setlocal makeprg=./waf\ --alltests
-    return 0
-  endif
-  if filereadable('bam.lua') && filereadable('./bam')
-    setlocal makeprg='./bam'
-    return
-  endif
-  if glob('?akefile') != ''
-    setlocal makeprg=make\ -j4\ $*
-    return 0
-  endif
-  if bufname("%") =~ ".*\.tex"
-    setlocal makeprg=latexmk\ -pdf
-    return 0
-  endif
-
-  if bufname("%") =~ ".*\.java"
-    setlocal makeprg=javac\ %
-    return 0
-  endif
-
-  if bufname("%") =~ ".*\.c$"
-    setlocal makeprg=gcc\ -Wall\ -g\ -std=c99\ %
-    return 0
-  endif
-  if  bufname("%") =~ ".*\.cpp"
-    setlocal makeprg=g++\ -g\ -Wall\ -std=c++11\ %
-    return 0
-  endif
-  return 1
-endfunction
 
 """"""""""""""""""""""""""""""
 " => nfs go code plugin bulshit
