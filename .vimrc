@@ -496,22 +496,6 @@ let g:xptemplate_vars = exists('g:xptemplate_vars') ?
   \ : g:xptemplate_contact_info
 
 """""""""""""""""""""""""
-" => airline plugin
-"""""""""""""""""""""""""
-" let g:airline_theme='bubblegum'
-" let g:airline_theme='hybrid'
-" let g:airline_theme='kalisi'
-" let g:airline_theme='lucius'
-
-let g:airline_theme='base16'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_section_z='%3p%% : %l:%c/%L'
-" buferline
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-"""""""""""""""""""""""""
 " =>  Syntatctic
 """""""""""""""""""""""""
 let g:syntastic_check_on_open=1
