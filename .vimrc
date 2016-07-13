@@ -681,8 +681,12 @@ if has("autocmd")
 
   augroup text-fixes
     autocmd!
-    autocmd InsertLeave  * call StripWhitespace()
+    " autocmd InsertLeave  * call StripWhitespace()
+    au BufWinEnter * match ExtraWhitespace /\s\+$/
+    au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    au InsertLeave * match ExtraWhitespace /\s\+$/
   augroup END
+
   augroup cpp
     autocmd!
     autocmd BufEnter  *.cpp,*.c,*.h,*.hpp	set completeopt-=preview
