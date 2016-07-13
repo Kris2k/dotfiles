@@ -4,6 +4,7 @@
 xterm*termName: xterm-256color
 Xterm*saveLines: 4096
 
+XTerm*selectToClipboard: true
 XTerm*locale: true
 XTerm*altIsNotMeta: false
 XTerm*metaSendsEscape: true
