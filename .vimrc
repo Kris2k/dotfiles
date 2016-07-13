@@ -528,7 +528,7 @@ let g:xptemplate_brace_complete           = ''
 let g:xptemplate_vars                     = "BRloop=\n" . "&" . "SParg="
 let g:xptemplate_contact_info             =
   \ "author=Krzysztof Kanas" . "&" .
-  \ "email=krzysztof.kanas@__at__@gmail.com" . "&" 
+  \ "email=krzysztof.kanas@__at__@gmail.com" . "&"
 
 let g:xptemplate_vars = exists('g:xptemplate_vars') ?
   \ g:xptemplate_vars . '&' . g:xptemplate_contact_info
