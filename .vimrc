@@ -145,23 +145,6 @@ if filereadable(hostfile)
   exe 'source ' . hostfile
 endif
 
-""""""""""""""""""""""""""""""
-" => nfs go code plugin bulshit
-"""""""""""""""""""""""""""""""
-let g:gonfs_dir = $HOME . '/Projects/gocode/src/github.com/nsf/gocode/vim/'
-if isdirectory(g:gonfs_dir)
-  let &runtimepath .= ',' . g:gonfs_dir
-  " gocode have to be in path etc
-endif
-
-""""""""""""""""""""""""""""""
-" => java android settings
-"""""""""""""""""""""""""""""""
-let g:android_root = "/home/chris/Projects/ever-note/android-core"
-let g:syntastic_java_javac_classpath =  g:android_root . "/sdk/platforms/android-10/android.jar"
-
-
-
 " Fast exit from insert mode
 inoremap jk <Esc>
 inoremap JK <Esc>
@@ -247,9 +230,59 @@ function! ToggleList(bufname, pfx,num,switchTo)
   endif
 endfunction
 
+" Quick fix list window
+function! EnqfL(num)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1 | return | endif
+  endfor
+  let winnr = winnr()
+  exec('botright copen '.a:num)
+  if winnr() != winnr | wincmd p | endif
+endfunction
+
+function! ClearMarksAndSearchs()
+  let @/=""
+  :MarkClear
+  :diffupdate
+  :syntax sync fromstart
+endfunction
+
 "Function for opening files
 function! NiceOpen(fname)
     exec("edit ". strtrans(a:fname))
+endfunction
+
+let g:markState = 1
+function! ToggleMarkSearch()
+  if g:markState
+    nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
+    nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
+    let g:markState = 1
+  else
+    unmap <Plug>IgnoreMarkSearchNext
+    unmap <Plug>IgnoreMarkSearchPrev
+    let g:markState = 0
+  endif
+endfunction
+
+function! StripWhitespace()
+  let cur_pos = getpos('.')
+  let _s=@/
+  s/\s\+$//e
+  let @/=_s
+  call setpos('.', cur_pos)
+endfunction
+
+function! NumberInv()
+  if &relativenumber| set nornu number | return | endif
+  if &number| set nonumber nornu | return
+  else | set relativenumber | return | endif
+endfunction
+
+function! ColorColumn()
+  if ! &colorcolumn| set colorcolumn=78
+  else | set colorcolumn=0 | endif
 endfunction
 
 """"""""""""""""""""""""""""""
@@ -287,17 +320,6 @@ nnoremap <silent> <leader>ex :call NiceOpen("$HOME/.Xresources")<cr>
 " nnoremap <silent> <leader>8 :set nois;<esc>/<c-r><c-w><cr>
 " hack for vimrc prototyping just type command and exec it
 nnoremap <silent> <leader>; :exec(getline('.'))<cr>
-" Quick fix list window
-function! EnqfL(num)
-  let buflist = GetBufferList()
-  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "Quickfix List"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-    if bufwinnr(bufnum) != -1 | return | endif
-  endfor
-  let winnr = winnr()
-  exec('botright copen '.a:num)
-  if winnr() != winnr | wincmd p | endif
-
-endfunction
 
 nnoremap <silent> <leader>q :call ToggleList("Quickfix List", 'c','20','no')<CR>
 nnoremap <silent> <Leader>j :call EnqfL('5')<cr>:cnext<cr>
@@ -308,13 +330,7 @@ nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr
 
 
 nmap <leader>f :CtrlP<CR><C-\>w
-function! ClearMappings()
-  let @/=""
-  :MarkClear
-  :diffupdate
-  :syntax sync fromstart
-endfunction
-nnoremap <leader>l :call ClearMappings()<cr>
+nnoremap <leader>l :call ClearMarksAndSearchs()<cr>
 
 " vmap <leader>lf y:CtrlP<CR><C-\>c
 nnoremap <leader>a :pyf $HOME/.vim/python/clang-format.py<CR>
@@ -377,32 +393,7 @@ nnoremap <c-down>  :cnext<cr>zvzz
 nnoremap vv ^vg_
 vnoremap q <c-c>
 nnoremap Q <nop>
-""""""""""""""""""""""""""""""
-" => Fn  Shortcuts and others
-"""""""""""""""""""""""""""""""
-function! NumberInv()
-  if &relativenumber| set nornu number | return | endif
-  if &number| set nonumber nornu | return
-  else | set relativenumber | return | endif
-endfunction
 
-function! ColorColumn()
-  if ! &colorcolumn| set colorcolumn=78
-  else | set colorcolumn=0 | endif
-endfunction
-
-let g:markState = 1
-function! ToggleMarkSearch()
-  if g:markState
-    nmap <Plug>IgnoreMarkSearchNext <Plug>MarkSearchNext
-    nmap <Plug>IgnoreMarkSearchPrev <Plug>MarkSearchPrev
-    let g:markState = 1
-  else
-    unmap <Plug>IgnoreMarkSearchNext
-    unmap <Plug>IgnoreMarkSearchPrev
-    let g:markState = 0
-  endif
-endfunction
 
 noremap <silent> <F2> :set ignorecase! noignorecase?<CR>
 noremap <silent> <F3> :GitGutterToggle<CR>
@@ -566,6 +557,21 @@ function! SetMakePrg()
   return 1
 endfunction
 
+""""""""""""""""""""""""""""""
+" => nfs go code plugin bulshit
+"""""""""""""""""""""""""""""""
+let g:gonfs_dir = $HOME . '/Projects/gocode/src/github.com/nsf/gocode/vim/'
+if isdirectory(g:gonfs_dir)
+  let &runtimepath .= ',' . g:gonfs_dir
+  " gocode have to be in path etc
+endif
+
+""""""""""""""""""""""""""""""
+" => java android settings
+"""""""""""""""""""""""""""""""
+let g:android_root = "/home/chris/Projects/ever-note/android-core"
+let g:syntastic_java_javac_classpath =  g:android_root . "/sdk/platforms/android-10/android.jar"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Quickfix sort
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -657,13 +663,6 @@ if has("autocmd")
     autocmd FileType * setlocal formatoptions-=tcro
   augroup END
 
-function! StripWhitespace()
-  let cur_pos = getpos('.')
-  let _s=@/
-  s/\s\+$//e
-  let @/=_s
-  call setpos('.', cur_pos)
-endfunction
   augroup text-fixes
     autocmd!
     autocmd InsertLeave  * call StripWhitespace()
