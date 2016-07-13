@@ -1,41 +1,77 @@
+""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""
 set nocompatible
 set showcmd
 set spelllang=en,pl
 set statusline=%.80f%0*[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%y%r%m%=%l/%L\ %c\ %p%%
-" set binary
-" set noeol
-" set cpoptions+={
-" setlocal fo+=aw for vim mutt
-""""""""""""""""""""""""""""""
-" => Pathogen plugin
-"""""""""""""""""""""""""""""""
-source ~/.vim/bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
-" add xpt templates personal folder to runtimepath
-" let &runtimepath .=',~/.vim/personal'
 
-let hostfile = $HOME . '/.vim/.vimrc-' . substitute(hostname(), "\\..*", "", "")
-if filereadable(hostfile)
-  exe 'source ' . hostfile
+set title
+set titleold=
+
+set modeline
+set incsearch
+set hlsearch
+set history=100
+
+set relativenumber
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set tabstop=4
+set expandtab smarttab
+let g:tex_flavor='latex'
+
+set autoread    " auto read when a file is changed from outside
+set hidden      " warn on exit with unsaved changes
+
+set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
+set linebreak
+
+set ignorecase " Ignore case when searching
+set smartcase
+
+set laststatus=2         " commandline display and tab in cmdline
+set wildchar=<Tab> wildmenu wildmode=list:longest,full
+
+set clipboard+=unnamed "  yanks go to system clipboard too and back on Focus
+autocmd FocusGained * let @z=@+
+
+set matchpairs+=<:>
+set timeoutlen=250
+
+set nobackup         "do not create backup file
+set nowritebackup    "no create backup when overwriting file
+set noswapfile    " enabled to prevent double editing
+
+if !has("gui_running") && !has('win32') && !has('win64')
+    set term=$TERM       " Make arrow and other keys work
 endif
 
-""""""""""""""""""""""""""""""
-" => nfs go code plugin bulshit
-"""""""""""""""""""""""""""""""
-let g:gonfs_dir = $HOME . '/Projects/gocode/src/github.com/nsf/gocode/vim/'
-if isdirectory(g:gonfs_dir)
-  let &runtimepath .= ',' . g:gonfs_dir
-  " gocode have to be in path etc
+if  &term =~ "linux" || &term =~ "cons25"
+  set term=$TERM
+  colorscheme desert
+elseif &term =~ "256" || has("gui_running") ||  &term =~ 'screen' || &term =~ 'xterm'
+  set t_Co=256
+  colorscheme kchrisk
+else
+  colorscheme darkblue
 endif
 
-""""""""""""""""""""""""""""""
-" => java android settings
-"""""""""""""""""""""""""""""""
-let g:android_root = "/home/chris/Projects/ever-note/android-core"
-let g:syntastic_java_javac_classpath =  g:android_root . "/sdk/platforms/android-10/android.jar"
-""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""
+if !isdirectory($HOME . '/.vim/tmp/swap')
+    call mkdir($HOME . '/.vim/tmp/swap', 'p', 0700)
+endif
+set dir=$HOME/.vim/tmp/swap
+
+if has("persistent_undo")
+    if !isdirectory($HOME. '/.vim/tmp/undo')
+        call mkdir($HOME. '/.vim/tmp/undo', 'p', 0700)
+    endif
+    set undodir=$HOME/.vim/tmp/undo
+    set undofile
+endif
+
 if has("gui_running")
     set mouse=a
     vnoremap <LeftRelease> "+y<LeftRelease>
@@ -56,67 +92,75 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
     set termencoding=utf8
 endif
 
-set title
-set titleold=
+"""""""""""""""""""""""""
+" => cscope database auto add see :help cscopequickfix
+"""""""""""""""""""""""""
+if has("cscope") && ( filereadable('/usr/bin/cscope') ||
+      \ filereadable('/usr/local/bin/cscope') )
+    " nice cscope menu see help
+    set cscopequickfix=s-,g-,c-,d-,i-,t-,e-
+    " set csprg=system("which cscope")
+    set csto=0
+    set cst
+    " add cscope database local or form env
+    set nocsverb
+    if filereadable("cscope.out")
+        cs add cscope.out
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+endif
+
+" -I ignore binary files -Hn is for printing file name and line number
+set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
+
+" set binary
+" set noeol
+" set cpoptions+={
+" setlocal fo+=aw for vim mutt
+
+" set colorcolumn=80
+" set list
+" set listchars=tab:.-
+
+""""""""""""""""""""""""""""""
+" => Pathogen plugin
+"""""""""""""""""""""""""""""""
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
 syntax enable
 filetype plugin indent on
 
-set modeline
-set incsearch
-set hlsearch
-set history=100
+" add xpt templates personal folder to runtimepath
+" let &runtimepath .=',~/.vim/personal'
 
-set relativenumber
-set softtabstop=4
-set shiftwidth=4
-set shiftround
-set tabstop=4
-set expandtab smarttab
-" set colorcolumn=80
-let g:tex_flavor='latex'
-" set list
-" set listchars=tab:.-
-"""""""""""""""""""""""""
-" => Files backups are off
-"""""""""""""""""""""""""
-set nobackup         "do not create backup file
-set nowritebackup    "no create backup when overwriting file
-set noswapfile    " enabled to prevent double editing
 
-if !isdirectory($HOME . '/.vim/tmp/swap')
-    call mkdir($HOME . '/.vim/tmp/swap', 'p', 0700)
-endif
-set dir=$HOME/.vim/tmp/swap
-
-if has("persistent_undo")
-    if !isdirectory($HOME. '/.vim/tmp/undo')
-        call mkdir($HOME. '/.vim/tmp/undo', 'p', 0700)
-    endif
-    set undodir=$HOME/.vim/tmp/undo
-    set undofile
+""""""""""""""""""""""""""""""
+" => Per host settings
+"""""""""""""""""""""""""""""""
+let hostfile = $HOME . '/.vim/.vimrc-' . substitute(hostname(), "\\..*", "", "")
+if filereadable(hostfile)
+  exe 'source ' . hostfile
 endif
 
-set autoread    "auto read when a file is changed from outside
-set hidden      "warn on exit with unsaved changes
+""""""""""""""""""""""""""""""
+" => nfs go code plugin bulshit
+"""""""""""""""""""""""""""""""
+let g:gonfs_dir = $HOME . '/Projects/gocode/src/github.com/nsf/gocode/vim/'
+if isdirectory(g:gonfs_dir)
+  let &runtimepath .= ',' . g:gonfs_dir
+  " gocode have to be in path etc
+endif
 
-" Set backspace config
-set backspace=indent,eol,start
-set whichwrap+=<,>,h,l
-set linebreak
+""""""""""""""""""""""""""""""
+" => java android settings
+"""""""""""""""""""""""""""""""
+let g:android_root = "/home/chris/Projects/ever-note/android-core"
+let g:syntastic_java_javac_classpath =  g:android_root . "/sdk/platforms/android-10/android.jar"
 
-set ignorecase " Ignore case when searching
-set smartcase
 
-set laststatus=2         " commandline display and tab in cmdline
-set wildchar=<Tab> wildmenu wildmode=list:longest,full
 
-set clipboard+=unnamed "  yanks go to system clipboard too and back on Focus
-autocmd FocusGained * let @z=@+
-
-" match pairs for <> (default for (:) [:] )
-set matchpairs+=<:>
-" Set a shorter timeout
-set timeoutlen=250
 " Fast exit from insert mode
 inoremap jk <Esc>
 inoremap JK <Esc>
@@ -135,24 +179,6 @@ nnoremap <expr> N  'nN'[v:searchforward]
 " Wrapped lines goes down/up to next row, rather than next line in file.
 "nnoremap j gj
 "nnoremap k gk
-
-""""""""""""""""""""""""""""""""""
-" => Terminal/gui settings (gvim)
-""""""""""""""""""""""""""""""""""
-if !has("gui_running") && !has('win32') && !has('win64')
-    set term=$TERM       " Make arrow and other keys work
-endif
-
-if  &term =~ "linux" || &term =~ "cons25"
-  set term=$TERM
-  colorscheme desert
-elseif &term =~ "256" || has("gui_running") ||  &term =~ 'screen' || &term =~ 'xterm'
-  set t_Co=256
-  colorscheme kchrisk
-else
-  colorscheme darkblue
-endif
-
 
 """""""""""""""""""""""""
 " => tmux-vim plugin
@@ -396,16 +422,8 @@ vnoremap <silent> <C-F7> "+zp`]
 set pastetoggle=<F9>
 
 
-
-
 " replace paste or swap
-vnoremap rp "0p
-""""""""""""""""""""""""""""""
-" => grep in vim
-"""""""""""""""""""""""""""""""
-" -I ignore binary files -Hn is for printing file name and line number
-set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
-
+" vnoremap rp "0p
 """""""""""""""""""""""""
 " => ctrl-p plugin
 """""""""""""""""""""""""
@@ -441,7 +459,6 @@ let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,
 " FIXME: under terminal 12 max colors make some parenthes difficult tosee
 " FIXME: still blue is diffictult to display on black backroudn
 let g:rbpt_max = 8
-
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['DarkYellow',    'SeaGreen3'],
@@ -487,9 +504,7 @@ let g:xptemplate_brace_complete           = ''
 let g:xptemplate_vars                     = "BRloop=\n" . "&" . "SParg="
 let g:xptemplate_contact_info             =
   \ "author=Krzysztof Kanas" . "&" .
-  \ "email=krzysztof.kanas@__at__@gmail.com" . "&" .
-  \ "kelvatek_author=Krzysztof (Chris) Kanas" . "&" .
-  \ "kelvatek_email=k.kanas@__at__@kelvatek.com&..."
+  \ "email=krzysztof.kanas@__at__@gmail.com" . "&" 
 
 let g:xptemplate_vars = exists('g:xptemplate_vars') ?
   \ g:xptemplate_vars . '&' . g:xptemplate_contact_info
@@ -509,27 +524,6 @@ let g:syntastic_cpp_compiler_options = '-std=c++0x'
 
 "let g:pyflakes_use_quickfix = 1
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
-
-"""""""""""""""""""""""""
-" => cscope database auto add see :help cscopequickfix
-"""""""""""""""""""""""""
-if has("cscope") && ( filereadable('/usr/bin/cscope') ||
-      \ filereadable('/usr/local/bin/cscope') )
-    " nice cscope menu see help
-    set cscopequickfix=s-,g-,c-,d-,i-,t-,e-
-    " set csprg=system("which cscope")
-    set csto=0
-    set cst
-    " add cscope database local or form env
-    set nocsverb
-    if filereadable("cscope.out")
-        cs add cscope.out
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-    set csverb
-endif
-
 
 function! SetMakePrg()
   if &ft == 'go'
