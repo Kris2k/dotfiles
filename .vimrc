@@ -104,7 +104,7 @@ set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set linebreak
 
-set ignorecase "Ignore case when searching
+set ignorecase " Ignore case when searching
 set smartcase
 
 set laststatus=2         " commandline display and tab in cmdline
