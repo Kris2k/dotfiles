@@ -129,7 +129,9 @@ if has("cscope") && ( filereadable('/usr/bin/cscope') ||
 endif
 
 " -I ignore binary files -Hn is for printing file name and line number
-set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
+set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\
+      \ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\
+      \ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
 
 " set binary
 " set noeol
