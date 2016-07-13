@@ -1,10 +1,9 @@
-! 
+!
 ! Note to make use of changes in this file, you have to xrdb ~/.Xresources
 ! :noremap <leader><leader> :!xrdb ~/.Xresources<cr>
 xterm*termName: xterm-256color
 Xterm*saveLines: 4096
 
-XTerm*selectToClipboard: true
 XTerm*locale: true
 XTerm*altIsNotMeta: false
 XTerm*metaSendsEscape: true
@@ -13,6 +12,7 @@ XTerm*multiClickTime: 250
 
 XTerm*scrollBar: false
 XTerm*scrollKey: true
+xterm*scrollTtyOutput: false
 
 XTerm*faceSize: medium
 
@@ -25,6 +25,7 @@ XTerm*cursorColor: green
 XTerm*internalBorder: 3
 
 XTerm*font: -*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+
 XTerm*vt100.translations: #override \n\
      Shift <Key>Home: scroll-back(4096) \n\
      Shift <Key>End: scroll-forw(4096) \n\
