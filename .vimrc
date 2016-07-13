@@ -573,19 +573,24 @@ if has("autocmd")
 
   augroup plugin_commentary
     autocmd!
-    autocmd FileType asm setlocal commentstring=;\ %s
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd FileType sql setlocal commentstring=--\ %s
-    autocmd FileType go setlocal commentstring=//\ %s
-    autocmd FileType robot setlocal commentstring=Comment\ \ \ \ %s
-    autocmd FileType cfg,fstab setlocal commentstring=#\ %s
+    autocmd FileType asm                setlocal commentstring=;\ %s
+    autocmd FileType c,cpp              setlocal commentstring=//\ %s
+    autocmd FileType sql                setlocal commentstring=--\ %s
+    autocmd FileType go                 setlocal commentstring=//\ %s
+    autocmd FileType robot              setlocal commentstring=Comment\ \ \ \ %s
+    autocmd FileType cfg,fstab          setlocal commentstring=#\ %s
     autocmd FileType gitconfig,gdb,tmux setlocal commentstring=#\ %s
-    autocmd FileType *conf-d,*config setlocal commentstring=#\ %s
-    autocmd BufEnter *.conf setlocal commentstring=#\ %s
-    autocmd FileType gentoo-init-d,gentoo-package-use,gentoo-package-keywords setlocal commentstring=#\ %s
-    autocmd FileType htmldjango setlocal commentstring={#\ %s\ #}
-    autocmd FileType clojurescript setlocal commentstring=;\ %s
-    autocmd FileType xdefaults setlocal commentstring=!\ %s
+    autocmd FileType *conf-d,*config    setlocal commentstring=#\ %s
+    autocmd BufEnter *.conf             setlocal commentstring=#\ %s
+
+    autocmd FileType htmldjango         setlocal commentstring={#\ %s\ #}
+    autocmd FileType clojurescript      setlocal commentstring=;\ %s
+    autocmd FileType xdefaults          setlocal commentstring=!\ %s
+
+    " gentoo stuff
+    autocmd FileType gentoo-init-d            setlocal commentstring=#\ %s
+    autocmd FileType ggentoo-package-use      setlocal commentstring=#\ %s
+    autocmd FileType ggentoo-package-keywords setlocal commentstring=#\ %s
   augroup END
 
   augroup quickfix
