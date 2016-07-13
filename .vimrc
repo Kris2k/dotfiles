@@ -682,6 +682,9 @@ if has("autocmd")
   augroup text-fixes
     autocmd!
     " autocmd InsertLeave  * call StripWhitespace()
+    if version >= 702
+      autocmd BufWinLeave * call clearmatches()
+    endif
     au BufWinEnter * match ExtraWhitespace /\s\+$/
     au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
     au InsertLeave * match ExtraWhitespace /\s\+$/
