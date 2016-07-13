@@ -22,28 +22,29 @@ set tabstop=4
 set expandtab smarttab
 let g:tex_flavor='latex'
 
-set autoread    " auto read when a file is changed from outside
-set hidden      " warn on exit with unsaved changes
+set autoread                                           " auto read when a file is changed from outside
+set hidden                                             " warn on exit with unsaved changes
 
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set linebreak
 
-set ignorecase " Ignore case when searching
+set ignorecase                                         " Ignore case when searching
 set smartcase
 
-set laststatus=2         " commandline display and tab in cmdline
+set laststatus=2                                       " commandline display and tab in cmdline
 set wildchar=<Tab> wildmenu wildmode=list:longest,full
 
-set clipboard+=unnamed "  yanks go to system clipboard too and back on Focus
+set clipboard+=unnamed                                 " yanks go to system clipboard too and back on Focus
 autocmd FocusGained * let @z=@+
 
 set matchpairs+=<:>
+set showmatch                                          " show the matching bracket on when inserting
 set timeoutlen=250
 
-set nobackup         "do not create backup file
-set nowritebackup    "no create backup when overwriting file
-set noswapfile    " enabled to prevent double editing
+set nobackup                                           " do not create backup file
+set nowritebackup                                      " no create backup when overwriting file
+set noswapfile                                         " enabled to prevent double editing
 
 if !has("gui_running") && !has('win32') && !has('win64')
     set term=$TERM       " Make arrow and other keys work
