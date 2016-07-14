@@ -12,7 +12,8 @@ XTerm*multiClickTime: 250
 
 XTerm*scrollBar: false
 XTerm*scrollKey: true
-xterm*scrollTtyOutput: false
+XTerm*scrollTtyOutput: false
+XTerm*selectToClipboard: true
 
 XTerm*faceSize: medium
 
