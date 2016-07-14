@@ -133,6 +133,7 @@ set grepprg=grep\ -Hn\ -I\ --exclude-dir='.svn'\ --exclude-dir='.git'\
       \ --exclude-dir='po'\ --exclude='tags*'\ --exclude='cscope.*'\
       \ --exclude='*.html'\ --exclude-dir='.waf-*'\ -r
 
+let g:quckfix_size='5'
 " set binary
 " set noeol
 " set cpoptions+={
@@ -225,7 +226,7 @@ function! GetBufferList()
 endfunction
 
 "quickfix hack
-function! ToggleList(bufname, pfx,num,switchTo)
+function! ToggleList(bufname, pfx, num, switchTo)
   let buflist = GetBufferList()
   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
     if bufwinnr(bufnum) != -1
@@ -352,9 +353,9 @@ nnoremap <silent> <leader>ex :call NiceOpen("$HOME/.Xresources")<cr>
 " hack for vimrc prototyping just type command and exec it
 nnoremap <silent> <leader>; :exec(getline('.'))<cr>
 
-nnoremap <silent> <leader>q :call ToggleList("Quickfix List", 'c','20','no')<CR>
-nnoremap <silent> <Leader>j :call EnqfL('5')<cr>:cnext<cr>
-nnoremap <silent> <Leader>k :call EnqfL('5')<cr>:cprevious<cr>
+nnoremap <silent> <leader>q :call ToggleList("Quickfix List", 'c',  g:quckfix_size, 'no')<CR>
+nnoremap <silent> <Leader>j :call EnqfL(g:quckfix_size)<cr>:cnext<cr>
+nnoremap <silent> <Leader>k :call EnqfL(g:quckfix_size)<cr>:cprevious<cr>
 
 nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
