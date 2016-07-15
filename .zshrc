@@ -145,7 +145,7 @@ alias cstags="find . \( -not -path './tools/*' -a -not -path './contrib*' -a -no
 
 alias cstagsclear="rm -v cscope.* tags"
 
-alias cdn='cd ~/Projects/utils/git-dotfiles/'
+alias cdn='cd ~/notes/'
 alias cdp='cd ~/Projects/'
 alias cdb='cd ~/Projects/berserker-ronin/'
 alias cdv='cd ~/Projects/editor/vik'
