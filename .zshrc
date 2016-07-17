@@ -122,8 +122,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 [[ -x $(which vim) ]] && alias vi="$(which vim) -u ~/.vimrc"
 [[ -e /usr/bin/vimx ]] && alias vim="/usr/bin/vimx -u ~/.vimrc" && alias vi="/usr/bin/vimx -u ~/.vimrc"
-alias ll='ls -la'
-alias la='ls -A'
+alias ll='ls -lA'
+alias la='ls -la'
 alias l='ls -CF'
 
 alias ..='cd ..'
