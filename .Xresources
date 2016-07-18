@@ -15,8 +15,6 @@ XTerm*scrollKey: true
 XTerm*scrollTtyOutput: false
 XTerm*selectToClipboard: true
 
-XTerm*faceSize: medium
-
 XTerm*background: black
 XTerm*foreground: white
 
@@ -25,7 +23,12 @@ XTerm*pointerColorBackground: black
 XTerm*cursorColor: green
 XTerm*internalBorder: 3
 
-XTerm*font: -*-fixed-medium-r-*-*-13-*-*-*-*-*-*-*
+xterm*faceName: Liberation Mono:size=10:antialias=false
+xterm*font: 7x13
+! XTerm*faceName: Terminus
+! XTerm*faceSize: 12
+! XTerm*faceName: DejaVu Sans Mono
+! XTerm*faceSize: 14
 
 XTerm*vt100.translations: #override \n\
      Shift <Key>Home: scroll-back(4096) \n\
