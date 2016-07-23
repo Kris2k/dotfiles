@@ -12,7 +12,7 @@ BACKUP_DIR=$HOME/dotfiles/backup/$(date +'%Y-%m-%d_%H:%M:%S')
 SRC_DIR=${PWD}
 DST_DIR=${HOME}
 
-if [ -d ${BACKUP_DIR} ] ; then 
+if [ -d ${BACKUP_DIR} ] ; then
     echo "Backup dir: ${BACKUP_DIR} exitst, move it to sth else"
     echo "mv ${BACKUP_DIR} ${BACKUP_DIR}-1"
     exit 1
@@ -27,7 +27,7 @@ do_install() {
         echo "File exists: ${tgt} moving to backup in ${BACKUP_DIR};"
         mv ${tgt} ${BACKUP_DIR}/${f}
     fi
-    
+
     if [ ! -e ${tgt} ] ; then
         ln -s ${src} ${tgt}
     fi
