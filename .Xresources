@@ -23,6 +23,10 @@ XTerm*pointerColorBackground: black
 XTerm*cursorColor: green
 XTerm*internalBorder: 3
 
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+
 xterm*faceName: Liberation Mono:size=10:antialias=false
 xterm*font: 7x13
 ! XTerm*faceName: Terminus
@@ -30,8 +34,15 @@ xterm*font: 7x13
 ! XTerm*faceName: DejaVu Sans Mono
 ! XTerm*faceSize: 14
 
+! Shift + LeftClick opne stuff in firefox new tab
+! to map Alt + button one use
+! ~Shift Meta <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY) \n\
+
 XTerm*vt100.translations: #override \n\
-     Shift <Key>Home: scroll-back(4096) \n\
-     Shift <Key>End: scroll-forw(4096) \n\
-     Shift <Key>Down: scroll-forw(1, lines) \n\
-     Shift <Key>Up: scroll-back(1, lines)
+    Shift <Key>Home: scroll-back(4096) \n\
+    Shift <Key>End: scroll-forw(4096) \n\
+    Shift <Key>Down: scroll-forw(1, lines) \n\
+    Shift <Key>Up: scroll-back(1, lines) \n\
+    Shift ~Meta<Btn1Up>: exec-formatted("firefox -new-tab '%t'", PRIMARY) \n\
+    ~Shift ~Meta <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
