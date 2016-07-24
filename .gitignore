@@ -1,6 +1,11 @@
+# mutt
+.mutt/cache
 # vim files
 .vim/tmp
 .vim/.netrwhist
+.vim/spell
+# backup
+backup
 # waf builds
 .waf-*
 # scons build
