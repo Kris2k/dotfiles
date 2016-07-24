@@ -337,7 +337,7 @@ nmap <silent> <leader>c <Plug>CommentaryLine
 xmap <silent> <leader>c <Plug>Commentary
 ""Fast vimrc access
 nnoremap <silent> <leader>eu :call NiceOpen("/etc/portage/package.use")<cr>
-nnoremap <silent> <leader>em :call NiceOpen("/etc/portage/make.conf")<cr>
+nnoremap <silent> <leader>em :call NiceOpen("$HOME/.mutt/muttrc")<cr>
 nnoremap <silent> <leader>ev :call NiceOpen("$HOME/.vimrc")<cr>
 nnoremap <silent> <leader>et :call NiceOpen("$HOME/.tmux.conf")<cr>
 nnoremap <silent> <leader>es :call NiceOpen("$HOME/.screenrc")<cr>
@@ -634,6 +634,10 @@ if has("autocmd")
     autocmd FileType * setlocal formatoptions-=tcro
   augroup END
 
+  augroup mail
+    autocmd BufRead,BufNewFile *mutt-* setfiletype mail
+    autocmd BufRead,BufNewFile *mutt-* set tw=72
+  augroup END
   augroup text-fixes
     autocmd!
     " autocmd InsertLeave  * call StripWhitespace()
