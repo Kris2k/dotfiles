@@ -1,0 +1,9 @@
+# vim: filetype=muttrc
+
+# this collides with next thread previous thread
+bind index,pager \CP sidebar-prev
+bind index,pager \CN sidebar-next
+bind index,pager \CO sidebar-open
+
+macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
+macro pager \cb <pipe-entry>'~/.mutt/scripts/urlview.sh'<enter> 'Follow links with urlview'
