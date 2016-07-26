@@ -137,7 +137,6 @@ let g:quckfix_size='5'
 " set binary
 " set noeol
 " set cpoptions+={
-" setlocal fo+=aw for vim mutt
 
 " set colorcolumn=80
 " set list
@@ -636,6 +635,7 @@ if has("autocmd")
 
   augroup mail
     autocmd BufRead,BufNewFile *mutt-* setfiletype mail
+    autocmd BufRead,BufNewFile *mutt-* setlocal fo+=aw
     autocmd BufRead,BufNewFile *mutt-* set tw=72
   augroup END
   augroup text-fixes
