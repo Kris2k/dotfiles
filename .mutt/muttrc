@@ -1,6 +1,8 @@
 # set date_format="%y-%m-%d %T"
 # set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
+
 set sidebar_visible=no
+set wait_key=no # I do not want press key to continue
 # bsd4chris account
 set from = 'bsd4chris@gmail.com'
 set mbox = "+bsd4chris"
