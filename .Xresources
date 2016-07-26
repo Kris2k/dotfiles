@@ -35,6 +35,8 @@ xterm*font: 7x13
 ! XTerm*faceSize: 14
 
 ! Shift + LeftClick opne stuff in firefox new tab
+! This 'freezes' the terminal until the next left key press
+!
 ! to map Alt + button one use
 ! ~Shift Meta <Btn1Up>: exec-formatted("google-chrome '%t'", PRIMARY) \n\
 
