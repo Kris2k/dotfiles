@@ -24,3 +24,4 @@ cscope.po.out
 build
 *.pdf
 *.aux
+.offlineimaprc
