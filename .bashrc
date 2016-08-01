@@ -27,3 +27,8 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -lA'
 alias l='ls $LS_OPTIONS -l'
 alias cdd='cd ~/dotfiles'
+[[ -f /etc/bash_completion.d/git-prompt ]] && { source /etc/bash_completion.d/git-prompt ; export  GIT_PS1=__git_ps1 ; } || export GIT_PS1=''
+
+
+export PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
+
