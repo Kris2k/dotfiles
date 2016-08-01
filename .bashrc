@@ -18,7 +18,7 @@ tml() {
     tmux list-sessions
 }
 
-export EDITOR=vi
+export EDITOR=vim
 # You may uncomment the following lines if you want `ls' to be colorized:
 export LS_OPTIONS='--color=auto'
 # eval "`dircolors`"
