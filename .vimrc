@@ -644,9 +644,11 @@ if has("autocmd")
     if version >= 702
       autocmd BufWinLeave * call clearmatches()
     endif
-    au BufWinEnter * match ExtraWhitespace /\s\+$/
-    au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-    au InsertLeave * match ExtraWhitespace /\s\+$/
+    if g:colors_name == 'kchrisk'
+      au BufWinEnter * match ExtraWhitespace /\s\+$/
+      au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+      au InsertLeave * match ExtraWhitespace /\s\+$/
+    endif 
   augroup END
 
   augroup cpp
