@@ -27,6 +27,7 @@ alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -lA'
 alias l='ls $LS_OPTIONS -l'
 alias cdd='cd ~/dotfiles'
+alias rmd='rm -rf'
 [[ -f /etc/bash_completion.d/git-prompt ]] && { source /etc/bash_completion.d/git-prompt ; export  GIT_PS1=__git_ps1 ; } || export GIT_PS1=''
 
 
