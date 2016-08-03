@@ -31,4 +31,4 @@ bind generic,index,pager,attach \Cd half-down
 bind generic,index,pager,attach \Cu half-up
 
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
-macro pager \cb <pipe-entry>'~/.mutt/scripts/urlview.sh'<enter> 'Follow links with urlview'
+macro pager \cs <pipe-entry>'~/.mutt/scripts/urlview.sh'<enter> 'Follow links with urlview'
