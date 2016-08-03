@@ -380,8 +380,8 @@ noremap "} :%s:::g<Left><Left><Left>
 noremap "? :%s///g<Left><Left><Left>
 
 " Mapping of jumps
-nnoremap ' `
-nnoremap ` '
+" nnoremap ' `
+" nnoremap ` '
 
 " This is avesome alows . on visula mode
 vnoremap . :norm.<CR>
