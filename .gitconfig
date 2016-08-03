@@ -62,6 +62,7 @@
     who = !printf \"user.name=$(git config user.name)\nuser.email=$(git config user.email)\n\"
     me = !git config user.email "k2k_chris@o2.pl" && git config user.name 'Krzysztof(Chris) Kanas'
     krzkan = !git config user.email "krzysztof.kanas@assaabloy.com" && git config user.name 'Krzysztof Kanas'
+    set-rebase-master = !git config branch.master.rebase true
 
 [diff]
     tool   = kdiff3
