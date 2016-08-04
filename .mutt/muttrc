@@ -3,12 +3,6 @@
 
 set sidebar_visible=no
 set wait_key=no # I do not want press key to continue
-# bsd4chris account
-set from = 'bsd4chris@gmail.com'
-set mbox = "+bsd4chris"
-set spoolfile = '+bsd4chris/INBOX'
-set postponed ='+bsd4chris/[Google Mail]/Drafts'
-set trash = 'bsd4chris/+[Google Mail]/Trash'
 
 folder-hook . 'set read_inc=1000'
 
@@ -16,5 +10,17 @@ folder-hook . 'set read_inc=1000'
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
 
+set sleep_time = 0
 source ~/.mutt/colors.muttrc
 source ~/.mutt/keybindings.muttrc
+
+#default mail account
+source ~/.mutt/account.gmail.bsd4chris'
+
+# Folder hooks
+folder-hook 'account.local' 'source ~/.mutt/account.local'
+folder-hook 'account.gmail.bsd4chris' 'source ~/.mutt/account.gmail.bsd4chris'
+
+# Macros for switching accounts
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail.bsd4chris<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.local<enter><change-folder>!<enter>'
