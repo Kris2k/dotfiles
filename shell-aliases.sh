@@ -1,5 +1,5 @@
 SYSTEM=$(uname -s|tr a-z A-Z)
-if [[ "$SYSTEM" = "LINUX" || "$SYSTEM" =~ "CYGWIN.*" ]]; then
+if [[ "$SYSTEM" = "LINUX" || "$SYSTEM" =~ CYGWIN.* ]]; then
     if [[ -x $(which dircolors) && -r ~/.dircolors ]] ;then
         eval "$(dircolors -b ~/.dircolors)"
     else
