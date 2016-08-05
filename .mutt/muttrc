@@ -24,3 +24,4 @@ folder-hook 'account.gmail.bsd4chris' 'source ~/.mutt/account.gmail.bsd4chris'
 # Macros for switching accounts
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail.bsd4chris<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.local<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.personal1<enter><change-folder>!<enter>'
