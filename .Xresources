@@ -27,12 +27,12 @@ XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
 XTerm*on3Clicks: regex ([[:alpha:]]+://)?([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
 
-xterm*faceName: Liberation Mono:size=10:antialias=false
-xterm*font: 7x13
-! XTerm*faceName: Terminus
-! XTerm*faceSize: 12
+! xterm*faceName: Liberation Mono:size=10:antialias=false
+! xterm*font: 7x13
+XTerm*faceName: Terminus
+XTerm*faceSize: 10
 ! XTerm*faceName: DejaVu Sans Mono
-! XTerm*faceSize: 14
+! XTerm*faceSize: 10
 
 ! Shift + LeftClick opne stuff in firefox new tab
 ! This 'freezes' the terminal until the next left key press
