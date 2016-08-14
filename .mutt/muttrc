@@ -1,23 +1,36 @@
 # set date_format="%y-%m-%d %T"
 # set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
 
+# General Options  -----------------------------------------
+set pipe_decode         # strip headers and eval mime before piping
+set thorough_search     # strip headers and eval mime before searching
+set sleep_time = 0      # don't wait when moving from folder to folder
+set wait_key=no         # don't ask when launching external program
 set sidebar_visible=no
-set wait_key=no # I do not want press key to continue
 
-folder-hook . 'set read_inc=1000'
+# Status Bar -----------------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
-# Local folders for cached headers
+# Header Options -------------------------------------------
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *                           # disable explicit header order
+hdr_order from: to: cc: date: subject:  # select header order
+
+# Peformance Options  --------------------------------------
 set header_cache =~/.mutt/cache/headers
 set message_cachedir =~/.mutt/cache/bodies
+folder-hook . 'set read_inc=1000'
 
-set sleep_time = 0
+# Colors & Keybindings -------------------------------------
 source ~/.mutt/colors.muttrc
 source ~/.mutt/keybindings.muttrc
 
-#default mail account
+# Default account ------------------------------------------
 source ~/.mutt/account.gmail.bsd4chris'
 
-# Folder hooks
+# Switching accounts ---------------------------------------
 folder-hook 'account.local' 'source ~/.mutt/account.local'
 folder-hook 'account.gmail.bsd4chris' 'source ~/.mutt/account.gmail.bsd4chris'
 
