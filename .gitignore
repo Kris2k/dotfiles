@@ -25,3 +25,5 @@ build
 *.pdf
 *.aux
 .offlineimaprc
+.mutt/account.*
+.mutt/muttrc.mailboxes

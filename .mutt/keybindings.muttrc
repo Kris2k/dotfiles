@@ -5,11 +5,13 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager \CO sidebar-open
 # stolen from https://github.com/holomorph/dotfiles/blob/master/.config/mutt/bindings.muttrc
-bind index  <Space> collapse-thread
-bind index  i noop
+bind index <Space> collapse-thread
+bind index i noop
 
-bind index  gg first-entry
-bind index  G last-entry
+bind index gg first-entry
+bind index G last-entry
+bind pager gg top
+bind pager G bottom
 
 bind pager j next-line
 bind pager k previous-line
@@ -29,6 +31,10 @@ bind generic,index,pager,attach \Cb previous-page
 bind generic,index,pager,attach \Cf next-page
 bind generic,index,pager,attach \Cd half-down
 bind generic,index,pager,attach \Cu half-up
+
+bind pager R group-reply
+
+bind attach <return> view-mailcap
 
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
 macro pager \cs <pipe-entry>'urlview'<enter> 'Follow links with urlview'

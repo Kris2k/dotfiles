@@ -12,6 +12,15 @@ set sidebar_visible=no
 set status_chars  = " *%A"
 set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
 
+# Index View Options ---------------------------------------
+set date_format = "%y-%m-%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
 # Header Options -------------------------------------------
 ignore *
 unignore from: to: cc: date: subject:
@@ -33,8 +42,10 @@ source ~/.mutt/account.gmail.bsd4chris'
 # Switching accounts ---------------------------------------
 folder-hook 'account.local' 'source ~/.mutt/account.local'
 folder-hook 'account.gmail.bsd4chris' 'source ~/.mutt/account.gmail.bsd4chris'
+folder-hook 'account.personal1' 'source ~/.mutt/account.personal1'
 
-# Macros for switching accounts
+# Macros for switching accounts ----------------------------
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.gmail.bsd4chris<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.local<enter><change-folder>!<enter>'
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/account.personal1<enter><change-folder>!<enter>'
+
