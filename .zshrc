@@ -222,6 +222,11 @@ function fortune_once() {
     fi
     [[ ! -z $(find ${fortune_file} -mtime +1) ]] && (touch ${fortune_file} && fortune) || true;
 }
+### dummy function to help with teamcity build names
+### usage : tcToGitRef 'strange crap from TC' -> returns sh1 of commit
+tcToGitRef() {
+    echo "$1" | sed -n 's/.....\([0-9a-f]*\)-.*/\1/p'
+}
 
 fortune_once
 #echo "The time you enjoy wasting is not wasted time - Bertrand Russell"
