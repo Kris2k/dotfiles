@@ -64,30 +64,20 @@ WORDCHARS='*?_[]~=&;!#$%^(){}'
 ##########################################
 
 zstyle ':completion:*' completer _complete _ignored
-# zstyle :compinstall filename '/home/chris/.zshrc'
-
-#zstyle ':completion:::::' completer _complete _approximate
 zstyle    ':completion::complete:*' use-cache 1
 zstyle    ':completion:*' use-cache on
 zstyle    ':completion:*' cache-path ~/.zsh/cache
+zstyle    ':completion:*' menu select
+zstyle    ':completion:*' verbose yes
+
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SUFFIX) / 3 )) )'
 zstyle    ':completion:*:descriptions' format "- %d -"
 zstyle    ':completion:*:corrections' format "- %d - (errors %e})"
 zstyle    ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle    ':completion:*' group-name ''
+
 zstyle    ':completion:*:manuals' separate-sections true
 zstyle    ':completion:*:manuals.(^1*)' insert-sections true
-zstyle    ':completion:*' menu select
-zstyle    ':completion:*' verbose yes
-
-
-zstyle    ':completion:*:kill:*' ignore-line yes
-zstyle    ':completion:*:*:kill:*' menu yes select
-zstyle    ':completion:*:kill:*' force-list always
-zstyle    ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-zstyle    ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
-
 
 # enable color support of ls and also add handy aliases
 [[ -f ~/.lscolors ]] && source ~/.lscolors
@@ -118,21 +108,9 @@ function sshagent() {
 ##########################################
 #             key-bindings
 ##########################################
-bindkey "^X^I" expand-or-complete-prefix
-
 bindkey "^[[1;5D" backward-word #  ctrl left  left arrow
 bindkey "^[[1;5C" forward-word # ctrl right arrowa
 
-bindkey '\e[1~' beginning-of-line       # home
-bindkey '\e[4~' end-of-line             # end
-bindkey "^[[A"  up-line-or-search       # cursor up
-bindkey "^[[B"  down-line-or-search     # <ESC>-
-bindkey '^x'    history-beginning-search-backward # alternative ways of searching the shell history
-bindkey '\e[7~' beginning-of-line       # home
-bindkey '\e[8~' end-of-line             # end
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-bindkey '^[[3~' delete-char
 
 export GOPATH=$HOME/Projects/gocode/
 function activate_go()
