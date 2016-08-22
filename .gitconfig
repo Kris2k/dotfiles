@@ -60,6 +60,8 @@
 
     lm =log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  master~1..HEAD
     ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  svn/trunk~1..HEAD
+    la = "!git config -l | grep alias | cut -c 7-"
+
 
 	rbc = rebase --continue
     rbi = rebase --interactive
