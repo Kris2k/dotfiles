@@ -1,6 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # Disable suspend and resume keys (^S,^Q, ctrl-s, ctrl-q) for interastive shell's
-if [[ $- == *u* ]]; then
+if [[ $- == *i* ]]; then
     stty stop ''
     stty susp ''
 fi
