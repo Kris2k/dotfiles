@@ -24,5 +24,4 @@ export EDITOR=vim
 [[ -f ~/shell-aliases.sh ]] && source ~/shell-aliases.sh
 
 
-export PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
-
+PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
