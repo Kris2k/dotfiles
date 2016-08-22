@@ -21,24 +21,6 @@ setopt extendedglob
 setopt promptsubst
 # unsetopt extendedglob
 # unsetopt nomatch
-
-local _have_US=$(locale -a|grep -i en_US.UTF8)
-if [ $? -eq 0 ] ; then
-    export LC_ALL="en_US.UTF-8"
-fi
-
-export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
-
-local where_vim=$(which vim)
-if [ $? -eq 0 ]; then
-    export EDITOR=${where_vim}
-    export VISUAL=${where_vim}
-fi
-
-export MYSQL_PS1="\u@\h [\d]> "
-export SVN_EDITOR=$EDITOR
-[[ -e ~/.zsh/kdiff3_launcher.sh ]] &&  export SVN_MERGE=~/.zsh/kdiff3_launcher.sh
-
 HISTFILE=$HOME/.history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
@@ -57,6 +39,22 @@ setopt no_hist_beep
 #setopt inc_append_history
 #setopt hist_expire_dups_first
 
+local _have_US=$(locale -a|grep -i en_US.UTF8)
+if [ $? -eq 0 ] ; then
+    export LC_ALL="en_US.UTF-8"
+fi
+
+export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
+
+local where_vim=$(which vim)
+if [ $? -eq 0 ]; then
+    export EDITOR=${where_vim}
+    export VISUAL=${where_vim}
+fi
+
+export MYSQL_PS1="\u@\h [\d]> "
+export SVN_EDITOR=$EDITOR
+[[ -e ~/.zsh/kdiff3_launcher.sh ]] &&  export SVN_MERGE=~/.zsh/kdiff3_launcher.sh
 
 # how to break string into words for zle(zsh line editor)
 WORDCHARS='*?_[]~=&;!#$%^(){}'
