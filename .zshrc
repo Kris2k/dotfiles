@@ -1,7 +1,3 @@
-# set -x
-# set -e
-# setopt XTRACE VERBOSE
-
 zmodload -F zsh/complist
 autoload -Uz vcs_info
 autoload -Uz colors zsh/terminfo
@@ -11,9 +7,11 @@ autoload -Uz compinit && compinit
 bindkey -e
 bindkey -r "^L"
 
-# disable XON/XOFF flow control (^s/^q)
-stty stop ''
-stty susp ''
+if [[ $- = *i* ]] ; then
+    # disable XON/XOFF flow control (^s/^q)
+    stty stop ''
+    stty susp ''
+fi
 unsetopt beep
 setopt noclobber
 setopt autocd notify
