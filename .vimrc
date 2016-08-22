@@ -335,6 +335,7 @@ nnoremap <silent> <leader>ss :cscope reset<cr>
 nmap <silent> <leader>c <Plug>CommentaryLine
 xmap <silent> <leader>c <Plug>Commentary
 ""Fast vimrc access
+nnoremap <silent> <leader>eb :call NiceOpen("$HOME/.bashrc")<cr>
 nnoremap <silent> <leader>eu :call NiceOpen("/etc/portage/package.use")<cr>
 nnoremap <silent> <leader>em :call NiceOpen("$HOME/.mutt/muttrc")<cr>
 nnoremap <silent> <leader>ev :call NiceOpen("$HOME/.vimrc")<cr>
