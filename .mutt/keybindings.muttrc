@@ -26,6 +26,7 @@ bind index,pager  J next-undeleted
 bind index,pager  K previous-undeleted
 bind index,pager <Backspace>  previous-unread
 bind index,pager \# noop
+bind index,pager <Tab> previous-new-then-unread
 
 bind generic,index,pager,attach \Cb previous-page
 bind generic,index,pager,attach \Cf next-page
