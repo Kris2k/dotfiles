@@ -1,0 +1,35 @@
+# MS Word documents
+application/msword; libreoffice
+
+# Images
+image/jpg; feh -F -Z %s
+image/jpeg; feh -F -Z %s
+image/pjpeg; feh -F -Z %s
+image/png;  feh -F -Z %s
+image/gif; feh -F -Z %s
+
+# PDFs
+application/pdf; evince %s
+
+# HTML
+text/html; firefox %s
+
+text/english; vim %s
+text/plain; vim %s
+text/x-makefile; vim %s
+text/x-c++hdr; vim %s
+text/x-c++src; vim %s
+text/x-chdr; vim %s
+text/x-csrc; vim %s
+text/x-java; vim %s
+text/x-moc; vim %s
+text/x-pascal; vim %s
+text/x-tcl; vim %s
+text/x-tex; vim %s
+application/x-shellscript; vim %s
+text/x-c; vim %s
+text/x-c++; vim %s
+
+# Unidentified files
+# application/octet-stream;
+
