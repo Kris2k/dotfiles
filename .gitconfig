@@ -35,13 +35,17 @@
     ss = status
     st = status
     sh = show
+    sf = show --name-only
     ci = commit
     co = checkout
+
     df = diff --no-prefix
     dfs = diff --no-prefix --staged
+    dfn = diff --no-prefix --name-only
+    dif = diff --no-prefix
+    diffs = diff --staged
 
     adp = add -p
-    sf = show --name-only
     head = log -1 --format='%H'
 
     l = log --graph --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative
