@@ -35,7 +35,7 @@ set smartcase
 set laststatus=2                " commandline display and tab in cmdline
 set wildchar=<Tab> wildmenu wildmode=list:longest,full
 
-set clipboard+=unnamed          " yanks go to system clipboard too and back on Focus
+set clipboard+=unnamedplus      " yanks go to system clipboard too and back on Focus
 autocmd FocusGained * let @z=@+
 
 set matchpairs+=<:>
@@ -361,6 +361,7 @@ nnoremap <silent> <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <silent> <leader>g :execute ':grep  <C-R><C-W> ' . expand('%:p:h')  <cr>
 
 
+nnoremap <silent> <leader>p :let @+ = expand('%')<cr>
 nmap <leader>f :CtrlP<CR><C-\>w
 nnoremap <leader>l :call ClearMarksAndSearchs()<cr>
 
