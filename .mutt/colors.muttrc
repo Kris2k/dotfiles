@@ -1,5 +1,8 @@
 # vim: filetype=muttrc
 # general-doesn't-fit stuff
+
+color index green default "~U"     # unread message
+
 color normal color252 color233
 color error color193 color124
 color markers color142 color233
