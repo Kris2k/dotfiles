@@ -27,6 +27,7 @@
 
     bs = "!git for-each-ref --sort='-authordate' --format='%(color:green)%(authordate:relative)%09%(color:red)%(objectname:short)%09%(color:reset)%(refname) %(color:bold blue)%(authorname) %(authoremail)%(color:reset)' refs/heads | sed -e 's-refs/heads/--'"
     br = branch
+    ba = branch -a
 
     g  = grep -i -I
     gr = grep -i -I
