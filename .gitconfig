@@ -63,8 +63,9 @@
 
     ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --name-status --date=relative
 
-    lm =log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  master~1..HEAD
-    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  svn/trunk~1..HEAD
+    lm =log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  master~1..@
+    lom =log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  origin/master~1..@
+    ls = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  svn/trunk~1..@
     # two commands to list aliases
     la = "!git config -l | grep alias | cut -c 7-"
     alias = "!git config -l | grep alias | cut -c 7-"
