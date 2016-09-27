@@ -185,7 +185,7 @@ local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
 RPROMPT='${return_status}%{$reset_color%}'
 
 function fortune_once() {
-    local fortune_cmd=$(which fortune > /dev/null 2>&1)
+    which fortune > /dev/null 2>&1
     if [ $? -ne 0 ] ; then
         return;
     fi
