@@ -175,7 +175,6 @@ set promptsubst
 [[ "$terminfo[colors]" -ge 8 ]]; colors
 
 local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
-
 PROMPT='\
 %{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[magenta]%}@\
 %{$fg[cyan]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
@@ -183,6 +182,13 @@ PROMPT='\
 %{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#->%{$reset_color%} '
 local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
 RPROMPT='${return_status}%{$reset_color%}'
+# FIX for DragonflyBSD cons25 terminal
+# 2004h showed up in each propmpt
+unset zle_bracketed_paste
+
+##########################################
+#            misc
+##########################################
 
 function fortune_once() {
     which fortune > /dev/null 2>&1
