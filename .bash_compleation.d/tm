@@ -1,0 +1,7 @@
+#!/bin/bash
+function _tm_compl() {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    local IFS=$'\n'
+    COMPREPLY=( ${COMPREPLY[@]:-} $(compgen -W "$(tmux -q list-sessions 2>/dev/null | cut -f 1 -d ':')" -- "${cur}") )
+}
+complete -F _tm_compl tm

@@ -22,6 +22,7 @@ export EDITOR=vim
 # You may uncomment the following lines if you want `ls' to be colorized:
 [[ -f /etc/bash_completion.d/git-prompt ]] && { source /etc/bash_completion.d/git-prompt ; export  GIT_PS1=__git_ps1 ; } || export GIT_PS1=''
 [[ -f ~/shell-aliases.sh ]] && source ~/shell-aliases.sh
+[[ -d ~/.bash_compleation.d ]] && source ~/.bash_compleation.d/*
 
 
 PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
