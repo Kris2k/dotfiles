@@ -85,7 +85,8 @@ zstyle    ':completion:*:manuals.(^1*)' insert-sections true
 ##########################################
 #                aliases
 ##########################################
-[[ -f ~/shell-aliases.sh ]] && source ~/shell-aliases.sh
+[[ -f ~/.aliases ]] && source ~/.aliases
+[[ -f ~/.aliases-$HOST ]] && source ~/.aliases-$HOST
 
 function sshagent() {
     local ssh_agent_auth=~/.ssh/ssh_agent_auth

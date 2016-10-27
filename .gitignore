@@ -27,3 +27,5 @@ build
 .offlineimaprc
 .mutt/account.*
 .mutt/muttrc.mailboxes
+## shell stuff
+.aliases-*

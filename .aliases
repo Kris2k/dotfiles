@@ -52,4 +52,3 @@ alias android_env="source ~/Projects/ever-note/android-core/android.env"
 alias sdh='svn status|grep ^[?]'
 alias sdm="svn status -q"
 alias sd="svn diff --diff-cmd kdiff3 -x ' -qall '"
-
