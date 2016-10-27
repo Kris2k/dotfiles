@@ -22,7 +22,7 @@ export EDITOR=vim
 # You may uncomment the following lines if you want `ls' to be colorized:
 [[ -f /etc/bash_completion.d/git-prompt ]] && { source /etc/bash_completion.d/git-prompt ; export  GIT_PS1=__git_ps1 ; } || export GIT_PS1=''
 [[ -f ~/.aliases ]] && source ~/.aliases
-[[ -f ~/.aliases-$HOSTMANE ]] && source ~/.aliase-$HOSTMANE
+[[ -f ~/.aliases-$HOSTNAME ]] && source ~/.aliases-$HOSTNAME
 [[ -d ~/.bash_compleation.d ]] && source ~/.bash_compleation.d/*
 
 
