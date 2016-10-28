@@ -1,0 +1,6 @@
+### xfce4 setxkbmap
+/usr/bin/setxkbmap  -option 'ctrl:nocaps'
+###  xmodmap
+###  xmodmap .xmodmaprc
+keycode 66 = Control_L
+clear Lock
