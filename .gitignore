@@ -29,3 +29,4 @@ build
 .mutt/muttrc.mailboxes
 ## shell stuff
 .aliases-*
+.ssh/*
