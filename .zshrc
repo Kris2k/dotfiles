@@ -170,6 +170,11 @@ function precmd() {
     fi
     PS1_LEN=$(( $PS1_LEN - ${#${(%):-%n@%m .%*. :  }} ))
     PS1_LEN=$(( $PS1_LEN - ${#vcs_info_msg_1_} ))
+    case $TERM in
+        xterm*)
+        print -Pn "\e]0;%n@%m: %~\a"
+            ;;
+    esac
 }
 
 set promptsubst
