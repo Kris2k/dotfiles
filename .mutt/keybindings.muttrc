@@ -20,6 +20,7 @@ bind index k noop
 
 bind index h help
 bind index ? search-reverse
+bind index N search-opposite
 bind index x toggle-new
 
 bind index,pager  J next-undeleted
