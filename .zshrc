@@ -118,20 +118,6 @@ bindkey "^[[1;5D" backward-word #  ctrl left  left arrow
 bindkey "^[[1;5C" forward-word # ctrl right arrowa
 
 
-export GOPATH=$HOME/Projects/gocode/
-function activate_go()
-{
-    export GOPATH=$HOME/Projects/gocode/
-    export OLD_PATH=$PATH
-    export PATH=$PATH:$GOPATH/bin
-}
-
-function deactivate_go()
-{
-    export PATH=$OLD_PATH
-    export OLD_PATH=
-}
-
 fancy-ctrl-z () {
     if [[ $#BUFFER -eq 0 ]]; then
         BUFFER="fg"
@@ -193,33 +179,17 @@ PROMPT='\
 %{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#->%{$reset_color%} '
 local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
 RPROMPT='${return_status}%{$reset_color%}'
+
 # FIX for DragonflyBSD cons25 terminal
 # 2004h showed up in each propmpt
 unset zle_bracketed_paste
 
-##########################################
-#            misc
-##########################################
-
-function fortune_once() {
-    which fortune > /dev/null 2>&1
-    if [ $? -ne 0 ] ; then
-        return;
-    fi
-    local fortune_file="/tmp/fortune.day"
-    if [ ! -f ${fortune_file} ]; then
-        fortune
-        touch ${fortune_file}
-    fi
-    [[ ! -z $(find ${fortune_file} -mtime +1) ]] && (touch ${fortune_file} && fortune) || true;
-}
 ### dummy function to help with teamcity build names
 ### usage : tcToGitRef 'strange crap from TC' -> returns sh1 of commit
 tcToGitRef() {
     echo "$1" | sed -n 's/.....\([0-9a-f]*\)-.*/\1/p'
 }
 
-fortune_once
 #echo "The time you enjoy wasting is not wasted time - Bertrand Russell"
 # echo -n "Making one brilliant decision and a whole bunch of mediocre ones isn't as
 # good as making a whole bunch of generally smart decisions throughout the
