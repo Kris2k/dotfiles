@@ -6,10 +6,6 @@ autoload -Uz compinit && compinit
 bindkey -e
 bindkey -r "^L"
 
-if [[ ! -o interactive ]] ; then
-    exit
-fi
-
 # disable XON/XOFF flow control (^s/^q)
 stty stop ''
 stty susp ''
