@@ -3,7 +3,6 @@ autoload -Uz vcs_info
 autoload -Uz colors zsh/terminfo
 autoload -Uz compinit && compinit
 
-# use gnu emacas
 bindkey -e
 bindkey -r "^L"
 
@@ -22,8 +21,6 @@ setopt interactive_comments
 setopt complete_in_word
 setopt extendedglob
 setopt promptsubst
-# unsetopt extendedglob
-# unsetopt nomatch
 HISTFILE=$HOME/.history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
@@ -31,16 +28,12 @@ setopt extended_history
 setopt appendhistory
 setopt incappendhistory
 setopt nosharehistory
-# to echo last !!
-# setopt hist_verify
 setopt hist_save_no_dups
 setopt hist_find_no_dups
 setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_allow_clobber
 setopt no_hist_beep
-#setopt inc_append_history
-#setopt hist_expire_dups_first
 
 local _have_US=$(locale -a|grep -i en_US.UTF8)
 if [ $? -eq 0 ] ; then
@@ -56,12 +49,8 @@ if [ $? -eq 0 ]; then
 fi
 export PAGER=less
 export LESS=-R
-
 export MYSQL_PS1="\u@\h [\d]> "
-export SVN_EDITOR=$EDITOR
-[[ -e ~/.zsh/kdiff3_launcher.sh ]] &&  export SVN_MERGE=~/.zsh/kdiff3_launcher.sh
 
-# how to break string into words for zle(zsh line editor)
 WORDCHARS='*?_[]~=&;!#$%^(){}'
 
 ##########################################
@@ -83,9 +72,6 @@ zstyle    ':completion:*' group-name ''
 
 zstyle    ':completion:*:manuals' separate-sections true
 zstyle    ':completion:*:manuals.(^1*)' insert-sections true
-
-# enable color support of ls and also add handy aliases
-[[ -f ~/.lscolors ]] && source ~/.lscolors
 
 ##########################################
 #                aliases
