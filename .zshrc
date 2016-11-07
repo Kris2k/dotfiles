@@ -137,31 +137,26 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
 
 function precmd() {
     vcs_info
-    PS1_LEN=$(( ${COLUMNS} - 1 ))
-    if (($+VIRTUAL_ENV)) ; then
-        virtual=$(basename $VIRTUAL_ENV);
-        PS1_LEN=$(( $PS1_LEN - ${#virtual}))
-    fi
-    PS1_LEN=$(( $PS1_LEN - ${#${(%):-%n@%m .%*. :  }} ))
-    PS1_LEN=$(( $PS1_LEN - ${#vcs_info_msg_1_} ))
     case $TERM in
         xterm*)
         print -Pn "\e]0;%n@%m: %~\a"
             ;;
     esac
 }
-
-set promptsubst
 [[ "$terminfo[colors]" -ge 8 ]]; colors
 
-local return_status="%{$fg[red]%}%(?..⏎)%{$reset_color%}"
-PROMPT='\
-%{$fg[green]%}%(!.%{$fg_bold[white]%}%{$bg[red]%}%n%{$reset_color%}.%n)%{$fg[magenta]%}@\
-%{$fg[cyan]%}%m%{$reset_color%}%{$fg_bold[white]%} .%*. \
-%{$reset_color%}%{$fg[cyan]%}%$PS1_LEN<...<%~%<< :%{$reset_color%}${vcs_info_msg_0_}
-%{$fg[red]%}%!%{$reset_color%} %{$fg[green]%}#->%{$reset_color%} '
-local return_status="%{$fg[red]%}%(?..%?)%{$reset_color%}"
-RPROMPT='${return_status}%{$reset_color%}'
+local     red="%{$fg[red]%}"
+local   green="%{$fg[green]%}"
+local  yellow="%{$fg[yellow]%}"
+local    blue="%{$fg[blue]%}"
+local magenta="%{$fg[magenta]%}"
+local    cyan="%{$fg[cyan]%}"
+local   white="%{$fg[white]%}"
+local     end="%{$reset_color%}"
+PROMPT="${green}%(!.${red}%n.%n)${magenta}@%B${blue}%m${end}%b ${cyan}%5~ ${white}[%!]${yellow} .%*.${end}${vcs_info_msg_0_}
+${green}#->${end} "
+local return_status="${red}%(?..%?)${end}"
+RPROMPT='${return_status} '
 
 # FIX for DragonflyBSD cons25 terminal
 # 2004h showed up in each propmpt
