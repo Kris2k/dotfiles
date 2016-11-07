@@ -7,7 +7,7 @@ autoload -Uz compinit && compinit
 bindkey -e
 bindkey -r "^L"
 
-if [[ -o interactive ]] ; then
+if [[ ! -o interactive ]] ; then
     exit
 fi
 
