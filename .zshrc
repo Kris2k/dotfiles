@@ -157,6 +157,7 @@ PROMPT="${green}%(!.${red}%n.%n)${magenta}@%B${blue}%m${end}%b ${cyan}%5~ ${whit
 ${green}#->${end} "
 local return_status="${red}%(?..%?)${end}"
 RPROMPT='${return_status} '
+unset red green yellow blue magenta cyan white
 
 # FIX for DragonflyBSD cons25 terminal
 # 2004h showed up in each propmpt
