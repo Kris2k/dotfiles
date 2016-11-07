@@ -51,6 +51,8 @@ if [ $? -eq 0 ]; then
     export EDITOR=${where_vim}
     export VISUAL=${where_vim}
 fi
+export PAGER=less
+export LESS=-R
 
 export MYSQL_PS1="\u@\h [\d]> "
 export SVN_EDITOR=$EDITOR
