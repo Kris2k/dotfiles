@@ -7,11 +7,14 @@ autoload -Uz compinit && compinit
 bindkey -e
 bindkey -r "^L"
 
-if [[ $- = *i* ]] ; then
-    # disable XON/XOFF flow control (^s/^q)
-    stty stop ''
-    stty susp ''
+if [[ -o interactive ]] ; then
+    exit
 fi
+
+# disable XON/XOFF flow control (^s/^q)
+stty stop ''
+stty susp ''
+
 unsetopt beep
 setopt noclobber
 setopt autocd notify
