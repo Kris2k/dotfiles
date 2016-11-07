@@ -35,7 +35,7 @@ setopt hist_reduce_blanks
 setopt hist_allow_clobber
 setopt no_hist_beep
 
-local _have_US=$(locale -a|grep -i en_US.UTF8)
+locale -a|grep -i en_US.UTF8 > /dev/null 2>&1
 if [ $? -eq 0 ] ; then
     export LC_ALL="en_US.UTF-8"
 fi
@@ -81,11 +81,12 @@ zstyle    ':completion:*:manuals.(^1*)' insert-sections true
 
 function sshagent() {
     local ssh_agent_auth=~/.ssh/ssh_agent_auth
-    local ssh_agent_pid=$(ps -ef|grep ssh-agent|awk '{print $2}')
+
+    local ssh_agent_pid=$(ps -ef|awk '! /awk/ && /ssh-agent/{print $2}')
     if [ -z ${ssh_agent_pid} ]; then
         ssh-agent >| ${ssh_agent_auth}
     fi
-    ssh_agent_pid=$(ps -ef|grep ssh-agent|awk '{print $2}')
+    ssh_agent_pid=$(ps -ef|awk '! /awk/ && /ssh-agent/ {print $2}')
     source ${ssh_agent_auth}
     if [ ${ssh_agent_pid} -ne ${SSH_AGENT_PID} ]; then
         echo "Error spawing agent, pid ${SSH_AGENT_PID} is not equal to running agent ${ssh_agent_pid}"
