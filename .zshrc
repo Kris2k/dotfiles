@@ -153,10 +153,8 @@ local magenta="%{$fg[magenta]%}"
 local    cyan="%{$fg[cyan]%}"
 local   white="%{$fg[white]%}"
 local     end="%{$reset_color%}"
-PROMPT="${green}%(!.${red}%n.%n)${magenta}@%B${blue}%m${end}%b ${cyan}%5~ ${white}[%!]${yellow} .%*.${end}${vcs_info_msg_0_}
+PROMPT="${green}%(!.${red}%n.%n)${magenta}@%B${blue}%m${end}%b ${cyan}%5~ ${white}[%!]${yellow} .%*.${end}${vcs_info_msg_0_} ${red}%?${end} 
 ${green}#->${end} "
-local return_status="${red}%(?..%?)${end}"
-RPROMPT='${return_status} '
 unset red green yellow blue magenta cyan white
 
 # FIX for DragonflyBSD cons25 terminal
