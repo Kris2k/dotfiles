@@ -14,9 +14,6 @@ tm() {
     [[ -z "$1" ]] && { echo "usage: tm <session>" >&2; return 1; }
     tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
 }
-tml() {
-    tmux list-sessions
-}
 
 export EDITOR=vim
 # You may uncomment the following lines if you want `ls' to be colorized:
