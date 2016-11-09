@@ -16,6 +16,11 @@ else
 	set usr="${green}%n"
 endif
 
+set autolist
+set color
+set colorcat
+set nobeep
+
 set nocloberb
 set rmstat
 
