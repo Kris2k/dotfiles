@@ -27,8 +27,7 @@ set rmstat
 set promptchars="#:"
 #set prompt="${usr}${blue}@%m ${cyan}%c05 ${white}[%h] ${yellow}%B%T%b ${end} "
 #set rprompt="${red}%?${end} "
-set prompt="${usr}${magenta}@${blue}%m ${cyan}%c05 ${white}[%h] ${yellow}%B.%P.%b ${red}%?${end}\
-\n${green}%#->${end} "
+set prompt="${usr}${magenta}@${blue}%m ${cyan}%c05 ${white}[%h] ${yellow}%B.%P.%b ${red}%?${end} \n${green}%#->${end} "
 
 unset red green yellow blue magenta cyan white end usr
 
