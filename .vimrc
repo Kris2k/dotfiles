@@ -653,7 +653,7 @@ if has("autocmd")
       au BufWinEnter * match ExtraWhitespace /\s\+$/
       au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
       au InsertLeave * match ExtraWhitespace /\s\+$/
-    endif 
+    endif
   augroup END
 
   augroup cpp
