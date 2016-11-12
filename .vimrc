@@ -668,20 +668,24 @@ endif
 """"""""""""""""""""""""""""""""""""""""""
 " =>  xml
 """"""""""""""""""""""""""""""""""""""""""
-" This should strighten out the xml
 " TODO dude you have to check the clam plugin
 function! s:XmlFormat() range " {{{
-  let old_z = @z
-  let old_paste = &paste
+  let z = @z
+  let r = @"
+  let paste = &paste
+  let l=line('.')
+  let c=col('.')
 
   normal! gv"zy
   let result = system('xmllint --format -',@z)
-  silent! execute a:firstline . ',' a:lastline . 'd'
+  normal! gv"zd
   set paste
-  execute 'normal I' . result
+  silent! execute 'normal o' . result
 
-  let &paste = old_paste
-  let @z = old_z
+  let &paste = paste
+  let @z = z
+  let @" = r
+  call cursor(l,c)
 endfunction " }}}
 
 command! -range=%  -nargs=0 XmlFormat call s:XmlFormat()
