@@ -297,13 +297,16 @@ function! ToggleMarkSearch()
   endif
 endfunction
 
-function! StripWhitespace()
-  let cur_pos = getpos('.')
+function! Preserve(command) range
   let _s=@/
-  s/\s\+$//e
+  let l = line(".")
+  let c = col(".")
+  execute a:firstline.",".a:lastline.a:command
   let @/=_s
-  call setpos('.', cur_pos)
+  call cursor(l, c)
 endfunction
+command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call Preserve('s/\s\+$//ge')
+
 
 function! NumberInv()
   if &relativenumber| set nornu number | return | endif
