@@ -16,9 +16,9 @@ set history=100
 
 set relativenumber
 set softtabstop=4
+set tabstop=4
 set shiftwidth=4
 set shiftround
-set tabstop=4
 set expandtab smarttab
 let g:tex_flavor='latex'
 
