@@ -142,6 +142,9 @@ let g:quckfix_size='5'
 " set list
 " set listchars=tab:.-
 
+if has('win32unix')
+let g:loaded_gitgutter = 1
+endif
 """"""""""""""""""""""""""""""
 " => Pathogen plugin
 """""""""""""""""""""""""""""""
