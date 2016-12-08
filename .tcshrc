@@ -32,6 +32,7 @@ set prompt="${usr}${magenta}@${blue}%m ${cyan}%c05 ${white}[%h] ${yellow}%B.%P.%
 unset red green yellow blue magenta cyan white end usr
 
 set history=5000
+set savehist=(5000 merge lock)
 setenv EDITOR vi
 setenv PAGER less
 
