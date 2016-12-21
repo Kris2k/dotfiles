@@ -471,8 +471,8 @@ let g:ctrlp_working_path_mode = 'rw'
 " this makes it from current buffer file path
 " let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_prompt_mappings = {
-    \ 'PrtInsert("r\"")': ['<c-u>'],
-    \ 'PrtInsert("w")': ['<c-[>'],
+    \ 'PrtInsert("r\"")': ['<c-[>'],
+    \ 'PrtInsert("w")': ['<c-u>'],
     \ }
 
 """"""""""""""""""""""""""""""
