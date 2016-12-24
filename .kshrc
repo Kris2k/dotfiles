@@ -1,7 +1,6 @@
 #!/bin/ksh
 
 # \E[bgcolor;textattribute;fgcolor 
-
 red="\033[40;1;31m"
 green="\033[40;0;32m"
 yellow="\033[40;1;33m"
@@ -25,7 +24,7 @@ if [ $USER = root ] ; then
 	usr=${red}
 fi
 
-PS1="${usr}\u${magenta}@${blue}\h ${cyan}\W ${white}[\!] ${yellow}.\A. ${end} \n${green}%#->${end} "
+PS1="${usr}\u${magenta}@${blue}\h ${cyan}\w ${white}[\!] ${yellow}.\A. ${end} \n${green}%#->${end} "
 
 unset red green yellow blue magenta cyan white end usr
 
