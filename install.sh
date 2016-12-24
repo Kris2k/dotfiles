@@ -33,7 +33,7 @@ do_install() {
     fi
 }
 cd ~/dotfiles/
-filesToCopy=$(find . -maxdepth 1 -name '.*' -not -name .gitignore -not -name .git -not -name . -print|sed 's/^\.\///')
+filesToCopy=$(find . -maxdepth 1 -name '.*' \! -name .gitignore \! -name .git \! -name . -print|sed 's/^\.\///')
 for f in ${filesToCopy} ; do
     src="${SRC_DIR}/${f}"
     tgt="${DST_DIR}/${f}"
