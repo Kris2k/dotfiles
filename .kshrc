@@ -34,7 +34,7 @@ unset red green yellow blue magenta cyan white end usr
 export PAGER=less
 export LESS='--quit-if-one-screen --no-init --clear-screen -~ --RAW-CONTROL-CHARS --ignore-case'
 
-#setenv LSCOLORS 'ExGxFxdxCxDxDxabadaeac'
+export LSCOLORS='ExGxFxdxCxDxDxabadaeac'
 
 #bindkey '^R' i-search-back
 #bindkey '^F' i-search-fwd
