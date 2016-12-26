@@ -43,11 +43,11 @@ fi
 function tm {
 	if [ -z $1 ]; then
 		echo "usage: tm <session>" >&2
-		echo $(tmux -q list-sessions|cut -f 1 -d \:) >&2
 		return 1;
 	fi
 	tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
 }
+alias tml='tmux -q list-sessions|cut -f 1 -d \:'
 alias ll='ls -Al '
 alias l='ls -CF'
 alias rmd='rm -rf'
