@@ -31,7 +31,8 @@ unset red green yellow blue magenta cyan white end usr
 #set history=5000
 #set savehist=(5000 merge lock)
 #setenv EDITOR vi
-#setenv PAGER less
+export PAGER=less
+export LESS='--quit-if-one-screen --no-init --clear-screen -~ --RAW-CONTROL-CHARS --ignore-case'
 
 #setenv LSCOLORS 'ExGxFxdxCxDxDxabadaeac'
 

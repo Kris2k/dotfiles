@@ -44,7 +44,7 @@ if [ $? -eq 0 ]; then
     export VISUAL=${where_vim}
 fi
 export PAGER=less
-export LESS=-R
+export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case'
 export MYSQL_PS1="\u@\h [\d]> "
 
 WORDCHARS='*?_[]~=&;!#$%^(){}'
