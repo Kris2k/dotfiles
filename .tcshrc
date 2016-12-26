@@ -44,6 +44,7 @@ bindkey '^F' i-search-fwd
 
 complete tm 'p/*/`tmux -q list-sessions|cut -f 1 -d \:`/'
 alias tm 'source ~/dotfiles/.tcsh_scripts/tm.sh'
+alias tml 'tmux -q list-sessions|cut -f 1 -d \:'
 
 [ -x /usr/local/bin/vim ] && alias vi '/usr/local/bin/vim'
 alias ls 'ls -G'
