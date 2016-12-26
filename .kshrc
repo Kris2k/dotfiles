@@ -24,7 +24,7 @@ if [ $USER = root ] ; then
 	usr=${red}
 fi
 
-PS1="${usr}\u${magenta}@${blue}\h ${cyan}\w ${white}[\!] ${yellow}.\A. ${end} \n${green}%#->${end} "
+PS1="${usr}\u${magenta}@${blue}\h ${cyan}\w ${white}[\!] ${yellow}.\A. ${end} \n${green}:->${end} "
 
 unset red green yellow blue magenta cyan white end usr
 
