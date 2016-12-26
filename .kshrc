@@ -18,15 +18,18 @@ end="\033[0m"
 #set nocloberb
 #set rmstat
 
-#set promptchars="#:"
-usr=
 if [ $USER = root ] ; then
 	usr=${red}
+	usr_prompt=':'
+else
+	usr=${green}
+	usr_prompt='#'
 fi
 
-PS1="${usr}\u${magenta}@${blue}\h ${cyan}\w ${white}[\!] ${yellow}.\A. ${end} \n${green}:->${end} "
+PS1="${usr}\u${magenta}@${blue}\h ${cyan}\w ${white}[\!] ${yellow}.\A. ${end} \n${green}${usr_prompt}->${end} "
 
 unset red green yellow blue magenta cyan white end usr
+unset usr usr_prompt
 
 #set history=5000
 #set savehist=(5000 merge lock)
