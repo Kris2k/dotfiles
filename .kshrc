@@ -2,6 +2,7 @@
 # in .profile add line
 # export ENV=$HOME/.kshrc
 # \E[bgcolor;textattribute;fgcolor 
+
 red="\033[40;1;31m"
 green="\033[40;0;32m"
 yellow="\033[40;1;33m"
@@ -47,6 +48,11 @@ function tm {
 	fi
 	tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
 }
+
+alias bsd_mirror_pl="export PKG_PATH=http://ftp.icm.edu.pl/pub/OpenBSD/$(uname -r)/packages/$(uname -p)"
+# alias bsd_mirror_pl="export PKG_PATH=http://piotrkosoft.net/pub/OpenBSD/$(uname -r)/packages/$(uname -p)
+alias bsd_mirror_se="export PKG_PATH=http://ftp.eu.openbsd.org/pub/OpenBSD/$(uname -r)/packages/$(uname -p)"
+
 alias tml='tmux -q list-sessions|cut -f 1 -d \:'
 alias ll='ls -Al '
 alias l='ls -CF'
