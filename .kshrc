@@ -10,14 +10,6 @@ cyan="\033[40;1;36m"
 white="\033[40;0;37m"
 end="\033[0m"
 
-#set autolist
-#set color
-#set colorcat
-#set nobeep
-#
-#set nocloberb
-#set rmstat
-
 if [ $USER = root ] ; then
 	usr=${red}
 	usr_prompt=':'
@@ -31,25 +23,30 @@ PS1="${usr}\u${magenta}@${blue}\h ${cyan}\w ${white}[\!] ${yellow}.\A. ${end} \n
 unset red green yellow blue magenta cyan white end usr
 unset usr usr_prompt
 
-#set history=5000
-#set savehist=(5000 merge lock)
-#setenv EDITOR vi
+export HISTFILE=$HOME/.ksh_history
+export HISTSIZE=1000
+
+export EDITOR=vi
 export PAGER=less
 export LESS='--quit-if-one-screen --no-init --clear-screen -~ --RAW-CONTROL-CHARS --ignore-case'
-
 export LSCOLORS='ExGxFxdxCxDxDxabadaeac'
 
-#bindkey '^R' i-search-back
-#bindkey '^F' i-search-fwd
-
-#complete tm 'p/*/`tmux -q list-sessions|cut -f 1 -d \:`/'
-#alias tm 'source ~/dotfiles/.tcsh_scripts/tm.sh'
-
+set -o noclobber
+set -o emacs
 
 if [ -x /usr/local/bin/colorls ] ; then 
 	# instal from porsts sysutils/colorls
 	alias ls='/usr/local/bin/colorls -G'
 fi
+
+function tm {
+	if [ -z $1 ]; then
+		echo "usage: tm <session>" >&2
+		echo $(tmux -q list-sessions|cut -f 1 -d \:) >&2
+		return 1;
+	fi
+	tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
+}
 alias ll='ls -Al '
 alias l='ls -CF'
 alias rmd='rm -rf'
