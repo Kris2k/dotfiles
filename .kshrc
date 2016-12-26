@@ -1,5 +1,6 @@
 #!/bin/ksh
-
+# in .profile add line
+# export ENV=$HOME/.kshrc
 # \E[bgcolor;textattribute;fgcolor 
 red="\033[40;1;31m"
 green="\033[40;0;32m"
