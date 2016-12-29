@@ -33,10 +33,11 @@ export PAGER=less
 export LESS='--quit-if-one-screen --no-init --clear-screen -~ --RAW-CONTROL-CHARS --ignore-case'
 export LSCOLORS='ExGxFxdxCxDxDxabadaeac'
 
-set -o noclobber
-set -o emacs
-
-if [ -x /usr/local/bin/colorls ] ; then 
+if [ -x /usr/local/bin/vim ] ; then
+    alias vi=/usr/local/bin/vim
+    export EDITOR=vim
+fi
+if [ -x /usr/local/bin/colorls ] ; then
 	# instal from porsts sysutils/colorls
 	alias ls='/usr/local/bin/colorls -G'
 fi
@@ -60,3 +61,6 @@ alias rmd='rm -rf'
 alias ddate='date +"%T %d-%m-%y"'
 alias cdd='cd ~/dotfiles'
 alias cdn='cd ~/notes'
+
+set -o noclobber
+set -o emacs
