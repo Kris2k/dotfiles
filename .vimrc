@@ -691,6 +691,17 @@ function! s:XmlFormat() range " {{{
   call cursor(l,c)
 endfunction " }}}
 
+function! ScriptsShow()
+  let l=line('.')
+  let c=col('.')
+  let l:scriptnames = ''
+  redir =>l:scriptnames
+  silent! scriptnames
+  redir END
+  silent! execute "normal o " . l:scriptnames
+  call cursor(l,c)
+endfunction
+
 command! -range=%  -nargs=0 XmlFormat call s:XmlFormat()
 
 """"""""""""""""""""""""""""""""""""""""""
