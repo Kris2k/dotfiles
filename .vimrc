@@ -262,17 +262,18 @@ function! EnqfL(num)
 endfunction
 
 function! SetMakePrg()
+  if &makeprg != 'make' | return | endif
   if filereadable('.projectLite.vim') | return | endif
-  if &ft == 'go' | setlocal makeprg=go\ run\ % | endif
-  if filereadable('wscript') | setlocal makeprg=./waf\ --alltests | endif
+  if &ft == 'go' | setlocal makeprg=go\ run\ % | return | endif
+  if filereadable('wscript') | setlocal makeprg=./waf\ --alltests | return | endif
   if filereadable('bam.lua')
-      \ && filereadable('./bam') | setlocal makeprg='./bam' | endif
+      \ && filereadable('./bam') | setlocal makeprg='./bam' | return | endif
 
-  if glob('?akefile') != '' | setlocal makeprg=make\ -j4\ $* | endif
-  if bufname("%") =~ ".*\.tex" | setlocal makeprg=latexmk\ -pdf | endif
-  if bufname("%") =~ ".*\.java" | setlocal makeprg=javac\ % | endif
-  if bufname("%") =~ ".*\.c$" | setlocal makeprg=gcc\ -Wall\ -g\ -std=c99\ % | endif
-  if  bufname("%") =~ ".*\.cpp" | setlocal makeprg=g++\ -g\ -Wall\ -std=c++11\ % | endif
+  if glob('?akefile') != '' | setlocal makeprg=make\ -j4\ $* | return | endif
+  if bufname("%") =~ ".*\.tex" | setlocal makeprg=latexmk\ -pdf | return | endif
+  if bufname("%") =~ ".*\.java" | setlocal makeprg=javac\ % | return | endif
+  if bufname("%") =~ ".*\.c$" | setlocal makeprg=gcc\ -Wall\ -g\ -std=c99\ % | return | endif
+  if  bufname("%") =~ ".*\.cpp" | setlocal makeprg=g++\ -g\ -Wall\ -std=c++11\ % | return | endif
 endfunction
 
 function! ClearMarksAndSearchs()
