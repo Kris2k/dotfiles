@@ -1,0 +1,21 @@
+xkb_symbols "local" {
+  // replace CAPSLOCK to Right Control, but right control is useless
+  // ctrl:nocaps in XKBOPTIONS fixes that
+  // replace key <CAPS> {
+  //   [ Control_R ,  Control_R ]
+  // };
+  // on Debian Jessie I lost polish letters when try to remap capsloc to ctrl
+  // this is how I got them back
+  // problem was that xev told me that RALT was Meta key
+  // this remaps it to ISO_Level3_Shift which stands for alt_gr
+  // I also use /etc/default/keyboard
+  // XKBLAYOUT="pl gb"
+  // XKBOPTIONS="ctrl:nocaps,grp:alt_shift_toggle,terminate:ctrl_alt_bksp"
+  // where grp:alt_shift_toggle toggles the language selecton
+  key <RALT> {
+    type = "ONE_LEVEL",
+    symbols[Group1] = [ ISO_Level3_Shift ]
+  };
+
+};
+
