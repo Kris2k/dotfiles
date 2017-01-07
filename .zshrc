@@ -31,9 +31,9 @@ setopt hist_reduce_blanks
 setopt hist_allow_clobber
 setopt no_hist_beep
 
-locale -a|grep -i en_US.UTF8 > /dev/null 2>&1
-if [ $? -eq 0 ] ; then
-    export LC_ALL="en_US.UTF-8"
+locale -a|grep -i en_GB.UTF8 > /dev/null 2>&1
+if [[ $? -eq 0 ]] ; then
+    export LC_ALL="en_GB.UTF-8"
 fi
 
 export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
