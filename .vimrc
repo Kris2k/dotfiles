@@ -451,7 +451,7 @@ nnoremap <silent> <F7> "+gP
 " nnoremap <silent> <S-F7> "+gp
 inoremap <silent> <F7> <C-r><C-o>+
 vnoremap <silent> <C-F7> "+zp`]
-if !empty(&pastetoggle) | set pastetoggle=<F9> |endif
+if &pastetoggle  == '' | set pastetoggle=<F9> |endif
 " set pastetoggle=<F9>
 
 
