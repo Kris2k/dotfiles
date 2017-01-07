@@ -39,7 +39,7 @@ fi
 export TIMEFMT=$'\nreal %E\nuser %U\nsys  %S'
 
 local where_vim=$(which vim)
-if [ $? -eq 0 ]; then
+if [[ $? -eq 0 ]]; then
     export EDITOR=${where_vim}
     export VISUAL=${where_vim}
 fi
@@ -79,12 +79,12 @@ function sshagent() {
     local ssh_agent_auth=~/.ssh/ssh_agent_auth
 
     local ssh_agent_pid=$(ps -ef|awk '! /awk/ && /ssh-agent/{print $2}')
-    if [ -z ${ssh_agent_pid} ]; then
+    if [[ -z ${ssh_agent_pid} ]]; then
         ssh-agent >| ${ssh_agent_auth}
     fi
     ssh_agent_pid=$(ps -ef|awk '! /awk/ && /ssh-agent/ {print $2}')
     source ${ssh_agent_auth}
-    if [ ${ssh_agent_pid} -ne ${SSH_AGENT_PID} ]; then
+    if [[ ${ssh_agent_pid} -ne ${SSH_AGENT_PID} ]]; then
         echo "Error spawing agent, pid ${SSH_AGENT_PID} is not equal to running agent ${ssh_agent_pid}"
     fi
 
