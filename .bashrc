@@ -15,6 +15,11 @@ tm() {
     tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
 }
 
+locale -a|grep -i en_GB.UTF8 > /dev/null 2>&1
+if [[ $? -eq 0 ]] ; then
+    export LC_ALL="en_GB.UTF-8"
+fi
+
 export EDITOR=vim
 export PAGER=less
 export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case'
