@@ -16,7 +16,6 @@ setopt autocd notify
 setopt interactive_comments
 setopt complete_in_word
 setopt extendedglob
-setopt promptsubst
 HISTFILE=$HOME/.history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
@@ -30,6 +29,7 @@ setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_allow_clobber
 setopt no_hist_beep
+setopt prompt_subst
 
 locale -a|grep -i en_GB.UTF8 > /dev/null 2>&1
 if [[ $? -eq 0 ]] ; then
@@ -153,7 +153,7 @@ local magenta="%{$fg[magenta]%}"
 local    cyan="%{$fg[cyan]%}"
 local   white="%{$fg[white]%}"
 local     end="%{$reset_color%}"
-PROMPT="${green}%(!.${red}%n.%n)${magenta}@%B${blue}%m${end}%b ${cyan}%5~ ${white}[%!]${yellow} .%*.${end}${vcs_info_msg_0_} ${red}%?${end} 
+PROMPT="${green}%(!.${red}%n.%n)${magenta}@%B${blue}%m${end}%b ${cyan}%5~ ${white}[%!]${yellow} .%*.${end}"'${vcs_info_msg_0_} '"${red}%?${end} 
 ${green}%(!.:.#)->${end} "
 unset red green yellow blue magenta cyan white
 
