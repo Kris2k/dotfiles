@@ -31,8 +31,7 @@ setopt hist_allow_clobber
 setopt no_hist_beep
 setopt prompt_subst
 
-locale -a|grep -i en_GB.UTF8 > /dev/null 2>&1
-if [[ $? -eq 0 ]] ; then
+if locale -a|grep -q -i en_GB.UTF8 ; then
     export LC_ALL="en_GB.UTF-8"
 fi
 
