@@ -20,6 +20,6 @@ if ( -d ${PWD}/.git ) then
     setenv GIT_BRANCH_CMD "${magenta}(${white}git${magenta})${yellow}-${magenta}[${green}${GIT_BRANCH_CMD}${magenta}]"
 endif
 
-set prompt="${usr}${magenta}@${blue}%m ${cyan}%c05 ${white}[%h] ${yellow}%B.%P.%b ${red}%? ${GIT_BRANCH_CMD}${end} \n${green} %#->${end} "
+set prompt="${usr}${magenta}@${blue}%m ${cyan}%c05 ${white}[%h] ${yellow}%B.%P.%b ${red}%? ${GIT_BRANCH_CMD}${end} \n${green}%#->${end} "
 
 unset red green yellow blue magenta cyan white end usr
