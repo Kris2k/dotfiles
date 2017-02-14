@@ -738,6 +738,9 @@ iabbrev readed  read
 iabbrev sended send
 iabbrev succesfull  successful
 
+" make use of that
+" nnoremap ,makefile :-1read $HOME/.vim/snipetes/makefile<cr>
+" nnoremap ,html :-1read $HOME/.vim/snipetes/skeleton.html<cr>
 
 " imap <C-I> <ESC>:pyf $HOME/.vim/python/clang-format.py<CR>i
 """""""""""""""""""""""""
