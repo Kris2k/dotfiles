@@ -1,4 +1,6 @@
 xkb_symbols "local" {
+  // xkb symbols for keys you can find in
+  // /usr/share/X11/xkb/symbols/pc
   // replace CAPSLOCK to Right Control, but right control is useless
   // ctrl:nocaps in XKBOPTIONS fixes that
   // replace key <CAPS> {
@@ -13,9 +15,11 @@ xkb_symbols "local" {
   // XKBOPTIONS="ctrl:nocaps,grp:alt_shift_toggle,terminate:ctrl_alt_bksp"
   // where grp:alt_shift_toggle toggles the language selecton
   key <RALT> {
-    type = "ONE_LEVEL",
-    symbols[Group1] = [ ISO_Level3_Shift ]
+      type = "ONE_LEVEL",
+      symbols[Group1] = [ ISO_Level3_Shift ]
   };
+  //  I remap delete to delete, and shift delete to Insert
+  key <DELE> {	[  Delete, Insert ]	};
 
 };
 
