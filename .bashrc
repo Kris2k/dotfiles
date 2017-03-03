@@ -20,7 +20,7 @@ if [[ $? -eq 0 ]] ; then
     export LC_ALL="en_GB.UTF-8"
 fi
 
-export EDITOR=vim
+export EDITOR=vi
 export PAGER=less
 export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case'
 # You may uncomment the following lines if you want `ls' to be colorized:

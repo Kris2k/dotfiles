@@ -20,6 +20,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# test for vi.tiny
+if vi --version| grep -q -- -eval ; then
+	alias vi='vi -u NONE'
+fi
 [[ -x $(which vim) ]] && alias vi="$(which vim) -u ~/.vimrc"
 [[ -e /usr/bin/vimx ]] && alias vim="/usr/bin/vimx -u ~/.vimrc" && alias vi="/usr/bin/vimx -u ~/.vimrc"
 
