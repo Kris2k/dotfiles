@@ -28,6 +28,6 @@ export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f ~/.aliases-$HOSTNAME ]] && source ~/.aliases-$HOSTNAME
 [[ -d ~/.bash_compleation.d ]] && source ~/.bash_compleation.d/*
+[[ $EUID == 0 ]]  && USR_CLR="\033[31m" || USR_CLR=''
 
-
-PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
+PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]${USR_CLR}\u\\[\\033[32m\\]@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
