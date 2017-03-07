@@ -34,6 +34,7 @@ bindkey '^F' i-search-fwd
 # echo $man:$ <SPACE>
 # will yeld echo foo
 bindkey " " magic-space
+bindkey \^[.  insert-last-word
 
 complete tm 'p/*/`tmux -q list-sessions|cut -f 1 -d \:`/'
 alias tm 'source ~/dotfiles/.tcsh_scripts/tm.sh'
