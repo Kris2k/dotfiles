@@ -27,6 +27,13 @@ setenv LSCOLORS 'ExGxFxdxCxDxDxabadaeac'
 
 bindkey '^R' i-search-back
 bindkey '^F' i-search-fwd
+# now space does maigc things, it is like zsh special charcters expansions
+# also !$ is more usefull, e.g
+# !man:$ is the last word in previous command that you typed man
+# eg: man foo
+# echo $man:$ <SPACE>
+# will yeld echo foo
+bindkey " " magic-space
 
 complete tm 'p/*/`tmux -q list-sessions|cut -f 1 -d \:`/'
 alias tm 'source ~/dotfiles/.tcsh_scripts/tm.sh'
