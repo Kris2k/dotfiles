@@ -310,6 +310,7 @@ function! Preserve(command) range
   call cursor(l, c)
 endfunction
 command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call Preserve('s/\s\+$//ge')
+command! -bar -nargs=0 -range=% ClearWhiteSpaces <line1>,<line2>call Preserve('s/\s\+$//ge')
 
 
 function! NumberInv()
