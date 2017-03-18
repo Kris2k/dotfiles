@@ -10,26 +10,29 @@ bindkey -r "^L"
 stty stop ''
 stty susp ''
 
-unsetopt beep
-setopt noclobber
-setopt autocd notify
-setopt interactive_comments
-setopt complete_in_word
-setopt extendedglob
+unsetopt BEEP
+setopt NO_CLOBBER
+setopt AUTO_CD
+setopt NOTIFY
+setopt INTERACTIVE_COMMENTS
+setopt COMPLETE_IN_WORD
+setopt EXTENDED_GLOB
+
 HISTFILE=$HOME/.history
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
-setopt extended_history
-setopt appendhistory
-setopt incappendhistory
-setopt nosharehistory
-setopt hist_save_no_dups
-setopt hist_find_no_dups
-setopt hist_no_store
-setopt hist_reduce_blanks
-setopt hist_allow_clobber
-setopt no_hist_beep
-setopt prompt_subst
+
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt NO_SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_ALLOW_CLOBBER
+setopt NO_HIST_BEEP
+
+setopt PROMPT_SUBST
 
 if locale -a|grep -q -i en_GB.UTF8 ; then
     export LC_ALL="en_GB.UTF-8"
