@@ -37,6 +37,7 @@
     sh = show
     sf = show --name-only
     ci = commit
+    cia = commit -a
     co = checkout
 
     df = diff --no-prefix
