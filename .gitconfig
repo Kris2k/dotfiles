@@ -89,6 +89,7 @@
     rbs = rebase --skip
     chc = cherry-pick --continue
     cha = cherry-pick --abort
+    rmv = remote --verbose
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
     who = !printf \"user.name=$(git config user.name)\nuser.email=$(git config user.email)\n\"
