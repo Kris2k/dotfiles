@@ -75,7 +75,7 @@
     alias = "!git config -l | grep alias | cut -c 7-"
 
 
-
+    rmt = remote -v
 	rbc = rebase --continue
     rbi = rebase --interactive
     rba = rebase --abort
