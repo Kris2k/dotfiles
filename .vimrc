@@ -359,6 +359,7 @@ nnoremap <silent> <leader>eg :call NiceOpen("$HOME/.gitconfig")<cr>
 nnoremap <silent> <leader>eh :call NiceOpen("$HOME/.ssh/config")<cr>
 nnoremap <silent> <leader>en :call NiceOpen("$HOME/notes/notes-programing.txt")<cr>
 nnoremap <silent> <leader>ex :call NiceOpen("$HOME/.Xresources")<cr>
+nnoremap <silent> <leader>ee :Ex<cr>
 
 
 
