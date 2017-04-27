@@ -35,7 +35,12 @@ set smartcase
 set laststatus=2                " commandline display and tab in cmdline
 set wildchar=<Tab> wildmenu wildmode=list:longest,full
 
-set clipboard+=unnamedplus      " yanks go to system clipboard too and back on Focus
+if has("unix") && !has("win32unix")
+  set clipboard+=unnamedplus " in linux yanks go to clipboard too and back on Focus
+elseif has('win32unix')
+  set clipboard+=unnamed     " in cygwin yanks go to clipboard in vim only
+endif
+
 autocmd FocusGained * let @z=@+
 
 set matchpairs+=<:>
