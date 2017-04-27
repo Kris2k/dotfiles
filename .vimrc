@@ -464,7 +464,7 @@ if &pastetoggle  == '' | set pastetoggle=<F9> |endif
 set wildignore=*.o,*.so,*.dll,*.pyc
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'file': '\v\.(exe|so|dll|class)$',
     \ }
 " maybe use tab, note c-m is same as Enter
 noremap <c-n> :CtrlPBuffer<cr>
