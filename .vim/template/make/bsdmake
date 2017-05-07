@@ -1,0 +1,16 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c99
+LDFLAGS = -lutil
+
+TARGET := ipc-main
+all: $(TARGET)
+
+.SUFFIXES: .c .o
+.c.o:
+        $(CC) $(CFLAGS) -c $< -o $@
+
+$(TARGET): ipc-main.o
+        $(CC) $(LDFLAGS) $(>) -o $@
+
+clean:
+        -rm -rf *.o $(TARGET)
