@@ -114,3 +114,5 @@
     lineNumber = true
 [gc]
 	auto = 256
+[log]
+	date = iso
