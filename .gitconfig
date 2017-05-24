@@ -35,7 +35,7 @@
 
     ss = status
     st = status
-    sh = show
+    sh = show --no-prefix
     sf = show --name-only
     ci = commit
     ca = commit -a
