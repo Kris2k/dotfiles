@@ -46,6 +46,7 @@
     dfs = diff --no-prefix --staged
     dff = diff --no-prefix --name-only
     dfn = diff --no-prefix --name-only
+    dfm = diff --no-prefix master..@
     dif = diff --no-prefix
     diffs = diff --staged
 
