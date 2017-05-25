@@ -178,8 +178,8 @@ inoremap jK <Esc>
 
 
 " insert empty line fast
-nnoremap [<space>  :put! =''<cr>
-nnoremap ]<space>  :put =''<cr>
+nnoremap <leader>[ :put! =''<cr>
+nnoremap <leader>]  :put =''<cr>
 
 " make search go only forward
 nnoremap <expr> n  'Nn'[v:searchforward]
