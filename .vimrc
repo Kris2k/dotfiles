@@ -306,6 +306,20 @@ function! ToggleMarkSearch()
   endif
 endfunction
 
+function! ToggleSidebars()
+  if g:gitgutter_enabled
+    :GitGutterDisable
+  else
+    :GitGutterEnable
+  endif
+  if &relativenumber || &number
+    set nonumber
+    set nornu
+  else
+    set rnu
+  endif
+endfunction
+
 function! Preserve(command) range
   let _s=@/
   let l = line(".")
@@ -449,6 +463,7 @@ noremap <silent> <F5> :call ColorColumn()<cr>
 noremap <silent> <F6> :setlocal spell! spell?<CR>
 
 noremap <silent> <F8> :call ToggleMarkSearch()<cr>
+noremap <silent> <F10> :call ToggleSidebars()<cr>
 " noremap <silent> <F6> :silent set nocursorline! cursorline?<CR>
 " copy by F7
 vnoremap <silent> <F7> "+ygv"zy`>
