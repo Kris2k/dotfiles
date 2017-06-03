@@ -306,6 +306,7 @@ function! ToggleMarkSearch()
   endif
 endfunction
 
+let g:gitgutter_eager = 0
 function! ToggleSidebars()
   if g:gitgutter_enabled
     :GitGutterDisable
