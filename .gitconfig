@@ -66,6 +66,10 @@
         --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset'\
         | awk '{print \"@~\"NR-1\"    \"$0}' "
 
+    lf = !"f() { \
+        git log --abbrev-commit --name-only --pretty=format:"" $1 | sed '/^ *$/d' \
+        ; } ; f "
+
     ll = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --name-status --date=relative
 
     lm =log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an <%aE>%Creset' --abbrev-commit --date=relative  origin/master~1..@
