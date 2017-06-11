@@ -83,9 +83,10 @@
 
     pls = pull --recurse-submodules
     rmt = remote -v
-	rbc = rebase --continue
+    rbc = rebase --continue
     rbi = rebase --interactive
     rba = rebase --abort
+    rbs = rebase --skip
     chc = cherry-pick --continue
     cha = cherry-pick --abort
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
