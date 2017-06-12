@@ -278,7 +278,7 @@ function! SetMakePrg()
   if bufname("%") =~ ".*\.tex" | setlocal makeprg=latexmk\ -pdf | return | endif
   if bufname("%") =~ ".*\.java" | setlocal makeprg=javac\ % | return | endif
   if bufname("%") =~ ".*\.c$" | setlocal makeprg=gcc\ -Wall\ -g\ -std=c99\ % | return | endif
-  if  bufname("%") =~ ".*\.cpp" | setlocal makeprg=g++\ -g\ -Wall\ -std=c++11\ % | return | endif
+  if  bufname("%") =~ ".*\.cpp" | setlocal makeprg=g++\ -g\ -Wall\ -std=c++14\ % | return | endif
 endfunction
 
 function! ClearMarksAndSearchs()
