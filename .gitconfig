@@ -89,6 +89,8 @@
     rbs = rebase --skip
     chc = cherry-pick --continue
     cha = cherry-pick --abort
+    cpc = cherry-pick --continue
+    cpa = cherry-pick --abort
     rmv = remote --verbose
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
