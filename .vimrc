@@ -464,7 +464,6 @@ noremap <silent> <F5> :call ColorColumn()<cr>
 noremap <silent> <F6> :setlocal spell! spell?<CR>
 
 noremap <silent> <F8> :call ToggleMarkSearch()<cr>
-noremap <silent> <F10> :call ToggleSidebars()<cr>
 " noremap <silent> <F6> :silent set nocursorline! cursorline?<CR>
 " copy by F7
 vnoremap <silent> <F7> "+ygv"zy`>
@@ -476,6 +475,7 @@ inoremap <silent> <F7> <C-r><C-o>+
 vnoremap <silent> <C-F7> "+zp`]
 if &pastetoggle  == '' | set pastetoggle=<F9> |endif
 " set pastetoggle=<F9>
+noremap <silent> <F10> :call ToggleSidebars()<cr>
 
 
 " replace paste or swap
