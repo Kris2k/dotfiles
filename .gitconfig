@@ -25,6 +25,12 @@
     f  = "!git ls-files | grep -i"
 
     bs = "!git for-each-ref --sort='-authordate' --format='%(color:green)%(authordate:relative)%09%(color:red)%(objectname:short)%09%(color:reset)%(refname) %(color:bold blue)%(authorname) %(authoremail)%(color:reset)' refs/heads | sed -e 's-refs/heads/--'"
+    bsa = "!f() { \
+        git for-each-ref --sort='-authordate' \
+        --format='%(color:green)%(authordate:relative)%09%(color:red)%(objectname:short)%09%(color:green)%(refname) %(color:bold blue)%(authorname) %(authoremail)%(color:reset)' refs/heads ; \
+        git for-each-ref --sort='-authordate' \
+        --format='%(color:green)%(authordate:relative)%09%(color:red)%(objectname:short)%09%(color:reset)%(refname) %(color:bold blue)%(authorname) %(authoremail)%(color:reset)' refs/remotes/ \
+        ; } ; f "
     br = branch
     ba = branch -a
     bra = branch -a
