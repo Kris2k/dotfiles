@@ -105,6 +105,8 @@
     krzkan = !git config user.email "krzysztof.kanas@assaabloy.com" && git config user.name 'Krzysztof Kanas'
     # sets current branch to rebase when git pull is run, instead of merge
     config-set-rebase = "!git config branch.`git rev-parse --abbrev-ref @`.rebase true"
+    empty = "!git commit --allow-empty -m 'Initial commit'"
+    start = "!git init && git commit --allow-empty -m 'Initial commit'"
 
 [diff]
     tool   = kdiff3
