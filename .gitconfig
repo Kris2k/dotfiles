@@ -87,7 +87,7 @@
     alias = "!git config -l | grep alias | cut -c 7-"
 
 
-    pls = pull --recurse-submodules
+    pls = "!git pull --recurse-submodules && git submodule update"
     rmt = remote -v
     rbc = rebase --continue
     rbi = rebase --interactive
