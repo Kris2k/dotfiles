@@ -5,8 +5,8 @@ if ( $# < 1 )  then
   exit 1;
 endif
 
-setenv HOSTNAME $HOST
-ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
+#setenv HOSTNAME $HOST
+#ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh_auth_sock"
 tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
 
 
