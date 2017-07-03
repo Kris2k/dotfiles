@@ -42,6 +42,7 @@ bindkey \^[.  insert-last-word
 complete tm 'p/*/`tmux -q list-sessions|cut -f 1 -d \:`/'
 alias tm 'source ~/dotfiles/.tcsh_scripts/tm.sh'
 alias tml 'tmux -q list-sessions|cut -f 1 -d \:'
+alias tmup 'source ~/dotfiles/.tcsh_scripts/tmup.sh'
 
 [ -x /usr/local/bin/vim ] && alias vi '/usr/local/bin/vim'
 [ -x /usr/local/bin/exctags ] && alias ctags '/usr/local/bin/exctags'
