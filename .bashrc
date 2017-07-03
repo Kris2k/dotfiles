@@ -15,6 +15,20 @@ tm() {
     tmux has -t $1 && tmux attach -t $1 || tmux new -s $1
 }
 
+tmup() {
+    local v
+    while read v; do
+        if [[ $v == -* ]]; then
+            unset ${v/#-/}
+        else
+            # Add quotes around the argument
+            v=${v/=/=\"}
+            v=${v/%/\"}
+            eval export $v
+        fi
+    done < <(tmux show-environment)
+}
+
 locale -a|grep -i en_GB.UTF8 > /dev/null 2>&1
 if [[ $? -eq 0 ]] ; then
     export LC_ALL="en_GB.UTF-8"
