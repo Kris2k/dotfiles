@@ -26,9 +26,6 @@ setenv PAGER less
 setenv CLICOLOR yes
 setenv LSCOLORS 'ExGxFxdxCxDxDxabfdfeac'
 setenv LS_COLORS "di=01;34:ln=01;36:so=01;35:pi=33:ex=01;32:bd=34;46:cd=34;43:su=30;41:sg=30;46:st=5;31;42:tw=01;35;44:ow=30;43:"
-# old ones delete them eventually
-# setenv LSCOLORS 'ExGxFxdxCxDxDxabadaeac'
-# setenv LS_COLORS "di=01;34:ln=01;36:so=01;35:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43:"
 
 
 bindkey '^R' i-search-back
