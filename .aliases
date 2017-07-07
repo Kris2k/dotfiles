@@ -32,6 +32,9 @@ alias ll='ls -lA'
 alias la='ls -la'
 alias l='ls -CF'
 
+
+alias dfh='df -h'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias rmd="rm -rf "
