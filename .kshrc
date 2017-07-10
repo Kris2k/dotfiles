@@ -31,7 +31,10 @@ export HISTSIZE=1000
 export EDITOR=vi
 export PAGER=less
 export LESS='--quit-if-one-screen --no-init --clear-screen -~ --RAW-CONTROL-CHARS --ignore-case'
-export LSCOLORS='ExGxFxdxCxDxDxabadaeac'
+
+export CLICOLOR=yes
+export LSCOLORS='ExGxFxdxCxDxDxabfdfeac'
+export LS_COLORS="di=01;34:ln=01;36:so=01;35:pi=33:ex=01;32:bd=34;46:cd=34;43:su=30;41:sg=30;46:st=5;31;42:tw=01;35;44:ow=30;43:"
 
 if [ -x /usr/local/bin/vim ] ; then
     alias vi=/usr/local/bin/vim
