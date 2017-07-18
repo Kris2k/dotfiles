@@ -46,4 +46,4 @@ export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case
 [[ -d ~/.bash_scripts-$HOSTNAME ]] && source ~/.bash_scripts-$HOSTNAME/*
 [[ $EUID == 0 ]]  && USR_CLR="\033[31m" || USR_CLR=''
 
-PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]${USR_CLR}\u\\[\\033[32m\\]@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[33m\\]\\w \`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
+PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]${USR_CLR}\u\\[\\033[32m\\]@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[1;36m\\]\\w \\[\\033[1;33m\\].\t.\\[\\033[0;33m\\]\`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
