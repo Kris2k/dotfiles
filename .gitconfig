@@ -108,6 +108,14 @@
     config-set-rebase = "!git config branch.`git rev-parse --abbrev-ref @`.rebase true"
     empty = "!git commit --allow-empty -m 'Initial commit'"
     start = "!git init && git commit --allow-empty -m 'Initial commit'"
+    # pushes all 'local' remotes/origin/* to remote $1 heads
+    # eg. on local repo we have branches remotes/origin/{foo,bar,qux}
+    # we have second remote called new_repo, then
+    # 'git pushall new_repo' will create on remote server branches foo,bar,qux
+    pushall = "!f() { \
+        if [ $# -lt 1 ] ; then echo 'Error: Missing remote name'; return 1; fi; \
+        git push $1 refs/remotes/origin/*:refs/heads/*; \
+        } ; f "
 
 [diff]
     tool   = kdiff3
