@@ -57,7 +57,7 @@ alias cdd='cd ~/dotfiles/'
 alias vp="source ~/Projects/tools/virtual-ride/vp-ride.sh"
 alias android_env="source ~/Projects/ever-note/android-core/android.env"
 
-
+alias dif='diff -rupN'
 alias sdh='svn status|grep ^[?]'
 alias sdm="svn status -q"
 alias sd="svn diff --diff-cmd kdiff3 -x ' -qall '"
