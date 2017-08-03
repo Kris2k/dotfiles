@@ -38,8 +38,30 @@ export EDITOR=vi
 export PAGER=less
 export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case'
 export HISTTIMEFORMAT="%F %T "
-PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER \
-                   "$(history 1)" >> ~/.bash_eternal_history'
+__ps1_cmd() {
+    local err=$?
+    local BBlue="\\033[1;34m\]"
+    local BMagenta="\\033[1;35m\]"
+    local Red="\033[31m"
+    local BRed='\[\e[0;91m\]'
+    local Green='\[\e[32m\]'
+    local BCyan="\[\033[1;36m\]"
+    local BYellow="\[\033[1;33m\]"
+    local Yellow="\033[0;33m"
+    local end="\[\033[0m\]"
+
+    local EXIT_VAL=""
+    [[ $EUID == 0 ]]  && { USR_CLR=${Red} ; PRMT=: ; } || { USR_CLR=${Green} ; PRMT="#" ; }
+    [[ $err != 0 ]] &&  EXIT_VAL=" (${Red}$err${Yellow})"
+    # xterm title settings
+    PS1="\[\033]0;\u@\h: \w\007\]"
+    # prompt
+    PS1+="${USR_CLR}\u${BMagenta}@${BBlue}\h ${BCyan}\\w ${BYellow}.\t. ${Yellow}\`$GIT_PS1\`${EXIT_VAL}${end} \n${Green}\${PRMT}->${end} "
+}
+__ethernal_history() {
+    echo $$ $USER "$(history 1)" >> ~/.bash_eternal_history
+}
+PROMPT_COMMAND="__ps1_cmd;__ethernal_history;${PROMPT_COMMAND}"
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 [[ -f /etc/bash_completion.d/git-prompt ]] && { source /etc/bash_completion.d/git-prompt ; export  GIT_PS1=__git_ps1 ; } || export GIT_PS1=''
 [[ -f ~/.aliases ]] && source ~/.aliases
@@ -47,6 +69,5 @@ PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ; }"'echo $$ $USER \
 [[ -d ~/.bash_compleation.d ]] && source ~/.bash_compleation.d/*
 [[ -d ~/.bash_scripts ]] && source ~/.bash_scripts/*
 [[ -d ~/.bash_scripts-$HOSTNAME ]] && source ~/.bash_scripts-$HOSTNAME/*
-[[ $EUID == 0 ]]  && USR_CLR="\033[31m" || USR_CLR=''
-
-PS1="\\[\\033]0;\$MSYSTEM:\${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]${USR_CLR}\u\\[\\033[32m\\]@\\h \\[\\033[35m\\]\$MSYSTEM \\[\\033[1;36m\\]\\w \\[\\033[1;33m\\].\t.\\[\\033[0;33m\\]\`$GIT_PS1\`\\[\\033[0m\\]\\n\$ "
+# HACK: some bash compleation scripts leases unhandled error, this shows up in the prompt
+true
