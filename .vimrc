@@ -729,6 +729,16 @@ endfunction
 command! -range=%  -nargs=0 XmlFormat call s:XmlFormat()
 
 """"""""""""""""""""""""""""""""""""""""""
+" =>  latex error format
+""""""""""""""""""""""""""""""""""""""""""
+function! s:LatexErrFmt()
+  " Latex should be run not interactively, for latexmk add this for params:
+  " -e '$$pdflatex=q/xelatex %O -interaction=nonstopmode %S/'
+  source ~/.vim/hacks/latex-efm.vim
+endfunction
+command! -nargs=0 LatexErrFmt call s:LatexErrFmt()
+
+""""""""""""""""""""""""""""""""""""""""""
 " =>  GitGutter
 """"""""""""""""""""""""""""""""""""""""""
 hi SignColumn ctermbg=NONE
