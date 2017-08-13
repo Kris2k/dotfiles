@@ -55,20 +55,20 @@ if !has("gui_running") && !has('win32') && !has('win64')
     set term=$TERM       " Make arrow and other keys work
 endif
 
-if &term =~ "xterm"
-  let &t_ti = &t_ti . "\e[?2004h"
-  let &t_te = "\e[?2004l" . &t_te
-  let pastetoggle = "\e[2001~"
-  function! XTermPasteBegin(ret)
-    set pastetoggle=<esc>[201~
-    set paste
-    return a:ret
-  endfunction
-  noremap  <special><expr> <Esc>[200~ XTermPasteBegin("i")
-  inoremap <special><expr> <Esc>[200~ XTermPasteBegin("")
-  cnoremap <special> <Esc>[200~ <nop>
-  cnoremap <special> <Esc>[201~ <nop>
-endif
+" if &term =~ "xterm"
+"   let &t_ti = &t_ti . "\e[?2004h"
+"   let &t_te = "\e[?2004l" . &t_te
+"   let pastetoggle = "\e[2001~"
+"   function! XTermPasteBegin(ret)
+"     set pastetoggle=<esc>[201~
+"     set paste
+"     return a:ret
+"   endfunction
+"   noremap  <special><expr> <Esc>[200~ XTermPasteBegin("i")
+"   inoremap <special><expr> <Esc>[200~ XTermPasteBegin("")
+"   cnoremap <special> <Esc>[200~ <nop>
+"   cnoremap <special> <Esc>[201~ <nop>
+" endif
 
 if  &term =~ "linux" || &term =~ "cons25"
   set term=$TERM
