@@ -36,7 +36,7 @@ fi
 
 export EDITOR=vi
 export PAGER=less
-export LESS='--quit-if-one-screen --no-init -~ --RAW-CONTROL-CHARS --ignore-case'
+export LESS='--no-init -~ --RAW-CONTROL-CHARS --ignore-case'
 export HISTTIMEFORMAT="%F %T "
 __ps1_cmd() {
     local err=$?
