@@ -38,7 +38,7 @@ alias dfh='df -h'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias rmd="rm -rf "
-alias sudo="sudo -E"
+alias sue="sudo -E"
 
 alias tmux="tmux -2"
 alias tml='tmux -q list-sessions|cut -f 1 -d \:'
