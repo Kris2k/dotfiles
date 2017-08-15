@@ -78,6 +78,7 @@ zstyle    ':completion:*:manuals.(^1*)' insert-sections true
 #                aliases
 ##########################################
 [[ -f ~/.aliases ]] && source ~/.aliases
+[[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
 [[ -f ~/.aliases-$HOST ]] && source ~/.aliases-$HOST
 
 function sshagent() {
