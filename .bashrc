@@ -38,6 +38,7 @@ export EDITOR=vi
 export PAGER=less
 export LESS='--no-init -~ --RAW-CONTROL-CHARS --ignore-case'
 export HISTTIMEFORMAT="%F %T "
+export HISTCONTROL=
 __ps1_cmd() {
     local err=$?
     local BBlue="\\033[1;34m\]"
