@@ -106,7 +106,9 @@ function sshagent() {
 bindkey "^[[1;5D" backward-word #  ctrl left  left arrow
 bindkey "^[[1;5C" forward-word # ctrl right arrowa
 
-
+genpasswd () {
+    < /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c${1:-32};echo
+}
 fancy-ctrl-z () {
     if [[ $#BUFFER -eq 0 ]]; then
         BUFFER="fg"
