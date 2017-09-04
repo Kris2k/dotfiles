@@ -41,8 +41,10 @@ export HISTTIMEFORMAT="%F %T "
 export HISTCONTROL=
 __ps1_cmd() {
     local err=$?
-    local BBlue="\\033[1;34m\]"
-    local BMagenta="\\033[1;35m\]"
+    # local BBlue="\\033[1;34m\]"
+    local BBlue=
+    local BMagenta=
+    # local BMagenta="\\033[1;35m\]"
     local Red="\033[31m"
     local BRed='\[\e[0;91m\]'
     local Green='\[\e[32m\]'
