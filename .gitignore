@@ -30,3 +30,4 @@ build
 ## shell stuff
 .aliases-*
 .ssh/*
+.xkb/keymap/
