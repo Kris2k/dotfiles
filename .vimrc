@@ -321,17 +321,17 @@ function! ToggleSidebars()
   endif
 endfunction
 
-function! Preserve(command) range
+function! Preserve(command)
   let _s=@/
   let l = line(".")
   let c = col(".")
-  execute a:firstline.",".a:lastline.a:command
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
   let @/=_s
   call cursor(l, c)
 endfunction
-command! -bar -nargs=0 -range=% TrimSpaces <line1>,<line2>call Preserve('s/\s\+$//ge')
-command! -bar -nargs=0 -range=% ClearWhiteSpaces <line1>,<line2>call Preserve('s/\s\+$//ge')
-
+command! -bar -nargs=0  TrimSpaces call Preserve('%s/\s\+$//ge')
 
 function! NumberInv()
   if &relativenumber| set nornu number | return | endif
