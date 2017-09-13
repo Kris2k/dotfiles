@@ -27,7 +27,10 @@ alias egrep='egrep --color=auto'
 if vi --version| grep -q -- -eval ; then
 	alias vi='vi -u NONE'
 fi
-# to prevent sending LANG locale
+# to prevent sending LANG locale, in .ssh/config
+# Host *
+#     SendEnv LANG
+#     IdentitiesOnly yes
 alias ssh='ssh -F ~/.ssh/config'
 alias ll='ls -lA'
 alias la='ls -la'
