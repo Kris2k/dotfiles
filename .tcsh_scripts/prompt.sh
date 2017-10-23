@@ -23,3 +23,6 @@ endif
 set prompt="${usr}${magenta}@${blue}%m ${cyan}%c05 ${white}[%h] ${yellow}%B.%P.%b ${red}%? ${GIT_BRANCH_CMD}${end} \n${green}%#->${end} "
 
 unset red green yellow blue magenta cyan white end usr
+# aparently I wanted to save history on each propmt, invocation
+# sth didn't work out
+# history -S; history -M c
