@@ -1,7 +1,7 @@
 #!/bin/ksh
 # in .profile add line
 # export ENV=$HOME/.kshrc
-# \E[bgcolor;textattribute;fgcolor 
+# \E[bgcolor;textattribute;fgcolor
 
 red="\033[40;1;31m"
 green="\033[40;0;32m"
@@ -11,8 +11,8 @@ magenta="\033[40;1;35m"
 cyan="\033[40;1;36m"
 white="\033[40;0;37m"
 end="\033[0m"
-
-if [ $USER = root ] ; then
+id=`id -u`
+if [ $id = 0 ] ; then
 	usr=${red}
 	usr_prompt=':'
 else
