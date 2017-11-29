@@ -12,6 +12,15 @@ magenta="\033[38;5;165m"
 cyan="\033[38;0;36m"
 white="\033[38;0;37m"
 end="\033[0m"
+# old monochrome colors
+# red="\033[40;1;31m"
+# green="\033[40;0;32m"
+# yellow="\033[40;1;33m"
+# blue="\033[40;1;34m"
+# magenta="\033[40;1;35m"
+# cyan="\033[40;1;36m"
+# white="\033[40;0;37m"
+
 id=`id -u`
 if [ $id = 0 ] ; then
 	usr=${red}
